@@ -12,5 +12,5 @@ environment = Environment(loader=FileSystemLoader("templates/"))
 template = environment.get_template("index.html")
 
 content = template.render(shows=shows)
-with open('build/index.html', mode="w", encoding="utf-8") as message:
+with open('docs/index.html', mode="w", encoding="utf-8") as message:
     message.write(content)
