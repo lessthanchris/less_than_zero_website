@@ -20,8 +20,9 @@ for show in shows:
     try:
         with open(f"tracklists/{show['iso_date']}.json", mode="r") as file:
             tracklist = json.load(file)
-    except:
+    except Exception as e:
         print("Something went wrong opening tracklist")
+        print(e)
         tracklist = []
 
     content = show_template.render(show=show, tracklist=tracklist)
