@@ -1,9 +1,16 @@
 [
     {
-        "iso_data": "2023-10-12",
+        "iso_date": "2023-10-19",
+        "display_date": "19th October",
+        "mixcloud_name": "a-return-to-form-less-than-zero-live-19th-october-2023-20231019-175543",
+        "spotify_id": "1BXKVka1OVyZvUuQE0wiqy",
+        "soundcloud_id": ""
+    },
+    {
+        "iso_date": "2023-10-12",
         "display_date": "12th October",
-        "mixcloud_name": "",
-        "spotify_id": "",
+        "mixcloud_name": "live-ish-from-a-hotel-near-heathrow-less-than-zero-live-12th-october-2023-20231012-175201",
+        "spotify_id": "5S88fBog0vh0SkGm6030Bi",
         "soundcloud_id": ""
     },
     {
