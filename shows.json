@@ -1,4 +1,11 @@
-[
+[    
+    {
+        "iso_date": "2023-11-02",
+        "display_date": "2nd November",
+        "mixcloud_name": "sad-dads-unite-less-than-zero-live-2nd-november-2023-20231102-183456",
+        "spotify_id": "58kFJNaBBvTj13hgCwi1bd",
+        "soundcloud_id": ""
+    },
     {
         "iso_date": "2023-10-26",
         "display_date": "26th October",
@@ -11,7 +18,7 @@
         "display_date": "19th October",
         "mixcloud_name": "a-return-to-form-less-than-zero-live-19th-october-2023-20231019-175543",
         "spotify_id": "1BXKVka1OVyZvUuQE0wiqy",
-        "soundcloud_id": ""
+        "soundcloud_id": "1647123099"
     },
     {
         "iso_date": "2023-10-12",
