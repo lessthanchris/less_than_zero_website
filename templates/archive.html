@@ -1,0 +1,11 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+  <h1 class="mt-5 mb-3">Tracklist</h1>
+  {% for track in ALL_SONGS %}
+    <p>{{ loop.index }}. {{ track.artist }} - {{ track.track }} - {{ track.date }}</p>
+  {% endfor %}
+
+{% endblock %}
+
