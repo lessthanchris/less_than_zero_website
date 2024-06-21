@@ -4,7 +4,7 @@
 
   <h1 class="mt-5 mb-3">Tracklist</h1>
   {% for track in ALL_SONGS %}
-    <p>{{ loop.index }}. {{ track.artist }} - {{ track.track }} - <a href="2024-06-13">{{ track.date }}</a></p>
+    <p>{{ loop.index }}. {{ track.artist }} - {{ track.track }} - <a href="{{ track.date }}">{{ track.date }}</a></p>
   {% endfor %}
 
 {% endblock %}
