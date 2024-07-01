@@ -1,4 +1,4 @@
-build: prepare_assets
+build:
 	venv/bin/python app.py
 
 prepare_assets date:
