@@ -1,0 +1,170 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/search.css">
+  <link rel="stylesheet" href="static/calendar.css">
+  <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet"> 
+  <title>Less Than Zero</title>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-46XB9BNCF1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-46XB9BNCF1');
+</script>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand px-2" href="index.html"> Less Than Zero</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="archive.html">Archive <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="calendar.html">Releases <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://mixcloud.com/less-than-zero">Mixcloud</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container py-4">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/i18n/datepicker.en.js" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js" crossorigin="anonymous"></script>
+
+<div class="p-5">
+    <h2 class="mb-4">Upcoming</h2>
+    <div class="card">
+      <div class="card-body p-0">
+        <div id="calendar"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- calendar modal -->
+  <div id="modal-view-event" class="modal modal-top fade calendar-modal">
+          <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                  <div class="modal-body">
+                      <h4 class="modal-title"><span class="event-icon"></span><span class="event-title"></span></h4>
+                      <div class="event-body"></div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+  <div id="modal-view-event-add" class="modal modal-top fade calendar-modal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form id="add-event">
+          <div class="modal-body">
+          <h4>Add Event Detail</h4>        
+            <div class="form-group">
+              <label>Event name</label>
+              <input type="text" class="form-control" name="ename">
+            </div>
+            <div class="form-group">
+              <label>Event Date</label>
+              <input type='text' class="datetimepicker form-control" name="edate">
+            </div>        
+            <div class="form-group">
+              <label>Event Description</label>
+              <textarea class="form-control" name="edesc"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Event Color</label>
+              <select class="form-control" name="ecolor">
+                <option value="fc-bg-default">fc-bg-default</option>
+                <option value="fc-bg-blue">fc-bg-blue</option>
+                <option value="fc-bg-lightgreen">fc-bg-lightgreen</option>
+                <option value="fc-bg-pinkred">fc-bg-pinkred</option>
+                <option value="fc-bg-deepskyblue">fc-bg-deepskyblue</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Event Icon</label>
+              <select class="form-control" name="eicon">
+                <option value="circle">circle</option>
+                <option value="cog">cog</option>
+                <option value="group">group</option>
+                <option value="suitcase">suitcase</option>
+                <option value="calendar">calendar</option>
+              </select>
+            </div>        
+        </div>
+          <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" >Save</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>        
+        </div>
+        </form>
+      </div>
+    </div>
+</div>
+<script>
+
+    let events = [
+                  {
+                      title: 'Cigarettes After Sex - Xs',
+                      description: 'New LP',
+                      start: '2024-07-12',
+                      end: '2024-07-12',
+                      className: 'fc-bg-default',
+                      icon : ""
+                  },
+                  {
+                      title: 'Public Service Broadcasting - The Last Flight',
+                      description: 'New LP',
+                      start: '2024-10-04',
+                      end: '2024-10-04',
+                      className: 'fc-bg-default',
+                      icon : ""
+                  },
+                  {
+                      title: 'Jon Hopkins - RITUAL',
+                      description: 'New LP',
+                      start: '2024-08-30',
+                      end: '2024-08-30',
+                      className: 'fc-bg-default',
+                      icon : ""
+                  },
+              ]
+</script>
+<script src="static/calendar.js"></script> 
+
+  </div>
+</body>
+
+</html>
