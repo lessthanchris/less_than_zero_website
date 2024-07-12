@@ -31,11 +31,11 @@ jQuery(document).ready(function(){
               businessHours: false,
               defaultView: 'month',
               // event dragging & resizing
-              editable: true,
+              editable: false,
               // header
               header: {
                   left: 'title',
-                  center: 'month,agendaWeek,agendaDay',
+                  center: '',
                   right: 'today prev,next'
               },
               events: events,
