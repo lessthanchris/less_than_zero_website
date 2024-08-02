@@ -53,7 +53,8 @@
         "link": "https://jonhopkins.bandcamp.com/album/ritual",
         "description": "New LP"
     },
-    {        "release_date": "2024-08-09",
+    {
+        "release_date": "2024-08-09",
         "title": "That Woman - Find Joy",
         "link": "",
         "description": "New Lp"
@@ -107,8 +108,32 @@
         "description": "New Lp"
     },
     {
+        "release_date": "2024-09-13",
+        "title": "Lunar Vacation - Everything Matters, Everything's fire",
+        "link": "",
+        "description": "New Lp"
+    },
+    {
+        "release_date": "2024-10-18",
+        "title": "Japandroids - Fate & Alcohol",
+        "link": "",
+        "description": "New Lp"
+    },
+    {
+        "release_date": "2024-09-20",
+        "title": "Jamie xx - In Waves",
+        "link": "",
+        "description": "New Lp"
+    },
+    {
         "release_date": "2024-09-06",
         "title": "Molchat Doma - Belaya Pelosa",
+        "link": "",
+        "description": "New Lp"
+    },
+    {
+        "release_date": "2024-09-06",
+        "title": "Julie - My Anti-Aircraft Friend",
         "link": "",
         "description": "New Lp"
     }
