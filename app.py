@@ -14,6 +14,7 @@ template = environment.get_template("index.html")
 show_template = environment.get_template("show.html")
 archive_template = environment.get_template("archive.html")
 calendar_template = environment.get_template("calendar.html")
+article_template = environment.get_template("article.html")
 
 ALL_SONGS = []
 
@@ -45,4 +46,8 @@ with open(f"docs/archive.html", mode="w", encoding="utf-8") as file:
 
 content = calendar_template.render(releases=releases)
 with open(f"docs/calendar.html", mode="w", encoding="utf-8") as file:
+    file.write(content)
+
+content = article_template.render()
+with open(f"docs/article.html", mode="w", encoding="utf-8") as file:
     file.write(content)
