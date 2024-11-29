@@ -4,6 +4,7 @@
 
   <h1 class="mt-5 mb-3">Tracklist</h1>
   <input type="text" id="search_box" onkeyup="search()" placeholder="Search for songs..">
+  <p>Number of results: <span id="songs_found"></span></p>
   <div id="song_list">
   {% for track in ALL_SONGS %}
     <li><a href="{{ track.date }}">{{ loop.index }}. {{ track.artist }} - {{ track.track }} - {{ track.date }}</a></li>
