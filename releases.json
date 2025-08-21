@@ -1,320 +1,80 @@
 [
-    {
-        "release_date": "2024-09-20",
-        "title": "Honeyglaze - Real Deal",
-        "link": "",
-        "description": "New LP"
-    },
-    {
-        "release_date": "2024-09-27",
-        "title": "October Drift - Blame the Young",
-        "link": "",
-        "description": "New LP"
-    },
-    {
-        "release_date": "2024-09-20",
-        "title": "Bright Eyes - Five Dice, All Threes",
-        "link": "",
-        "description": "New LP"
-    },
-    {
-        "release_date": "2020-09-20",
-        "title": "Honeyglaze - Real Deal",
-        "link": "",
-        "description": "New LP"
-    },
-    {
-        "release_date": "2024-09-13",
-        "title": "Nada Surf - Moon Mirror",
-        "link": "",
-        "description": "New LP"
-    },
-    {
-        "release_date": "2024-10-04",
-        "title": "Public Service Broadcasting - The Last Flight",
-        "link": "https://shop.publicservicebroadcasting.net/products/the-last-flight-zoetrope-vinyl",
-        "description": "New LP"
-    },
-    {
-        "release_date": "2024-09-27",
-        "title": "Maximo Park - Stream of Life",
-        "link": "",
-        "description": "New LP"
-    },
-    {
-        "release_date": "2024-10-25",
-        "title": "Laura Marling - Patterns in Repeat",
-        "link": "",
-        "description": "New LP"
-    },
-    {
-        "release_date": "2024-10-04",
-        "title": "Dawn Richard & Spencer - Quiet In A World Full Of Noise",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-09-27",
-        "title": "Christian Lee Hutson - Paradise Pop",
-        "link": "",
-        "description": "New LP"
-    },
-    {
-        "release_date": "2024-11-08",
-        "title": "Our Girl - The Good Kind",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-11-15",
-        "title": "She Drew the Gun  - Howl",
-        "link": "",
-        "description": "New LP"
-    },
-    {
-        "release_date": "2024-09-13",
-        "title": "The Fretless - Glasswing",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-09-13",
-        "title": "Lunar Vacation - Everything Matters, Everythings fire",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-10-18",
-        "title": "Japandroids - Fate & Alcohol",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-09-20",
-        "title": "Jamie xx - In Waves",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-09-06",
-        "title": "Molchat Doma - Belaya Pelosa",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-09-06",
-        "title": "Julie - My Anti-Aircraft Friend",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-10-18",
-        "title": "Chinese American Bear - Wah!!!",
-        "link": "",
-        "description": "New Lp on Moshi Moshi"
-    },
-    {
-        "release_date": "2024-10-04",
-        "title": "The Smile - Cutouts",
-        "link": "",
-        "description": "New Lp on XL"
-    },
-    {
-        "release_date": "2024-10-04",
-        "title": "Good Neighbours - S/T",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-10-11",
-        "title": "Molina - When You Wake Up",
-        "link": "",
-        "description": "New Lp on Escho"
-    },
-    {
-        "release_date": "2024-09-20",
-        "title": "The WAEVE -  City Lights",
-        "link": "",
-        "description": "New Lp on Transgressive"
-    },
-    {
-        "release_date": "2024-10-04",
-        "title": "Orla Gartland - Everybody needs a Hero",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-09-27",
-        "title": "Kate Bollinger - Songs From A Thousand Frames Of Mind",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-10-11",
-        "title": "Tucker Zimmerman - Dance Of Love",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-11-08",
-        "title": "Man / Woman / Chainsaw - Eazy Peazy",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-10-04",
-        "title": "Godspeed You! Black Emperor - NO TITLE AS OF 13 FEBRUARY 2024 28,340 DEAD",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-12-13",
-        "title": "The National - Rome",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-10-18",
-        "title": "Bon Iver - SABLE",
-        "link": "",
-        "description": "New EP"
-    },
-    {
-        "release_date": "2024-11-29",
-        "title": "Regina Spektor - Songs",
-        "link": "",
-        "description": "New LP"
-    },
-    {
-        "release_date": "2024-09-06",
-        "title": "The Howl & The Hum - Same Mistake Twice",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-11-22",
-        "title": "Searows - Flush",
-        "link": "",
-        "description": "New EP"
-    },
-    {
-        "release_date": "2024-11-15",
-        "title": "Tinariwen - Idrache (Traces Of The Past)",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2025-01-24",
-        "title": "Tunng - Love You All Over Again",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-11-01",
-        "title": "The Cure - Songs of a Lost World",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2025-02-07",
-        "title": "Sharon Van Etten & The Attachment Theory",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-11-22",
-        "title": "Katia and Marielle Labeque, David Chalmin, Bryce Dessner - Sonic Wires",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-11-25",
-        "title": "Adrian Younge - Linear Labs: São Paolo",
-        "link": "",
-        "description": "New Lp"
-    },
-    {
-        "release_date": "2024-11-15",
-        "title": "Medium Build - Marietta EP",
-        "link": "",
-        "description": "New EP"
-    },
-    {
-        "release_date": "2025-01-08",
-        "title": "Ethel Cain - Perverts",
-        "link": "",
-        "description": "New album"
-    },
-    {
-        "release_date": "2025-01-24",
-        "title": "Mogwai - The Bad Fire",
-        "link": "",
-        "description": "New album"
-    },
-    {
-        "release_date": "2025-02-14",
-        "title": "Doves - Constellations For The Lonely",
-        "link": "",
-        "description": "New album"
-    },
-    {
-        "release_date": "2024-04-12",
-        "title": "Cosmo Sheldrake - Eye To The Ear",
-        "link": "",
-        "description": "New album"
-    },
-    {
-        "release_date": "2025-03-21",
-        "title": "The Horrors - Night Life",
-        "link": "",
-        "description": "New album"
-    },
-    {
-        "release_date": "2025-03-07",
-        "title": "SASAMI - Blood on the Silver Screen",
-        "link": "",
-        "description": "New album"
-    },
-    {
-        "release_date": "2025-04-04",
-        "title": "Panchiko - Ginkgo",
-        "link": "",
-        "description": "New album"
-    },
-    {
-        "release_date": "2025-04-18",
-        "title": "Julian Baker & TORRES - Send a Prayer My Way",
-        "link": "",
-        "description": "New album"
-    },
-    {
-        "release_date": "2025-04-15",
-        "title": "Viagra Boys - Viagra Aboys",
-        "link": "",
-        "description": "New album"
-    },
-    {
-        "release_date": "2025-03-07",
-        "title": "Arny Margret - I Miss You, I Do",
-        "link": "",
-        "description": "New album"
-    },
-    {
-        "release_date": "2025-02-07",
-        "title": "Sharon Van Etten & The Attachment Theory - S/T",
-        "link": "",
-        "description": "New album"
-    },
-    {
-        "release_date": "2025-03-28",
-        "title": "Perfume Genius - Glory",
-        "link": "",
-        "description": "New album"
-    },
-    {
-        "release_date": "2025-02-28",
-        "title": "Bdrmm - Microtonic",
-        "link": "",
-        "description": "New album"
-    }
+  {
+    "release_date": "2025-08-22",
+    "title": "Winter - Adult Romantix",
+    "link": "https://open.spotify.com/prerelease/6McJUsfd7uuvpLDdruFJ6u?si=1b0ee36bd6bd4ed1",
+    "description": "New LP"
+  },
+  {
+    "release_date": "2025-08-29",
+    "title": "The Beaches - No Hard Feelings",
+    "link": "https://open.spotify.com/prerelease/2l8F6HoisM9SIMWDIy1azh?si=c4f56d84e09342b8",
+    "description": "New LP"
+  },
+  {
+    "release_date": "2025-08-29",
+    "title": "Racing Mount Pleasant - Racing Mount Pleasant",
+    "link": "https://open.spotify.com/album/037axs2AfEPUD5LtjfFYSv?si=aSi520LkQR2zDuUF_RvKmw",
+    "description": "New LP"
+  },
+  {
+    "release_date": "2025-08-29",
+    "title": "The Beaches - No Hard Feelings",
+    "link": "",
+    "description": "New LP"
+  },
+  {
+    "release_date": "2025-08-15",
+    "title": "Marissa Nadler - New Radiations",
+    "link": "https://open.spotify.com/album/1qus7OhZOEkYgycdt7INk2?si=6vZazZquTY-ht179zbDqZw",
+    "description": "New LP"
+  },
+  {
+    "release_date": "2025-08-15",
+    "title": "Pile - Sunshine and Balance Beams",
+    "link": "https://open.spotify.com/album/0mlgaAp88EcwGbKfiq7xo4?si=yYkXd4pgQDC51drH-YCE0w",
+    "description": "New LP"
+  },
+  {
+    "release_date": "2025-09-05",
+    "title": "Fleshwater - 2000: In Search of the Endless Sky",
+    "link": "https://open.spotify.com/prerelease/6GMWjX1UI6Mlr3cm6Hkrco?si=52775da862ab482a",
+    "description": "New LP"
+  },
+  {
+    "release_date": "2025-10-10",
+    "title": "Yellowcard - Better Days",
+    "link": "https://open.spotify.com/prerelease/7fohafhuKVVzbXbyqWgMd9?si=c2d5caeb0ab0411a",
+    "description": "New LP"
+  },
+  {
+    "release_date": "2025-10-03",
+    "title": "Agriculture - The Spiritual Sound",
+    "link": "https://open.spotify.com/prerelease/6qE0B0cpreJCb0pHRFbxNC?si=82ece5cf9c4c4888",
+    "description": "New LP"
+  },
+  {
+    "release_date": "2025-10-10",
+    "title": "Public Service Broadcasting - The Last Flight Remixes",
+    "link": "https://open.spotify.com/prerelease/1XjNEWcw048UB4A48cJ17A?si=8dfb0bcd784d4eb8",
+    "description": "New LP"
+  },
+  {
+    "release_date": "2025-09-05",
+    "title": "La Dispute - No-one Was Driving the Car",
+    "link": "https://open.spotify.com/prerelease/7wE6p5RPqbdS4EDQyUFfUK?si=2c01f72774514070",
+    "description": "New LP"
+  },
+  {
+    "release_date": "2025-08-22",
+    "title": "Deftones - Private Music",
+    "link": "https://open.spotify.com/prerelease/3UIPdinQSq1PG6Xqz57vNj?si=343e77223925479d",
+    "description": "New LP"
+  },
+  {
+    "release_date": "2025-09-19",
+    "title": "Nation of Language - Dance Called Memory",
+    "link": "https://open.spotify.com/prerelease/4V4zpS9xOvD8D6WHzfo68f?si=d99dd164ab7e4939",
+    "description": "New LP"
+  }
 ]
