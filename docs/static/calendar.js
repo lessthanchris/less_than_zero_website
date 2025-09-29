@@ -51,7 +51,11 @@ jQuery(document).ready(function(){
                       jQuery('.event-icon').html("<i class='fa fa-"+event.icon+"'></i>");
                       jQuery('.event-title').html(event.title);
                       jQuery('.event-body').html(event.description);
-                      jQuery('.eventUrl').attr('href',event.url);
+                      if(event.url && event.url.trim() !== '') {
+                          jQuery('.eventUrl').attr('href',event.url).show();
+                      } else {
+                          jQuery('.eventUrl').hide();
+                      }
                       jQuery('#modal-view-event').modal();
               },
           })
