@@ -28,6 +28,7 @@
                       <div class="event-body"></div>
                   </div>
                   <div class="modal-footer">
+                      <a href="#" class="btn btn-success eventUrl" target="_blank" style="display:none;">Listen on Spotify</a>
                       <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                   </div>
               </div>
@@ -91,7 +92,8 @@
                       start: '{{ release.release_date }}',
                       end: '{{ release.release_date }}',
                       className: 'fc-bg-default',
-                      icon : ""
+                      icon : "",
+                      {% if release.link %}url: '{{ release.link }}'{% endif %}
                   },
         {% endfor %}
               ]
