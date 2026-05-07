@@ -17,6 +17,7 @@ TEMPLATES = {
     "archive": "archive.html",
     "calendar": "calendar.html",
     "article": "article.html",
+    "calculator": "calculator.html",
 }
 
 # --- Ensure docs directory exists ---
@@ -93,5 +94,11 @@ print("Rendering article.html ...")
 article_html = get_template("article").render()
 with open(os.path.join(DOCS_DIR, "article.html"), "w", encoding="utf-8") as f:
     f.write(article_html)
+
+# --- Render calculator.html ---
+print("Rendering calculator.html ...")
+calculator_html = get_template("calculator").render()
+with open(os.path.join(DOCS_DIR, "calculator.html"), "w", encoding="utf-8") as f:
+    f.write(calculator_html)
 
 print("Site generation complete.")
