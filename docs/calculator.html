@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/search.css">
+  <link rel="stylesheet" href="static/calendar.css">
+  <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet"> 
+  <link rel="icon" href="static/favicon.ico" type="image/x-icon">
+  <title>Less Than Zero</title>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-46XB9BNCF1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-46XB9BNCF1');
+</script>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand px-2" href="index.html"> Less Than Zero</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html" aria-current="page">Home <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="archive.html">Archive <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="calendar.html">Releases <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="calculator.html">2000W Calculator <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://mixcloud.com/less-than-zero">Mixcloud</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container py-4">
+<style>
+  .calc-intro { max-width: 760px; margin: 0 auto 2rem; }
+  .calc-section { border: 1px solid #e0e0e0; border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; background: #fafafa; }
+  .calc-section h4 { margin-bottom: 1rem; }
+  .calc-section .form-text { font-size: 0.85rem; color: #666; }
+  .result-card { position: sticky; top: 1rem; border: 2px solid #222; border-radius: 8px; padding: 1.25rem; background: #fff; }
+  .result-total { font-size: 2.5rem; font-weight: 700; line-height: 1; }
+  .result-target { font-size: 0.95rem; color: #666; }
+  .bar-row { display: flex; align-items: center; margin-bottom: 0.4rem; font-size: 0.9rem; }
+  .bar-label { width: 120px; flex-shrink: 0; }
+  .bar-track { flex: 1; height: 14px; background: #eee; border-radius: 4px; overflow: hidden; margin: 0 0.5rem; }
+  .bar-fill { height: 100%; background: #4a7; transition: width 0.3s; }
+  .bar-value { width: 70px; text-align: right; font-variant-numeric: tabular-nums; }
+  .verdict { padding: 0.75rem; border-radius: 6px; margin-top: 1rem; font-weight: 600; text-align: center; }
+  .verdict-good { background: #d4edda; color: #155724; }
+  .verdict-mid { background: #fff3cd; color: #856404; }
+  .verdict-bad { background: #f8d7da; color: #721c24; }
+  .calc-footer { max-width: 760px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; }
+  @media (max-width: 768px) { .result-card { position: static; margin-bottom: 1.5rem; } }
+</style>
+
+<div class="calc-intro">
+  <h1>2000-Watt Society Calculator</h1>
+  <p class="lead">Estimate your continuous primary-energy footprint and see how it compares to the 2000-watt target.</p>
+  <p>The <a href="https://en.wikipedia.org/wiki/2000-watt_society" target="_blank">2000-Watt Society</a> is an initiative born at ETH Zürich that proposes a long-term goal: every person on Earth living on no more than 2000 watts of continuous primary energy &mdash; roughly 17,500 kWh per year, including everything from heating to flights to the food on your plate. For reference, the average Western European is currently at 5000&ndash;6000 W, and the average American is closer to 12,000 W.</p>
+  <p>Fill in the form below for a rough estimate. Numbers are approximations based on published figures from <em>Novatlantis</em> and ETH Zürich; treat results as indicative, not precise.</p>
+</div>
+
+<div class="row">
+  <div class="col-lg-8">
+    <form id="calc-form" onsubmit="return false;">
+
+      <div class="calc-section">
+        <h4>1. Housing &amp; Heating</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Living space (m²)</label>
+            <input type="number" class="form-control" id="livingSpace" value="40" min="0" step="1">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">People in household</label>
+            <input type="number" class="form-control" id="occupants" value="2" min="1" step="1">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Primary heating</label>
+            <select class="form-control" id="heatingType">
+              <option value="14">Oil</option>
+              <option value="12" selected>Natural gas</option>
+              <option value="30">Electric resistive</option>
+              <option value="4">Heat pump</option>
+              <option value="8">District heating</option>
+              <option value="6">Wood / biomass</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Insulation quality</label>
+            <select class="form-control" id="insulation">
+              <option value="1.4">Poor (older, single glazing)</option>
+              <option value="1.0" selected>Average</option>
+              <option value="0.7">Good (modern, well insulated)</option>
+              <option value="0.3">Passive house / new-build</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Household electricity (kWh/year)</label>
+            <input type="number" class="form-control" id="electricity" value="3000" min="0" step="50">
+            <div class="form-text">Check your bill. UK average is ~2700 kWh; family homes 3500&ndash;4500.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Electricity source</label>
+            <select class="form-control" id="electricitySource">
+              <option value="1.0" selected>Standard grid mix</option>
+              <option value="0.6">Mostly low-carbon (UK / French / Nordic mix)</option>
+              <option value="0.3">100% renewable (verified tariff)</option>
+              <option value="1.4">Coal-heavy grid (e.g. Poland, India)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-section">
+        <h4>2. Mobility</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Car distance per year (km)</label>
+            <input type="number" class="form-control" id="carKm" value="8000" min="0" step="100">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Car type</label>
+            <select class="form-control" id="carType">
+              <option value="0">No car</option>
+              <option value="0.05" selected>Petrol</option>
+              <option value="0.04">Diesel</option>
+              <option value="0.025">Hybrid</option>
+              <option value="0.018">Plug-in hybrid</option>
+              <option value="0.015">Electric (average grid)</option>
+              <option value="0.008">Electric (renewable)</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Average passengers (incl. you)</label>
+            <input type="number" class="form-control" id="carOccupancy" value="1.4" min="1" step="0.1">
+            <div class="form-text">Energy is shared across passengers. UK average ~1.55.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Short-haul flights / year (&lt; 3 hr)</label>
+            <input type="number" class="form-control" id="shortFlights" value="2" min="0" step="1">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Medium-haul flights / year (3&ndash;6 hr)</label>
+            <input type="number" class="form-control" id="medFlights" value="0" min="0" step="1">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Long-haul flights / year (&gt; 6 hr)</label>
+            <input type="number" class="form-control" id="longFlights" value="0" min="0" step="1">
+            <div class="form-text">Each leg counts: a return trip = 2 flights.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Train / year (km)</label>
+            <input type="number" class="form-control" id="trainKm" value="2000" min="0" step="100">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Bus / coach / year (km)</label>
+            <input type="number" class="form-control" id="busKm" value="500" min="0" step="100">
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-section">
+        <h4>3. Food &amp; Diet</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Diet</label>
+            <select class="form-control" id="diet">
+              <option value="1100">Heavy meat (red meat most days)</option>
+              <option value="800">Frequent meat (meat most days, mostly poultry)</option>
+              <option value="650" selected>Average omnivore (meat a few times a week)</option>
+              <option value="500">Low meat / flexitarian</option>
+              <option value="450">Pescatarian</option>
+              <option value="380">Vegetarian</option>
+              <option value="280">Vegan</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Sourcing</label>
+            <select class="form-control" id="foodSource">
+              <option value="1.15">Mostly imported / out-of-season</option>
+              <option value="1.0" selected>Mixed</option>
+              <option value="0.85">Mostly local &amp; seasonal</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Food waste</label>
+            <select class="form-control" id="foodWaste">
+              <option value="1.25">A lot &mdash; we throw out plenty</option>
+              <option value="1.1" selected>Some (UK average is ~20%)</option>
+              <option value="1.0">Very little</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-section">
+        <h4>4. Goods &amp; Services</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Consumption level</label>
+            <select class="form-control" id="consumption">
+              <option value="300">Minimalist (rarely buy new, repair, second-hand)</option>
+              <option value="550">Modest</option>
+              <option value="900" selected>Average Western</option>
+              <option value="1400">High (frequent new clothes, gadgets, dining out)</option>
+              <option value="2000">Very high (luxury / heavy spender)</option>
+            </select>
+            <div class="form-text">Covers clothing, electronics, furniture, leisure, services.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Streaming &amp; digital services</label>
+            <select class="form-control" id="digital">
+              <option value="20">Light user</option>
+              <option value="50" selected>Average</option>
+              <option value="120">Heavy (gaming, multiple streaming hours daily)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="result-card">
+      <div class="result-target">Your continuous footprint</div>
+      <div class="result-total"><span id="totalW">0</span> W</div>
+      <div class="result-target">Target: <strong>2000 W</strong> &middot; UK average ~5000 W</div>
+
+      <hr>
+
+      <div id="breakdown"></div>
+
+      <div id="verdict" class="verdict verdict-mid">&mdash;</div>
+
+      <hr>
+      <div class="form-text">
+        <strong>Annual primary energy:</strong> <span id="kwhYear">0</span> kWh/yr<br>
+        <strong>Approximate CO₂e:</strong> <span id="co2">0</span> t/yr
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="calc-footer">
+  <h5>What is "primary energy"?</h5>
+  <p>Primary energy includes all the energy used along the way &mdash; not just the electricity that arrives at your meter, but the energy lost generating and transporting it, the embodied energy in the food and goods you consume, and a share of public infrastructure (roads, hospitals, schools). That last category is a fixed ~600 W per person and is included in this estimate by default.</p>
+
+  <h5>Want to dig deeper?</h5>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/2000-watt_society" target="_blank">2000-Watt Society on Wikipedia</a></li>
+    <li><a href="https://www.2000watt.swiss/" target="_blank">2000-Watt Site (Swiss federal site)</a></li>
+    <li><a href="https://novatlantis.ch/" target="_blank">Novatlantis &mdash; the original ETH Zürich initiative</a></li>
+  </ul>
+
+  <p class="mt-4"><a href="index.html">&larr; Back to Less Than Zero</a> &middot; <a href="https://mixcloud.com/less-than-zero" target="_blank">Listen to the show</a></p>
+</div>
+
+<script>
+(function () {
+  const INFRASTRUCTURE_W = 600;
+  const FLIGHT_KM = { short: 1000, medium: 3500, long: 9000 };
+  const FLIGHT_W_PER_KM = 0.35;
+  const TRAIN_W_PER_KM = 0.005;
+  const BUS_W_PER_KM = 0.012;
+  const W_TO_KWH_YEAR = 8.76;
+  const W_TO_TCO2 = 0.0011;
+
+  const $ = id => document.getElementById(id);
+  const num = id => parseFloat($(id).value) || 0;
+
+  function computeHousing() {
+    const m2 = num('livingSpace');
+    const occ = Math.max(1, num('occupants'));
+    const heat = parseFloat($('heatingType').value);
+    const insul = parseFloat($('insulation').value);
+    const elec = num('electricity');
+    const elecFactor = parseFloat($('electricitySource').value);
+
+    const heating_W = (m2 / occ) * heat * insul;
+    const electricity_W = (elec / occ) * elecFactor / W_TO_KWH_YEAR;
+    return Math.max(0, heating_W + electricity_W);
+  }
+
+  function computeMobility() {
+    const carKm = num('carKm');
+    const carRate = parseFloat($('carType').value);
+    const carOcc = Math.max(1, num('carOccupancy'));
+    const car_W = (carKm * carRate) / carOcc;
+
+    const flights_W =
+      num('shortFlights') * FLIGHT_KM.short * FLIGHT_W_PER_KM +
+      num('medFlights') * FLIGHT_KM.medium * FLIGHT_W_PER_KM +
+      num('longFlights') * FLIGHT_KM.long * FLIGHT_W_PER_KM;
+
+    const train_W = num('trainKm') * TRAIN_W_PER_KM;
+    const bus_W = num('busKm') * BUS_W_PER_KM;
+    return Math.max(0, car_W + flights_W + train_W + bus_W);
+  }
+
+  function computeFood() {
+    const base = parseFloat($('diet').value);
+    const src = parseFloat($('foodSource').value);
+    const waste = parseFloat($('foodWaste').value);
+    return Math.max(0, base * src * waste);
+  }
+
+  function computeGoods() {
+    return Math.max(0, parseFloat($('consumption').value) + parseFloat($('digital').value));
+  }
+
+  function recalc() {
+    const housing = computeHousing();
+    const mobility = computeMobility();
+    const food = computeFood();
+    const goods = computeGoods();
+    const infra = INFRASTRUCTURE_W;
+    const total = housing + mobility + food + goods + infra;
+
+    const cats = [
+      { name: 'Housing',       w: housing },
+      { name: 'Mobility',      w: mobility },
+      { name: 'Food',          w: food },
+      { name: 'Goods',         w: goods },
+      { name: 'Infrastructure',w: infra },
+    ];
+    const max = Math.max(...cats.map(c => c.w), 1);
+    const html = cats.map(c => {
+      const pct = (c.w / max) * 100;
+      return `<div class="bar-row">
+        <div class="bar-label">${c.name}</div>
+        <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+        <div class="bar-value">${Math.round(c.w)} W</div>
+      </div>`;
+    }).join('');
+    $('breakdown').innerHTML = html;
+
+    $('totalW').textContent = Math.round(total).toLocaleString();
+    $('kwhYear').textContent = Math.round(total * W_TO_KWH_YEAR).toLocaleString();
+    $('co2').textContent = (total * W_TO_TCO2).toFixed(1);
+
+    const v = $('verdict');
+    v.classList.remove('verdict-good', 'verdict-mid', 'verdict-bad');
+    if (total <= 2000) {
+      v.classList.add('verdict-good');
+      v.textContent = 'At or below the 2000 W target. Outstanding.';
+    } else if (total <= 3500) {
+      v.classList.add('verdict-mid');
+      v.textContent = 'Below Western average but above the 2000 W target.';
+    } else if (total <= 6000) {
+      v.classList.add('verdict-mid');
+      v.textContent = 'Around the European average. Plenty of room to cut back.';
+    } else {
+      v.classList.add('verdict-bad');
+      v.textContent = 'Well above the European average. Big-ticket changes (flights, car, heating) will help most.';
+    }
+  }
+
+  document.querySelectorAll('#calc-form input, #calc-form select').forEach(el => {
+    el.addEventListener('input', recalc);
+    el.addEventListener('change', recalc);
+  });
+  recalc();
+})();
+</script>
+  </div>
+  <!-- Bootstrap JS Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+          crossorigin="anonymous"></script>
+</body>
+</html>
