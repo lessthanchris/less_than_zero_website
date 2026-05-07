@@ -9,77 +9,126 @@
   .result-total { font-size: 2.5rem; font-weight: 700; line-height: 1; }
   .result-target { font-size: 0.95rem; color: #666; }
   .bar-row { display: flex; align-items: center; margin-bottom: 0.4rem; font-size: 0.9rem; }
-  .bar-label { width: 120px; flex-shrink: 0; }
-  .bar-track { flex: 1; height: 14px; background: #eee; border-radius: 4px; overflow: hidden; margin: 0 0.5rem; }
+  .bar-label { width: 130px; flex-shrink: 0; }
+  .bar-track { flex: 1; height: 14px; background: #eee; border-radius: 4px; overflow: hidden; margin: 0 0.5rem; position: relative; }
   .bar-fill { height: 100%; background: #4a7; transition: width 0.3s; }
+  .bar-target { position: absolute; top: 0; bottom: 0; width: 2px; background: #c33; }
   .bar-value { width: 70px; text-align: right; font-variant-numeric: tabular-nums; }
   .verdict { padding: 0.75rem; border-radius: 6px; margin-top: 1rem; font-weight: 600; text-align: center; }
   .verdict-good { background: #d4edda; color: #155724; }
   .verdict-mid { background: #fff3cd; color: #856404; }
   .verdict-bad { background: #f8d7da; color: #721c24; }
   .calc-footer { max-width: 760px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; }
+  .form-check-inline-tight { font-size: 0.9rem; }
+  details.advanced { margin-top: 0.75rem; padding: 0.75rem; background: #f0f0f0; border-radius: 4px; }
+  details.advanced summary { cursor: pointer; font-weight: 600; font-size: 0.9rem; }
+  details.advanced[open] { padding-bottom: 1rem; }
+  details.advanced .row { margin-top: 0.75rem; }
   @media (max-width: 768px) { .result-card { position: static; margin-bottom: 1.5rem; } }
 </style>
 
 <div class="calc-intro">
   <h1>2000-Watt Society Calculator</h1>
   <p class="lead">Estimate your continuous primary-energy footprint and see how it compares to the 2000-watt target.</p>
-  <p>The <a href="https://en.wikipedia.org/wiki/2000-watt_society" target="_blank">2000-Watt Society</a> is an initiative born at ETH Zürich that proposes a long-term goal: every person on Earth living on no more than 2000 watts of continuous primary energy &mdash; roughly 17,500 kWh per year, including everything from heating to flights to the food on your plate. For reference, the average Western European is currently at 5000&ndash;6000 W, and the average American is closer to 12,000 W.</p>
-  <p>Fill in the form below for a rough estimate. Numbers are approximations based on published figures from <em>Novatlantis</em> and ETH Zürich; treat results as indicative, not precise.</p>
+  <p>The <a href="https://en.wikipedia.org/wiki/2000-watt_society" target="_blank">2000-Watt Society</a> is a long-term sustainability framework born at ETH Zürich. The proposal: every person on Earth lives on no more than 2000 watts of continuous <em>primary</em> energy &mdash; about 17,500 kWh per year &mdash; covering everything from heating to flights to the embodied energy in your phone. For reference, the average UK resident is around 5000 W, the average European 5000&ndash;6000 W, and the average American closer to 12,000 W.</p>
+  <p>Fill in the form below for an estimate. Numbers are approximations using published energy intensities and primary-energy factors (PEFs); treat results as indicative, not audit-grade.</p>
 </div>
 
 <div class="row">
   <div class="col-lg-8">
     <form id="calc-form" onsubmit="return false;">
 
+      <!-- ============================================================ -->
       <div class="calc-section">
         <h4>1. Housing &amp; Heating</h4>
         <div class="row g-3">
           <div class="col-md-6">
             <label class="form-label">Living space (m²)</label>
-            <input type="number" class="form-control" id="livingSpace" value="40" min="0" step="1">
+            <input type="number" class="form-control" id="livingSpace" value="80" min="0" step="1">
+            <div class="form-text">Total floor area of your home.</div>
           </div>
           <div class="col-md-6">
             <label class="form-label">People in household</label>
             <input type="number" class="form-control" id="occupants" value="2" min="1" step="1">
           </div>
           <div class="col-md-6">
-            <label class="form-label">Primary heating</label>
-            <select class="form-control" id="heatingType">
-              <option value="14">Oil</option>
-              <option value="12" selected>Natural gas</option>
-              <option value="30">Electric resistive</option>
-              <option value="4">Heat pump</option>
-              <option value="8">District heating</option>
-              <option value="6">Wood / biomass</option>
+            <label class="form-label">Building energy standard</label>
+            <select class="form-control" id="buildingStandard">
+              <option value="220">Poor (pre-1980, unrenovated, single glazing)</option>
+              <option value="130" selected>Average (1980s&ndash;2000s, double glazing)</option>
+              <option value="70">Modern (post-2000, well insulated)</option>
+              <option value="25">Low-energy / passive house / Minergie</option>
+            </select>
+            <div class="form-text">Drives heating demand per m².</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Heating system</label>
+            <select class="form-control" id="heatingSystem">
+              <option value="oil">Oil boiler</option>
+              <option value="gas" selected>Gas boiler (standard)</option>
+              <option value="gasCond">Gas condensing boiler</option>
+              <option value="district">District heating</option>
+              <option value="elecResist">Electric resistive (storage / panel heaters)</option>
+              <option value="hpAir">Heat pump (air-source)</option>
+              <option value="hpGround">Heat pump (ground-source)</option>
+              <option value="wood">Wood / pellet / biomass</option>
             </select>
           </div>
           <div class="col-md-6">
-            <label class="form-label">Insulation quality</label>
-            <select class="form-control" id="insulation">
-              <option value="1.4">Poor (older, single glazing)</option>
-              <option value="1.0" selected>Average</option>
-              <option value="0.7">Good (modern, well insulated)</option>
-              <option value="0.3">Passive house / new-build</option>
+            <label class="form-label">Hot water source</label>
+            <select class="form-control" id="hotWater">
+              <option value="same" selected>Same as main heating</option>
+              <option value="elec">Dedicated electric (immersion / instant)</option>
+              <option value="hpWater">Heat pump water heater</option>
+              <option value="solarAssist">Solar thermal + backup</option>
             </select>
           </div>
           <div class="col-md-6">
             <label class="form-label">Household electricity (kWh/year)</label>
             <input type="number" class="form-control" id="electricity" value="3000" min="0" step="50">
-            <div class="form-text">Check your bill. UK average is ~2700 kWh; family homes 3500&ndash;4500.</div>
+            <div class="form-text">From your bill. UK average: ~2700 kWh; family homes 3500&ndash;4500.</div>
           </div>
           <div class="col-md-6">
-            <label class="form-label">Electricity source</label>
-            <select class="form-control" id="electricitySource">
-              <option value="1.0" selected>Standard grid mix</option>
-              <option value="0.6">Mostly low-carbon (UK / French / Nordic mix)</option>
-              <option value="0.3">100% renewable (verified tariff)</option>
-              <option value="1.4">Coal-heavy grid (e.g. Poland, India)</option>
+            <label class="form-label">Electricity grid mix</label>
+            <select class="form-control" id="gridMix">
+              <option value="3.0">Coal-heavy (e.g. India, Poland)</option>
+              <option value="2.5">French (nuclear-heavy)</option>
+              <option value="2.0">EU / global average</option>
+              <option value="1.7" selected>UK current (2024 mix)</option>
+              <option value="1.3">Nordic / Swiss (mostly hydro/nuclear)</option>
+              <option value="1.1">100% verified renewable tariff</option>
             </select>
+            <div class="form-text">Primary-energy factor (PEF) for delivered electricity.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Solar PV self-generation (kWh/year)</label>
+            <input type="number" class="form-control" id="solarPV" value="0" min="0" step="50">
+            <div class="form-text">If you have solar panels. Reduces grid electricity drawn.</div>
           </div>
         </div>
+
+        <details class="advanced">
+          <summary>Advanced housing options</summary>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Second home</label>
+              <select class="form-control" id="secondHome">
+                <option value="0" selected>None</option>
+                <option value="200">Occasional use (a few weeks/year)</option>
+                <option value="400">Frequent use (every other weekend)</option>
+                <option value="700">Regular second residence</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Override heating demand (kWh/year, useful)</label>
+              <input type="number" class="form-control" id="heatOverride" value="" min="0" step="50">
+              <div class="form-text">Optional. If you know your annual heat demand, enter it here.</div>
+            </div>
+          </div>
+        </details>
       </div>
 
+      <!-- ============================================================ -->
       <div class="calc-section">
         <h4>2. Mobility</h4>
         <div class="row g-3">
@@ -90,13 +139,12 @@
           <div class="col-md-6">
             <label class="form-label">Car type</label>
             <select class="form-control" id="carType">
-              <option value="0">No car</option>
-              <option value="0.05" selected>Petrol</option>
-              <option value="0.04">Diesel</option>
-              <option value="0.025">Hybrid</option>
-              <option value="0.018">Plug-in hybrid</option>
-              <option value="0.015">Electric (average grid)</option>
-              <option value="0.008">Electric (renewable)</option>
+              <option value="none">No car</option>
+              <option value="petrol" selected>Petrol</option>
+              <option value="diesel">Diesel</option>
+              <option value="hybrid">Hybrid</option>
+              <option value="phev">Plug-in hybrid</option>
+              <option value="bev">Electric (uses your grid mix)</option>
             </select>
           </div>
           <div class="col-md-6">
@@ -105,29 +153,58 @@
             <div class="form-text">Energy is shared across passengers. UK average ~1.55.</div>
           </div>
           <div class="col-md-6">
-            <label class="form-label">Short-haul flights / year (&lt; 3 hr)</label>
-            <input type="number" class="form-control" id="shortFlights" value="2" min="0" step="1">
+            <label class="form-label">Motorbike / scooter (km/year)</label>
+            <input type="number" class="form-control" id="motoKm" value="0" min="0" step="100">
           </div>
           <div class="col-md-6">
-            <label class="form-label">Medium-haul flights / year (3&ndash;6 hr)</label>
+            <label class="form-label">Short-haul flights / year (≤2h, ~800 km/leg)</label>
+            <input type="number" class="form-control" id="shortFlights" value="2" min="0" step="1">
+            <div class="form-text">Each leg counts. A return trip = 2.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Medium-haul flights / year (2&ndash;5h, ~3000 km/leg)</label>
             <input type="number" class="form-control" id="medFlights" value="0" min="0" step="1">
           </div>
           <div class="col-md-6">
-            <label class="form-label">Long-haul flights / year (&gt; 6 hr)</label>
+            <label class="form-label">Long-haul flights / year (>5h, ~8500 km/leg)</label>
             <input type="number" class="form-control" id="longFlights" value="0" min="0" step="1">
-            <div class="form-text">Each leg counts: a return trip = 2 flights.</div>
           </div>
           <div class="col-md-6">
-            <label class="form-label">Train / year (km)</label>
+            <label class="form-label">Train (km/year)</label>
             <input type="number" class="form-control" id="trainKm" value="2000" min="0" step="100">
           </div>
           <div class="col-md-6">
-            <label class="form-label">Bus / coach / year (km)</label>
+            <label class="form-label">Bus / coach (km/year)</label>
             <input type="number" class="form-control" id="busKm" value="500" min="0" step="100">
           </div>
+          <div class="col-md-6">
+            <label class="form-label">Tram / metro (km/year)</label>
+            <input type="number" class="form-control" id="metroKm" value="500" min="0" step="100">
+          </div>
         </div>
+
+        <details class="advanced">
+          <summary>Advanced mobility options</summary>
+          <div class="row g-3">
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rfi">
+                <label class="form-check-label" for="rfi">
+                  Apply ×2 climate uplift to flights (radiative forcing)
+                </label>
+                <div class="form-text">2000-Watt is a <em>primary-energy</em> metric, so RFI is off by default. Tick it for a climate-impact view.</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Cruise / ferry (nights/year)</label>
+              <input type="number" class="form-control" id="cruiseNights" value="0" min="0" step="1">
+              <div class="form-text">Each night ≈ 200 W contribution to annual average.</div>
+            </div>
+          </div>
+        </details>
       </div>
 
+      <!-- ============================================================ -->
       <div class="calc-section">
         <h4>3. Food &amp; Diet</h4>
         <div class="row g-3">
@@ -135,9 +212,9 @@
             <label class="form-label">Diet</label>
             <select class="form-control" id="diet">
               <option value="1100">Heavy meat (red meat most days)</option>
-              <option value="800">Frequent meat (meat most days, mostly poultry)</option>
-              <option value="650" selected>Average omnivore (meat a few times a week)</option>
-              <option value="500">Low meat / flexitarian</option>
+              <option value="800">Frequent meat (mostly poultry, daily)</option>
+              <option value="650" selected>Average omnivore (meat several times/week)</option>
+              <option value="500">Flexitarian / low-meat</option>
               <option value="450">Pescatarian</option>
               <option value="380">Vegetarian</option>
               <option value="280">Vegan</option>
@@ -152,36 +229,73 @@
             </select>
           </div>
           <div class="col-md-6">
+            <label class="form-label">Organic share</label>
+            <select class="form-control" id="organic">
+              <option value="1.0" selected>None / occasional</option>
+              <option value="0.97">About half organic</option>
+              <option value="0.93">Mostly organic</option>
+            </select>
+          </div>
+          <div class="col-md-6">
             <label class="form-label">Food waste</label>
             <select class="form-control" id="foodWaste">
-              <option value="1.25">A lot &mdash; we throw out plenty</option>
-              <option value="1.1" selected>Some (UK average is ~20%)</option>
-              <option value="1.0">Very little</option>
+              <option value="1.30">High &mdash; we throw out plenty</option>
+              <option value="1.10" selected>Some (UK average is ~20%)</option>
+              <option value="0.95">Very little</option>
             </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Drinks</label>
+            <select class="form-control" id="drinks">
+              <option value="0">No alcohol, mostly tap water</option>
+              <option value="40" selected>Average (occasional alcohol, coffee)</option>
+              <option value="100">Heavy (daily alcohol, bottled drinks)</option>
+            </select>
+            <div class="form-text">Bottled drinks and alcohol carry significant embodied energy.</div>
           </div>
         </div>
       </div>
 
+      <!-- ============================================================ -->
       <div class="calc-section">
         <h4>4. Goods &amp; Services</h4>
         <div class="row g-3">
           <div class="col-md-6">
-            <label class="form-label">Consumption level</label>
+            <label class="form-label">General consumption</label>
             <select class="form-control" id="consumption">
-              <option value="300">Minimalist (rarely buy new, repair, second-hand)</option>
-              <option value="550">Modest</option>
-              <option value="900" selected>Average Western</option>
-              <option value="1400">High (frequent new clothes, gadgets, dining out)</option>
-              <option value="2000">Very high (luxury / heavy spender)</option>
+              <option value="280">Minimalist (rarely buy new, repair, second-hand)</option>
+              <option value="500">Modest</option>
+              <option value="850" selected>Average Western</option>
+              <option value="1300">High (frequent new clothes, gadgets, dining out)</option>
+              <option value="1900">Very high (luxury / heavy spender)</option>
             </select>
-            <div class="form-text">Covers clothing, electronics, furniture, leisure, services.</div>
+            <div class="form-text">Clothing, electronics, furniture, leisure, services.</div>
           </div>
           <div class="col-md-6">
-            <label class="form-label">Streaming &amp; digital services</label>
+            <label class="form-label">Digital &amp; streaming</label>
             <select class="form-control" id="digital">
               <option value="20">Light user</option>
               <option value="50" selected>Average</option>
-              <option value="120">Heavy (gaming, multiple streaming hours daily)</option>
+              <option value="120">Heavy (gaming + streaming hours daily)</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Pets</label>
+            <select class="form-control" id="pets">
+              <option value="0" selected>None</option>
+              <option value="25">Cat</option>
+              <option value="35">Small dog</option>
+              <option value="55">Medium dog</option>
+              <option value="85">Large dog</option>
+              <option value="120">Multiple pets</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Healthcare &amp; education use</label>
+            <select class="form-control" id="services">
+              <option value="0" selected>Average (already in infrastructure)</option>
+              <option value="150">Above average (frequent treatment, private services)</option>
+              <option value="-100">Below average (low engagement)</option>
             </select>
           </div>
         </div>
@@ -194,7 +308,7 @@
     <div class="result-card">
       <div class="result-target">Your continuous footprint</div>
       <div class="result-total"><span id="totalW">0</span> W</div>
-      <div class="result-target">Target: <strong>2000 W</strong> &middot; UK average ~5000 W</div>
+      <div class="result-target">Target: <strong>2000 W</strong> &middot; UK avg ~5000 W &middot; US avg ~12,000 W</div>
 
       <hr>
 
@@ -205,21 +319,25 @@
       <hr>
       <div class="form-text">
         <strong>Annual primary energy:</strong> <span id="kwhYear">0</span> kWh/yr<br>
-        <strong>Approximate CO₂e:</strong> <span id="co2">0</span> t/yr
+        <strong>Approximate CO₂e:</strong> <span id="co2">0</span> t/yr<br>
+        <span class="text-muted">Red marker on bars = 400 W per category (rough fair share)</span>
       </div>
     </div>
   </div>
 </div>
 
 <div class="calc-footer">
-  <h5>What is "primary energy"?</h5>
-  <p>Primary energy includes all the energy used along the way &mdash; not just the electricity that arrives at your meter, but the energy lost generating and transporting it, the embodied energy in the food and goods you consume, and a share of public infrastructure (roads, hospitals, schools). That last category is a fixed ~600 W per person and is included in this estimate by default.</p>
+  <h5>How the model works</h5>
+  <p>Heating is computed as <code>floor area × demand-per-m² × system factor</code>, where the system factor combines boiler efficiency and the primary-energy factor (PEF) of the fuel. Heat pumps and electric resistive heating use your selected grid PEF, so a heat pump on a coal grid scores worse than one on a renewable tariff. Hot water is treated separately at ~800 kWh/person/year of useful demand, with its own source. Solar PV is subtracted from your grid electricity (floor at zero).</p>
+  <p>Cars use real-world fuel-energy intensities (petrol ≈ 0.8 kWh primary per km, BEV ≈ 0.18 kWh × grid PEF per km) divided by average occupancy. Flight intensities are based on IEA figures for short/medium/long-haul (~0.5/0.45/0.40 kWh per passenger-km respectively, with a 1.15× refining PEF). RFI (radiative forcing) is off by default because the 2000-Watt target is a primary-energy metric, not a climate metric &mdash; tick the advanced option if you want the climate-impact view.</p>
+  <p>Diet base values come from Novatlantis figures, modified by sourcing, organic share, and waste. Goods, services, and infrastructure use the standard Novatlantis allocation, with an explicit 600 W per person for shared infrastructure (roads, hospitals, public services).</p>
 
   <h5>Want to dig deeper?</h5>
   <ul>
     <li><a href="https://en.wikipedia.org/wiki/2000-watt_society" target="_blank">2000-Watt Society on Wikipedia</a></li>
-    <li><a href="https://www.2000watt.swiss/" target="_blank">2000-Watt Site (Swiss federal site)</a></li>
+    <li><a href="https://www.2000watt.swiss/" target="_blank">2000-Watt Site (Swiss federal portal)</a></li>
     <li><a href="https://novatlantis.ch/" target="_blank">Novatlantis &mdash; the original ETH Zürich initiative</a></li>
+    <li><a href="https://ourworldindata.org/energy" target="_blank">Our World in Data &mdash; Energy</a> (good context on global per-capita figures)</li>
   </ul>
 
   <p class="mt-4"><a href="index.html">&larr; Back to Less Than Zero</a> &middot; <a href="https://mixcloud.com/less-than-zero" target="_blank">Listen to the show</a></p>
@@ -227,55 +345,146 @@
 
 <script>
 (function () {
-  const INFRASTRUCTURE_W = 600;
-  const FLIGHT_KM = { short: 1000, medium: 3500, long: 9000 };
-  const FLIGHT_W_PER_KM = 0.35;
-  const TRAIN_W_PER_KM = 0.005;
-  const BUS_W_PER_KM = 0.012;
   const W_TO_KWH_YEAR = 8.76;
   const W_TO_TCO2 = 0.0011;
+  const INFRA_W = 600;
+  const HOT_WATER_KWH_PER_PERSON = 800;
+
+  const HEAT_SYSTEM = {
+    oil:        { fuelPEF: 1.10, eff: 0.85, electric: false },
+    gas:        { fuelPEF: 1.10, eff: 0.90, electric: false },
+    gasCond:    { fuelPEF: 1.10, eff: 0.96, electric: false },
+    district:   { fuelPEF: 0.95, eff: 0.85, electric: false },
+    elecResist: { fuelPEF: null, eff: 1.00, electric: true,  cop: 1.0 },
+    hpAir:      { fuelPEF: null, eff: 1.00, electric: true,  cop: 3.0 },
+    hpGround:   { fuelPEF: null, eff: 1.00, electric: true,  cop: 4.0 },
+    wood:       { fuelPEF: 0.20, eff: 0.75, electric: false },
+  };
+
+  const HOT_WATER = {
+    same:        null,
+    elec:        { electric: true,  cop: 1.0 },
+    hpWater:     { electric: true,  cop: 2.5 },
+    solarAssist: { electric: false, primFactor: 0.30 },
+  };
+
+  const CAR = {
+    none:   0,
+    petrol: 0.085,
+    diesel: 0.075,
+    hybrid: 0.055,
+    phev:   0.040,
+    bev:    null,
+  };
+
+  const FLIGHT_KM = { short: 800, medium: 3000, long: 8500 };
+  const FLIGHT_KWH_PER_PKM = { short: 0.50, medium: 0.45, long: 0.40 };
+  const FLIGHT_PEF = 1.15;
+
+  const TRAIN_W_PER_KM = 0.014;
+  const BUS_W_PER_KM   = 0.014;
+  const METRO_W_PER_KM = 0.010;
+  const MOTO_W_PER_KM  = 0.045;
+  const CRUISE_W_PER_NIGHT = 200;
 
   const $ = id => document.getElementById(id);
-  const num = id => parseFloat($(id).value) || 0;
+  const num = id => { const v = parseFloat($(id).value); return isFinite(v) ? v : 0; };
+  const numOpt = id => { const v = parseFloat($(id).value); return isFinite(v) && v > 0 ? v : null; };
+  const val = id => $(id).value;
+
+  function kWhToW(kwh) { return kwh / W_TO_KWH_YEAR; }
+
+  function gridPEF() { return parseFloat(val('gridMix')); }
+
+  function heatingSystemFactor() {
+    const sys = HEAT_SYSTEM[val('heatingSystem')];
+    if (sys.electric) return (1 / sys.cop) * gridPEF();
+    return (1 / sys.eff) * sys.fuelPEF;
+  }
+
+  function hotWaterFactor() {
+    const choice = val('hotWater');
+    if (choice === 'same') return heatingSystemFactor();
+    const hw = HOT_WATER[choice];
+    if (hw.electric) return (1 / hw.cop) * gridPEF();
+    return hw.primFactor;
+  }
 
   function computeHousing() {
     const m2 = num('livingSpace');
     const occ = Math.max(1, num('occupants'));
-    const heat = parseFloat($('heatingType').value);
-    const insul = parseFloat($('insulation').value);
-    const elec = num('electricity');
-    const elecFactor = parseFloat($('electricitySource').value);
 
-    const heating_W = (m2 / occ) * heat * insul;
-    const electricity_W = (elec / occ) * elecFactor / W_TO_KWH_YEAR;
-    return Math.max(0, heating_W + electricity_W);
+    const heatOverride = numOpt('heatOverride');
+    const heatDemand = heatOverride !== null
+      ? heatOverride
+      : m2 * parseFloat(val('buildingStandard'));
+    const heating_kWh = heatDemand * heatingSystemFactor();
+    const heating_W = kWhToW(heating_kWh) / occ;
+
+    const hotWater_kWh = HOT_WATER_KWH_PER_PERSON * hotWaterFactor();
+    const hotWater_W = kWhToW(hotWater_kWh);
+
+    const elecNet = Math.max(0, num('electricity') - num('solarPV'));
+    const elecPrimary_kWh = elecNet * gridPEF();
+    const electricity_W = kWhToW(elecPrimary_kWh) / occ;
+
+    const secondHome_W = parseFloat(val('secondHome'));
+
+    return {
+      total: heating_W + hotWater_W + electricity_W + secondHome_W,
+      parts: { heating: heating_W, hotWater: hotWater_W, electricity: electricity_W, secondHome: secondHome_W }
+    };
+  }
+
+  function carWPerKm() {
+    const t = val('carType');
+    if (t === 'bev') return 0.18 * gridPEF() / W_TO_KWH_YEAR; // 0.18 kWh/km × PEF
+    return CAR[t];
   }
 
   function computeMobility() {
     const carKm = num('carKm');
-    const carRate = parseFloat($('carType').value);
+    const carRate = carWPerKm();
     const carOcc = Math.max(1, num('carOccupancy'));
     const car_W = (carKm * carRate) / carOcc;
 
+    const moto_W = num('motoKm') * MOTO_W_PER_KM;
+
+    const rfi = $('rfi').checked ? 2.0 : 1.0;
+    const flightW = (legs, band) =>
+      legs * FLIGHT_KM[band] * FLIGHT_KWH_PER_PKM[band] * FLIGHT_PEF / W_TO_KWH_YEAR * rfi;
     const flights_W =
-      num('shortFlights') * FLIGHT_KM.short * FLIGHT_W_PER_KM +
-      num('medFlights') * FLIGHT_KM.medium * FLIGHT_W_PER_KM +
-      num('longFlights') * FLIGHT_KM.long * FLIGHT_W_PER_KM;
+      flightW(num('shortFlights'), 'short') +
+      flightW(num('medFlights'), 'medium') +
+      flightW(num('longFlights'), 'long');
 
     const train_W = num('trainKm') * TRAIN_W_PER_KM;
-    const bus_W = num('busKm') * BUS_W_PER_KM;
-    return Math.max(0, car_W + flights_W + train_W + bus_W);
+    const bus_W   = num('busKm')   * BUS_W_PER_KM;
+    const metro_W = num('metroKm') * METRO_W_PER_KM;
+    const cruise_W = num('cruiseNights') * CRUISE_W_PER_NIGHT;
+
+    return {
+      total: car_W + moto_W + flights_W + train_W + bus_W + metro_W + cruise_W,
+      parts: { car: car_W, moto: moto_W, flights: flights_W, publicTransit: train_W + bus_W + metro_W, cruise: cruise_W }
+    };
   }
 
   function computeFood() {
-    const base = parseFloat($('diet').value);
-    const src = parseFloat($('foodSource').value);
-    const waste = parseFloat($('foodWaste').value);
-    return Math.max(0, base * src * waste);
+    const base = parseFloat(val('diet'));
+    const src  = parseFloat(val('foodSource'));
+    const org  = parseFloat(val('organic'));
+    const wst  = parseFloat(val('foodWaste'));
+    const dr   = parseFloat(val('drinks'));
+    return Math.max(0, base * src * org * wst + dr);
   }
 
   function computeGoods() {
-    return Math.max(0, parseFloat($('consumption').value) + parseFloat($('digital').value));
+    return Math.max(0,
+      parseFloat(val('consumption')) +
+      parseFloat(val('digital')) +
+      parseFloat(val('pets')) +
+      parseFloat(val('services'))
+    );
   }
 
   function recalc() {
@@ -283,22 +492,26 @@
     const mobility = computeMobility();
     const food = computeFood();
     const goods = computeGoods();
-    const infra = INFRASTRUCTURE_W;
-    const total = housing + mobility + food + goods + infra;
+    const infra = INFRA_W;
+    const total = housing.total + mobility.total + food + goods + infra;
 
     const cats = [
-      { name: 'Housing',       w: housing },
-      { name: 'Mobility',      w: mobility },
-      { name: 'Food',          w: food },
-      { name: 'Goods',         w: goods },
-      { name: 'Infrastructure',w: infra },
+      { name: 'Housing',        w: housing.total },
+      { name: 'Mobility',       w: mobility.total },
+      { name: 'Food',           w: food },
+      { name: 'Goods',          w: goods },
+      { name: 'Infrastructure', w: infra },
     ];
-    const max = Math.max(...cats.map(c => c.w), 1);
+    const max = Math.max(...cats.map(c => c.w), 400, 1);
+    const targetMarker = (400 / max) * 100;
     const html = cats.map(c => {
-      const pct = (c.w / max) * 100;
+      const pct = Math.min(100, (Math.max(0, c.w) / max) * 100);
       return `<div class="bar-row">
         <div class="bar-label">${c.name}</div>
-        <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:${pct}%"></div>
+          <div class="bar-target" style="left:${targetMarker}%"></div>
+        </div>
         <div class="bar-value">${Math.round(c.w)} W</div>
       </div>`;
     }).join('');
@@ -319,9 +532,12 @@
     } else if (total <= 6000) {
       v.classList.add('verdict-mid');
       v.textContent = 'Around the European average. Plenty of room to cut back.';
+    } else if (total <= 9000) {
+      v.classList.add('verdict-bad');
+      v.textContent = 'Well above European average. Big-ticket changes (flights, car, heating) move the needle most.';
     } else {
       v.classList.add('verdict-bad');
-      v.textContent = 'Well above the European average. Big-ticket changes (flights, car, heating) will help most.';
+      v.textContent = 'Approaching North American levels. Heating system, flights and car are likely the dominant items.';
     }
   }
 
