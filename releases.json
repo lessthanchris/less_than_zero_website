@@ -1,8 +1,32 @@
 [
   {
+    "release_date": "2026-04-17",
+    "title": "Not For Radio - Bloom",
+    "link": "",
+    "description": "EP"
+  },
+  {
+    "release_date": "2026-04-28",
+    "title": "Laura Cahen - Side by Side",
+    "link": "",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-05-01",
+    "title": "Junior Varsity - Ready",
+    "link": "",
+    "description": "EP"
+  },
+  {
     "release_date": "2026-05-08",
     "title": "Komarov Magnificent Backflip - Cop Days",
     "link": "https://komarovmagnificentbackflip.bandcamp.com",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-05-08",
+    "title": "Basement - WIRED",
+    "link": "https://basement.bandcamp.com/album/wired",
     "description": "LP"
   },
   {
@@ -36,6 +60,18 @@
     "description": "LP"
   },
   {
+    "release_date": "2026-05-15",
+    "title": "Rostam - American Stories",
+    "link": "https://matsor.bandcamp.com/album/american-stories-3",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-05-20",
+    "title": "Car Seat Headrest - Teen of Denial: Joe's Story",
+    "link": "https://carseatheadrest.bandcamp.com/album/teen-of-denial-joe-s-story",
+    "description": "LP"
+  },
+  {
     "release_date": "2026-05-22",
     "title": "Ecca Vandal - Looking for People to Unfollow",
     "link": "https://eccavandal.bandcamp.com/album/looking-for-people-to-unfollow",
@@ -60,6 +96,24 @@
     "description": "EP"
   },
   {
+    "release_date": "2026-05-22",
+    "title": "Ed O'Brien - Blue Morpho",
+    "link": "https://edobrien.bandcamp.com/album/blue-morpho",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-05-22",
+    "title": "Night Swimming - Melting, Sometimes Bleeding",
+    "link": "",
+    "description": "EP"
+  },
+  {
+    "release_date": "2026-05-26",
+    "title": "feeble little horse - bitknot",
+    "link": "https://feeblelittlehorse.bandcamp.com/album/bitknot",
+    "description": "LP"
+  },
+  {
     "release_date": "2026-05-29",
     "title": "ear - Rumspringa",
     "link": "",
@@ -78,6 +132,24 @@
     "description": "LP"
   },
   {
+    "release_date": "2026-05-29",
+    "title": "Boards of Canada - Inferno",
+    "link": "",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-05-29",
+    "title": "Willie Nelson - Dream Chaser",
+    "link": "",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-05-29",
+    "title": "Iceage - For Love of Grace & the Hereafter",
+    "link": "https://iceage.bandcamp.com/album/for-love-of-grace-the-hereafter",
+    "description": "LP"
+  },
+  {
     "release_date": "2026-06-05",
     "title": "Death Cab for Cutie - I Built You a Tower",
     "link": "https://deathcabforcutie.bandcamp.com/album/i-built-you-a-tower",
@@ -87,6 +159,12 @@
     "release_date": "2026-06-12",
     "title": "La Sécurité - Bingo!",
     "link": "https://lasecurite.bandcamp.com/album/bingo",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-06-12",
+    "title": "Pussy Riot - CYKA",
+    "link": "",
     "description": "LP"
   },
   {
@@ -111,6 +189,30 @@
     "release_date": "2026-06-26",
     "title": "Brutalismus 3000 - Harmony",
     "link": "",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-06-26",
+    "title": "Atta Boy - Silt",
+    "link": "",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-06-26",
+    "title": "knitting - Souvenir",
+    "link": "https://knitting.bandcamp.com/album/souvenir",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-06-26",
+    "title": "JJerome87 - The Canyon",
+    "link": "",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-07-10",
+    "title": "Hurry - Zoned Out",
+    "link": "https://hurry.bandcamp.com/album/zoned-out",
     "description": "LP"
   },
   {
@@ -141,6 +243,24 @@
     "release_date": "2026-08-07",
     "title": "Man/Woman/Chainsaw - Cannonball",
     "link": "",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-08-21",
+    "title": "Wild Pink - Still Coming Down",
+    "link": "https://wildpink.bandcamp.com/album/still-coming-down",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-08-28",
+    "title": "A Certain Ratio - Force Majeure",
+    "link": "",
+    "description": "LP"
+  },
+  {
+    "release_date": "2026-09-04",
+    "title": "Arab Strap - Half-Told Tales",
+    "link": "https://arabstrapband.bandcamp.com/album/half-told-tales",
     "description": "LP"
   }
 ]
