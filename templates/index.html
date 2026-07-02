@@ -3,8 +3,13 @@
   <div id="live-player" class="card mb-4 shadow-sm">
     <div class="card-body d-flex flex-column flex-md-row align-items-md-center gap-3">
       <div class="flex-grow-1">
-        <span id="live-badge" class="badge bg-secondary">OFFLINE</span>
-        <span id="live-text" class="ms-2 fw-bold">Next show: Thursday, 7pm (UK)</span>
+        <div>
+          <span id="live-badge" class="badge bg-secondary">OFFLINE</span>
+          <span id="live-text" class="ms-2 fw-bold">Next show: Thursday, 7pm (UK)</span>
+        </div>
+        <div id="live-track" class="mt-1 text-muted" style="display:none;">
+          <span class="me-1">♪ Now playing:</span><span id="live-track-name" class="fw-bold text-dark"></span>
+        </div>
       </div>
       <audio id="live-audio" controls preload="none" class="w-100" style="max-width:420px; display:none;">
         <source src="https://stream.lessthanze.ro/lessthanzero" type="audio/mpeg">
@@ -17,28 +22,39 @@
       var badge = document.getElementById("live-badge");
       var text = document.getElementById("live-text");
       var audio = document.getElementById("live-audio");
+      var trackBox = document.getElementById("live-track");
+      var trackName = document.getElementById("live-track-name");
       function check() {
         fetch(STATUS, { cache: "no-store" })
           .then(function (r) { return r.json(); })
           .then(function (d) {
             var s = d && d.icestats ? d.icestats.source : null;
-            var live = !!s && (Array.isArray(s) ? s.length > 0 : true);
+            var src = Array.isArray(s) ? s[0] : s;
+            var live = !!src;
             if (live) {
               badge.className = "badge bg-danger";
               badge.textContent = "● LIVE NOW";
               text.textContent = "Less Than Zero is on air";
               audio.style.display = "";
+              var title = src.title || src.yp_currently_playing || "";
+              if (title) {
+                trackName.textContent = title;
+                trackBox.style.display = "";
+              } else {
+                trackBox.style.display = "none";
+              }
             } else {
               badge.className = "badge bg-secondary";
               badge.textContent = "OFFLINE";
               text.textContent = "Next show: Thursday, 7pm (UK)";
               audio.style.display = "none";
+              trackBox.style.display = "none";
             }
           })
           .catch(function () { /* keep offline state */ });
       }
       check();
-      setInterval(check, 30000);
+      setInterval(check, 15000);
     })();
   </script>
   <h1>Recorded live on <a href="https://mixcloud.com/less-than-zero" target="_blank" class="link-dark">Mixcloud</a></h1>
