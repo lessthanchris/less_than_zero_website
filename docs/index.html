@@ -212,8 +212,17 @@
         var row = document.createElement("div");
         row.className = "mb-1";
         row.dataset.id = m.id;
+        if (m.role === "host") {
+          var badge = document.createElement("span");
+          badge.className = "badge me-1";
+          badge.style.background = m.color || "#b8860b";
+          badge.style.color = "#fff";
+          badge.textContent = "★ HOST";
+          row.appendChild(badge);
+        }
         var nick = document.createElement("span");
         nick.className = "fw-bold me-1";
+        if (m.color) nick.style.color = m.color;  // stable per-person colour
         nick.innerHTML = m.nick;                 // nick is escaped server-side
         var body = document.createElement("span");
         body.innerHTML = m.text;                 // text is escaped server-side
