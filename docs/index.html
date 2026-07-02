@@ -73,6 +73,22 @@
       </audio>
     </div>
   </div>
+
+  <div id="live-chat" class="card mb-4 shadow-sm" style="display:none;">
+    <div class="card-header d-flex justify-content-between align-items-center py-2">
+      <span class="fw-bold">💬 Live chat</span>
+      <span id="chat-status" class="small text-muted">connecting…</span>
+    </div>
+    <div id="chat-messages" style="height:260px;overflow-y:auto;padding:.6rem .8rem;font-size:.95rem;"></div>
+    <div class="card-footer p-2">
+      <div class="input-group input-group-sm">
+        <input id="chat-nick" class="form-control" style="max-width:120px" maxlength="24" placeholder="name" autocomplete="off">
+        <input id="chat-input" class="form-control" maxlength="500" placeholder="Say something…" autocomplete="off">
+        <button id="chat-send" class="btn btn-dark" type="button">Send</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
       var STATUS = "https://stream.lessthanze.ro/status-json.xsl";
@@ -83,6 +99,7 @@
       var trackName = document.getElementById("live-track-name");
       var art = document.getElementById("live-art");
       var albumBox = document.getElementById("live-album");
+      var chatCard = document.getElementById("live-chat");
       var lastTitle = "";
       var artCache = {};
 
@@ -132,6 +149,7 @@
               badge.textContent = "● LIVE NOW";
               text.textContent = "Less Than Zero is on air";
               audio.style.display = "";
+              chatCard.style.display = "";
               var title = src.title || src.yp_currently_playing || "";
               if (title) {
                 trackName.textContent = title;
@@ -148,6 +166,7 @@
               text.textContent = "Next show: Thursday, 7pm (UK)";
               audio.style.display = "none";
               trackBox.style.display = "none";
+              chatCard.style.display = "none";
               lastTitle = "";
               applyMeta(null);
             }
@@ -158,6 +177,109 @@
       setInterval(check, 15000);
     })();
   </script>
+
+  <script>
+    // Live chat: connects to the droplet's Flask-SocketIO server. The server
+    // only accepts messages while the show is live; the widget itself is
+    // shown/hidden by the live poll above. Add ?mod=<token> to the URL to
+    // unlock delete/clear/ban.
+    (function () {
+      var ORIGIN = "https://stream.lessthanze.ro";
+      var messages = document.getElementById("chat-messages");
+      var input = document.getElementById("chat-input");
+      var nickEl = document.getElementById("chat-nick");
+      var sendBtn = document.getElementById("chat-send");
+      var statusEl = document.getElementById("chat-status");
+      var isMod = false;
+
+      nickEl.value = localStorage.getItem("lz_chat_nick") || "";
+      nickEl.addEventListener("change", function () {
+        localStorage.setItem("lz_chat_nick", nickEl.value.trim());
+      });
+
+      function modToken() {
+        var m = location.search.match(/[?&]mod=([^&]+)/);
+        return m ? decodeURIComponent(m[1]) : "";
+      }
+
+      function atBottom() {
+        return messages.scrollHeight - messages.scrollTop - messages.clientHeight < 40;
+      }
+      function scrollDown() { messages.scrollTop = messages.scrollHeight; }
+
+      function addRow(m) {
+        var stick = atBottom();
+        var row = document.createElement("div");
+        row.className = "mb-1";
+        row.dataset.id = m.id;
+        var nick = document.createElement("span");
+        nick.className = "fw-bold me-1";
+        nick.innerHTML = m.nick;                 // nick is escaped server-side
+        var body = document.createElement("span");
+        body.innerHTML = m.text;                 // text is escaped server-side
+        row.appendChild(nick);
+        row.appendChild(body);
+        if (isMod) {
+          var del = document.createElement("a");
+          del.href = "#"; del.className = "ms-2 small text-danger"; del.textContent = "✕";
+          del.onclick = function (e) { e.preventDefault(); socket.emit("mod_delete", { id: m.id }); };
+          row.appendChild(del);
+        }
+        messages.appendChild(row);
+        if (stick) scrollDown();
+      }
+
+      function sysRow(t) {
+        var row = document.createElement("div");
+        row.className = "mb-1 fst-italic text-muted small";
+        row.textContent = t;
+        messages.appendChild(row);
+        scrollDown();
+      }
+
+      function loadClient(cb) {
+        if (window.io) { cb(); return; }
+        var s = document.createElement("script");
+        s.src = ORIGIN + "/chat/socket.io.min.js";
+        s.onload = cb;
+        s.onerror = function () { statusEl.textContent = "chat unavailable"; };
+        document.head.appendChild(s);
+      }
+
+      var socket;
+      loadClient(function () {
+        socket = io(ORIGIN, { transports: ["websocket", "polling"], auth: { auth: modToken() } });
+
+        socket.on("connect", function () { statusEl.textContent = "connected"; });
+        socket.on("disconnect", function () { statusEl.textContent = "disconnected"; });
+        socket.on("connect_error", function () { statusEl.textContent = "chat unavailable"; });
+
+        socket.on("state", function (st) { isMod = !!st.mod; if (isMod) statusEl.textContent = "connected (mod)"; });
+        socket.on("history", function (list) {
+          messages.innerHTML = "";
+          (list || []).forEach(addRow);
+          scrollDown();
+        });
+        socket.on("chat", addRow);
+        socket.on("sys", function (m) { sysRow(m.text); });
+        socket.on("deleted", function (m) {
+          var r = messages.querySelector('[data-id="' + m.id + '"]');
+          if (r) r.remove();
+        });
+        socket.on("cleared", function () { messages.innerHTML = ""; });
+
+        function send() {
+          var text = input.value.trim();
+          if (!text) return;
+          socket.emit("chat", { nick: nickEl.value.trim(), text: text });
+          input.value = "";
+        }
+        sendBtn.onclick = send;
+        input.addEventListener("keydown", function (e) { if (e.key === "Enter") send(); });
+      });
+    })();
+  </script>
+
   <h1>Recorded live on <a href="https://mixcloud.com/less-than-zero" target="_blank" class="link-dark">Mixcloud</a></h1>
   <h2>Thursday, 7pm until 9pm GMT/BST</h2>
   <h2>Find us on <a href="https://patreon.com/LessThanZero789" target="_blank" class="link-dark">Patreon!</a></h2>
