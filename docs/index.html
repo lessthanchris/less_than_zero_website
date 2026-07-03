@@ -76,10 +76,10 @@
       <!-- No native controls: this is a live stream, not a seekable file — a scrub bar
            and skip buttons are both confusing (there's no timeline) and, for the jukebox,
            let a listener select/replay a specific track, which the PPL Linear Webcast
-           Licence's non-interactive requirement doesn't cover. Play/pause only. -->
-      <audio id="live-audio" preload="none" style="display:none;">
-        <source src="https://stream.lessthanze.ro/lessthanzero" type="audio/mpeg">
-      </audio>
+           Licence's non-interactive requirement doesn't cover. Play/pause only.
+           No src/source here on purpose — JS sets a cache-busted src fresh on every
+           play so the browser always connects at the live edge, never a stale buffer. -->
+      <audio id="live-audio" preload="none" style="display:none;"></audio>
     </div>
   </div>
 
@@ -205,9 +205,22 @@
       // Play/pause only — audio.play() must be called from a real click for
       // browser autoplay policies to allow it, so it's wired directly here
       // rather than driven by check()'s polling.
+      var STREAM_URL = "https://stream.lessthanze.ro/lessthanzero";
       playBtn.addEventListener("click", function () {
-        if (audio.paused) { audio.play().catch(function () {}); }
-        else { audio.pause(); }
+        if (audio.paused) {
+          // A live Icecast stream has no "position" — but the browser doesn't
+          // know that, and can resume playback from wherever its own buffer/
+          // connection was left (which, after being paused a while, is stale
+          // audio, not "now"). Forcing a brand-new connection on every play
+          // guarantees joining at the actual live edge each time.
+          audio.src = STREAM_URL + "?_=" + Date.now();
+          audio.load();
+          audio.play().catch(function () {});
+        } else {
+          audio.pause();
+          audio.removeAttribute("src");
+          audio.load(); // fully drop the connection + any buffered audio
+        }
       });
       audio.addEventListener("play", function () {
         playBtn.textContent = "⏸";
