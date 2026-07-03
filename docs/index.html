@@ -137,20 +137,37 @@
         document.body.appendChild(s);
       }
 
+      // The stream now runs 24/7 — a jukebox of past-show tracks plays whenever
+      // there's no live show, so "a source is connected" no longer means "live".
+      // The now-playing pusher prefixes titles "[LIVE] " only during a real
+      // broadcast; jukebox titles never carry it. That prefix is the live signal.
+      var LIVE_PREFIX = "[LIVE] ";
+
       function check() {
         fetch(STATUS, { cache: "no-store" })
           .then(function (r) { return r.json(); })
           .then(function (d) {
             var s = d && d.icestats ? d.icestats.source : null;
             var src = Array.isArray(s) ? s[0] : s;
-            var live = !!src;
-            if (live) {
-              badge.className = "badge bg-danger";
-              badge.textContent = "● LIVE NOW";
-              text.textContent = "Less Than Zero is on air";
+            var up = !!src;
+            if (up) {
+              var rawTitle = src.title || src.yp_currently_playing || "";
+              var isLiveShow = rawTitle.indexOf(LIVE_PREFIX) === 0;
+              var title = isLiveShow ? rawTitle.slice(LIVE_PREFIX.length) : rawTitle;
+
               audio.style.display = "";
-              chatCard.style.display = "";
-              var title = src.title || src.yp_currently_playing || "";
+              if (isLiveShow) {
+                badge.className = "badge bg-danger";
+                badge.textContent = "● LIVE NOW";
+                text.textContent = "Less Than Zero is on air";
+                chatCard.style.display = "";
+              } else {
+                badge.className = "badge bg-info text-dark";
+                badge.textContent = "🔀 ON SHUFFLE";
+                text.textContent = "Playing the archive — live Thursdays, 7pm (UK)";
+                chatCard.style.display = "none";
+              }
+
               if (title) {
                 trackName.textContent = title;
                 trackBox.style.display = "";
