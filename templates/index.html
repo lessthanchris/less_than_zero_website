@@ -14,7 +14,16 @@
         </div>
         <div id="live-album" class="text-muted small" style="display:none;"></div>
       </div>
-      <audio id="live-audio" controls preload="none" class="w-100" style="max-width:420px; display:none;">
+      <div id="live-controls" class="d-flex align-items-center gap-2" style="display:none;">
+        <button id="play-btn" type="button" class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center p-0"
+                style="width:48px;height:48px;font-size:1.1rem;" aria-label="Play">▶</button>
+        <span id="play-label" class="text-muted small">Listen</span>
+      </div>
+      <!-- No native controls: this is a live stream, not a seekable file — a scrub bar
+           and skip buttons are both confusing (there's no timeline) and, for the jukebox,
+           let a listener select/replay a specific track, which the PPL Linear Webcast
+           Licence's non-interactive requirement doesn't cover. Play/pause only. -->
+      <audio id="live-audio" preload="none" style="display:none;">
         <source src="https://stream.lessthanze.ro/lessthanzero" type="audio/mpeg">
       </audio>
     </div>
@@ -41,6 +50,9 @@
       var badge = document.getElementById("live-badge");
       var text = document.getElementById("live-text");
       var audio = document.getElementById("live-audio");
+      var controls = document.getElementById("live-controls");
+      var playBtn = document.getElementById("play-btn");
+      var playLabel = document.getElementById("play-label");
       var trackBox = document.getElementById("live-track");
       var trackName = document.getElementById("live-track-name");
       var art = document.getElementById("live-art");
@@ -101,7 +113,7 @@
               var isLiveShow = rawTitle.indexOf(LIVE_PREFIX) === 0;
               var title = isLiveShow ? rawTitle.slice(LIVE_PREFIX.length) : rawTitle;
 
-              audio.style.display = "";
+              controls.style.display = "";
               if (isLiveShow) {
                 badge.className = "badge bg-danger";
                 badge.textContent = "● LIVE NOW";
@@ -127,7 +139,7 @@
               badge.className = "badge bg-secondary";
               badge.textContent = "OFFLINE";
               text.textContent = "Next show: Thursday, 7pm (UK)";
-              audio.style.display = "none";
+              controls.style.display = "none";
               trackBox.style.display = "none";
               chatCard.style.display = "none";
               lastTitle = "";
@@ -136,6 +148,24 @@
           })
           .catch(function () { /* keep offline state */ });
       }
+      // Play/pause only — audio.play() must be called from a real click for
+      // browser autoplay policies to allow it, so it's wired directly here
+      // rather than driven by check()'s polling.
+      playBtn.addEventListener("click", function () {
+        if (audio.paused) { audio.play().catch(function () {}); }
+        else { audio.pause(); }
+      });
+      audio.addEventListener("play", function () {
+        playBtn.textContent = "⏸";
+        playBtn.setAttribute("aria-label", "Pause");
+        playLabel.textContent = "Listening";
+      });
+      audio.addEventListener("pause", function () {
+        playBtn.textContent = "▶";
+        playBtn.setAttribute("aria-label", "Play");
+        playLabel.textContent = "Listen";
+      });
+
       check();
       setInterval(check, 15000);
     })();
