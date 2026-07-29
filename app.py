@@ -19,6 +19,7 @@ TEMPLATES = {
     "article": "article.html",
     "calculator": "calculator.html",
     "ai_policy": "policies/ai_policy.html",
+    "second_brain": "second-brain.html",
 }
 
 # --- Ensure docs directory exists ---
@@ -108,5 +109,11 @@ os.makedirs(os.path.join(DOCS_DIR, "policies"), exist_ok=True)
 ai_policy_html = get_template("ai_policy").render()
 with open(os.path.join(DOCS_DIR, "policies", "ai_policy.html"), "w", encoding="utf-8") as f:
     f.write(ai_policy_html)
+
+# --- Render second-brain.html ---
+print("Rendering second-brain.html ...")
+second_brain_html = get_template("second_brain").render()
+with open(os.path.join(DOCS_DIR, "second-brain.html"), "w", encoding="utf-8") as f:
+    f.write(second_brain_html)
 
 print("Site generation complete.")

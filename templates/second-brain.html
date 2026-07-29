@@ -1,0 +1,851 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-sm py-3">
+
+<!-- HERO -->
+<div class="text-center py-4 mb-4 bg-dark text-white rounded-3">
+  <h1 class="display-5 fw-bold">🧠 Build Your Second Brain</h1>
+  <p class="lead mb-0">Obsidian + an AI agent that lives inside your notes.</p>
+  <p class="text-white-50 mt-2">~15 minutes. Free to start. Works on Windows, Mac, and Linux.</p>
+</div>
+
+<!-- PROGRESS TRACKER -->
+<div class="card mb-4 border-0 bg-light">
+  <div class="card-body">
+    <h5 class="card-title mb-3">📋 What we're doing</h5>
+    <div class="row g-2">
+      <div class="col-sm-2"><span class="badge bg-secondary me-2">1</span> Install Obsidian</div>
+      <div class="col-sm-2"><span class="badge bg-secondary me-2">2</span> Write CLAUDE.md</div>
+      <div class="col-sm-4"><span class="badge bg-secondary me-2">3</span> Choose Claude or DeepSeek</div>
+      <div class="col-sm-2"><span class="badge bg-secondary me-2">4</span> Install the agent</div>
+      <div class="col-sm-2"><span class="badge bg-secondary me-2">5</span> Use it</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IS THIS -->
+<hr class="my-5">
+<h2 class="mt-4 mb-3">What is a second brain?</h2>
+<p>Short version: you keep all your notes, plans, projects, and ideas in <strong>Obsidian</strong> (a free app). You connect an <strong>AI agent</strong> that can read those notes, write new ones, search for things, and help you think. The AI reads a file called <code>CLAUDE.md</code> that you write — it tells the AI what you're working on and how you like to work. The result: an assistant that actually knows your context, not one you have to explain everything to every time.</p>
+<p>Longer version: this is the setup we use to produce <a href="index.html">Less Than Zero</a> — the radio show, the research, the scripts, the planning. It works for anything: creative projects, work, personal planning, studying, writing. The pattern is always the same. What you put in the vault is up to you.</p>
+
+<!-- BEFORE YOU START -->
+<hr class="my-5">
+<h2 id="prereqs" class="mt-4 mb-3">0. Before you start</h2>
+
+<div class="row g-4">
+  <div class="col-md-6">
+    <div class="card h-100 border-success">
+      <div class="card-header bg-success text-white">✅ You need these</div>
+      <div class="card-body">
+        <ul class="mb-0">
+          <li><strong>A computer</strong> — Windows, Mac, or Linux</li>
+          <li><strong>5–15 minutes</strong> of attention</li>
+          <li><strong>A web browser</strong> to download things</li>
+          <li>For Claude: a Google account or email to sign up</li>
+          <li>For DeepSeek: a credit/debit card (they'll charge ~$2)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100 border-warning">
+      <div class="card-header bg-warning text-dark">⚠️ You don't need</div>
+      <div class="card-body">
+        <ul class="mb-0">
+          <li>Programming knowledge</li>
+          <li>A powerful computer</li>
+          <li>To understand how AI works</li>
+          <li>To pay for anything (unless you choose Claude Pro)</li>
+          <li>A PhD in anything</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-info mt-3">
+  <strong>🪟 Windows users:</strong> both AI tools need <strong>WSL</strong> (Windows Subsystem for Linux). If you don't have it yet, open PowerShell as Administrator and run <code>wsl --install</code>, restart, and set a username/password. Takes 5 minutes. You only do this once. <a href="#platform-windows">Jump to Windows details ↓</a>
+</div>
+
+<!-- WHICH AGENT? -->
+<hr class="my-5">
+<h2 class="mt-4 mb-3">Which AI agent should I pick?</h2>
+
+<div class="row g-4">
+  <div class="col-md-6">
+    <div class="card h-100 border-primary">
+      <div class="card-header bg-primary text-white d-flex align-items-center gap-2">
+        <span style="font-size:1.5rem">🤖</span>
+        <div><strong>Claude Code</strong><br><small class="text-white-50">by Anthropic</small></div>
+      </div>
+      <div class="card-body">
+        <table class="table table-sm mb-0">
+          <tr><td class="text-muted">Setup time</td><td>~5 minutes</td></tr>
+          <tr><td class="text-muted">Cost</td><td>Free tier / $20/mo Pro</td></tr>
+          <tr><td class="text-muted">Best for</td><td>Complex projects, deep reasoning</td></tr>
+          <tr><td class="text-muted">Vibe</td><td>Polished, powerful, opinionated</td></tr>
+          <tr><td class="text-muted">Windows</td><td>Needs WSL</td></tr>
+        </table>
+        <p class="mt-2 mb-0 small text-muted">Pick this if: you want the simplest setup, the smartest model, and you don't mind $20/month for Pro.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100 border-success">
+      <div class="card-header bg-success text-white d-flex align-items-center gap-2">
+        <span style="font-size:1.5rem">🔧</span>
+        <div><strong>Hermes Agent + DeepSeek</strong><br><small class="text-white-50">by Nous Research + DeepSeek</small></div>
+      </div>
+      <div class="card-body">
+        <table class="table table-sm mb-0">
+          <tr><td class="text-muted">Setup time</td><td>~10 minutes</td></tr>
+          <tr><td class="text-muted">Cost</td><td>~$2–5/month (pay-per-use)</td></tr>
+          <tr><td class="text-muted">Best for</td><td>Budget-conscious, open-source fans</td></tr>
+          <tr><td class="text-muted">Vibe</td><td>Flexible, hackable, cheap to run</td></tr>
+          <tr><td class="text-muted">Windows</td><td>Needs WSL</td></tr>
+        </table>
+        <p class="mt-2 mb-0 small text-muted">Pick this if: you want to keep costs near zero, you like open-source tools, or you're curious about different AI models.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 1: OBSIDIAN -->
+<hr class="my-5">
+<h2 id="step-1" class="mt-4 mb-3">1. Install Obsidian</h2>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <ol>
+      <li class="mb-2">Go to <a href="https://obsidian.md" target="_blank">obsidian.md</a> and click the big download button. It'll pick your OS automatically.</li>
+      <li class="mb-2">Install it like any other app — open the downloaded file, follow the prompts.</li>
+      <li class="mb-2">Open Obsidian. It'll ask you to <strong>"Create a new vault"</strong>. Click that.</li>
+      <li class="mb-2">Pick a name — anything you want. "My Brain" is fine. "Second Brain" is fine.</li>
+      <li class="mb-2"><strong>Where to put it:</strong>
+        <ul>
+          <li><strong>🪟 Windows:</strong> <code>C:\Users\YOURNAME\Documents\Obsidian\My Brain</code> — create the Obsidian folder in Documents first, then put your vault inside it.</li>
+          <li><strong>🍎 Mac:</strong> <code>/Users/YOURNAME/Documents/Obsidian/My Brain</code> — same idea, Documents → Obsidian → vault.</li>
+          <li><strong>🐧 Linux:</strong> <code>/home/YOURNAME/Documents/Obsidian/My Brain</code> — same pattern.</li>
+        </ul>
+        <span class="text-muted">Putting it in Documents keeps it findable. The Obsidian folder keeps things tidy if you ever have more than one vault.</span>
+      </li>
+      <li>Click Create. You'll see an empty vault with a "Welcome" note. That's it — Obsidian is ready.</li>
+    </ol>
+    <div class="alert alert-success mb-0">
+      <strong>✅ Verify:</strong> you should see the Obsidian window with a file explorer on the left, a note open in the middle, and nothing else. The note probably says "Welcome to Obsidian!"
+    </div>
+  </div>
+</div>
+
+<!-- STEP 2: CLAUDE.MD -->
+<hr class="my-5">
+<h2 id="step-2" class="mt-4 mb-3">2. Create your CLAUDE.md</h2>
+
+<p>This is the most important file in your setup. It's the instruction manual the AI reads every time it starts. A good CLAUDE.md makes the AI useful. A bad one (or none) and the AI is just a generic chatbot that doesn't know you.</p>
+
+<div class="row g-4 mb-4">
+  <div class="col-md-6">
+    <div class="card border-info h-100">
+      <div class="card-header bg-info text-white">📝 What to put in it</div>
+      <div class="card-body">
+        <ul class="mb-0">
+          <li><strong>What this vault is for</strong><br><small class="text-muted">"This is my personal planning vault" or "I'm writing a novel" or "This is for my small business"</small></li>
+          <li><strong>A name for your AI</strong><br><small class="text-muted">Let the AI pick its own name — it sticks and becomes part of the vibe. "I'll call you Peel" or "You sound like a Sam."</small></li>
+          <li><strong>How you want to work together</strong><br><small class="text-muted">Friendly and conversational? Blunt and numbers-driven? A collaborator who keeps you on track?</small></li>
+          <li><strong>Key folders and what's in them</strong><br><small class="text-muted">/Projects/ for active work, /Journal/ for daily notes, /Archive/ for old stuff</small></li>
+          <li><strong>What you need from them</strong><br><small class="text-muted">"Research artists for my radio show" / "Be blunt about my spending" / "Help me write — I draft, you polish"</small></li>
+          <li><strong>Rules and boundaries</strong><br><small class="text-muted">"Never delete without asking" / "Don't touch the /Private/ folder"</small></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card border-secondary h-100">
+      <div class="card-header bg-secondary text-white">❌ What NOT to put in it</div>
+      <div class="card-body">
+        <ul class="mb-0">
+          <li>Passwords or API keys</li>
+          <li>Credit card numbers</li>
+          <li>Private keys or secrets of any kind</li>
+          <li>Anything you wouldn't want an AI service to read</li>
+        </ul>
+        <p class="small text-muted mt-2 mb-0">Both Claude and DeepSeek process this file on their servers. Treat it like something you'd email to a smart colleague.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h5>How to create it</h5>
+<ol>
+  <li>In Obsidian, click the <strong>New note</strong> button (or press <kbd>Ctrl+N</kbd> / <kbd>⌘N</kbd>).</li>
+  <li>Title it <strong>CLAUDE.md</strong> (exactly that — capital letters, .md extension).</li>
+  <li>Write your instructions. Start simple. You can always add more later.</li>
+</ol>
+
+<div class="card bg-light mb-3">
+  <div class="card-header fw-bold">📄 Starter template — copy this</div>
+  <div class="card-body">
+    <pre class="mb-0" id="claude-template"><code># CLAUDE.md
+
+Hey — welcome to my vault. This is my second brain. Everything I'm working on lives here, and you're my thinking partner. Feel free to be yourself.
+
+## Pick a name
+
+Give yourself a name — something that fits how we'll work together. Keep it. Introduce yourself when we start. I'll use it.
+
+## What I'm working on
+- [Main project — what it is, where it lives in the vault, what stage it's at]
+- [Side projects — anything else you should know about]
+
+## How we work
+- Be friendly and conversational. You're a collaborator, not a tool.
+- Read my files before acting. The context is in the notes.
+- If you're not sure about something, ask. Better to clarify than guess.
+- Keep me on track — I can get distracted. Gentle nudges are welcome.
+
+## Where things live
+- /Projects/ — active work
+- /Journal/ — daily notes and reflections
+- /Reference/ — things to keep, rarely change
+- /Archive/ — old stuff, still searchable
+
+## Rules
+- Never delete or move files without asking
+- Don't touch anything in /Private/
+- If I'm going in circles, tell me
+
+## What I need from you
+[Be specific. Examples: "Research artists for a weekly radio show," "Track my spending and be blunt about it," "Help me plan a house renovation," "Write with me — I draft, you clean up."]</code></pre>
+    <button class="btn btn-outline-secondary btn-sm mt-2" onclick="copyCode('claude-template', this)">📋 Copy to clipboard</button>
+  </div>
+</div>
+
+<div class="alert alert-success">
+  <strong>✅ Verify:</strong> in Obsidian's file explorer (left sidebar), you should see a file called <code>CLAUDE.md</code>. Click it — your instructions should be there.
+</div>
+
+<div class="alert alert-light border">
+  <strong>💡 Why is it called CLAUDE.md?</strong> The name comes from Claude (Anthropic's AI), but it's become the <em>universal</em> convention. Claude Code, Hermes, Cursor, Codex, OpenCode — they all look for <code>CLAUDE.md</code>. It's not a Claude-only thing; it's simply the standard filename the entire ecosystem agreed on.</div>
+
+<!-- STEP 3: PICK AND INSTALL -->
+<hr class="my-5">
+<h2 id="step-3" class="mt-4 mb-3">3. Pick and install your AI agent</h2>
+
+<p>Both options below give you the same result: an AI that can read and write files in your vault. Pick one. You can always switch later.</p>
+
+<!-- OPTION A: CLAUDE CODE -->
+<div class="card border-primary mb-4" id="option-claude">
+  <div class="card-header bg-primary text-white">
+    <h3 class="h4 mb-0">🤖 Option A — Claude Code</h3>
+  </div>
+  <div class="card-body">
+
+    <div class="alert alert-primary">
+      <strong>What you're installing:</strong> <code>claude</code> — a command-line tool from Anthropic. You type <code>claude</code> in your vault folder and it starts. That's it.
+    </div>
+
+    <h5>Step-by-step</h5>
+
+    <div class="accordion mb-3" id="claude-install">
+      <div class="accordion-item">
+        <h2 class="accordion-header" class="mt-4 mb-3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#claude-mac">🍎 Mac</button></h2>
+        <div id="claude-mac" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <ol>
+              <li class="mb-2">Open <strong>Terminal</strong> (find it in Applications → Utilities, or search Spotlight for "Terminal")</li>
+              <li class="mb-2">Install Node.js if you don't have it:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="claude-mac-node"><code>brew install node</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('claude-mac-node', this)">📋 Copy</button>
+                <small class="text-muted d-block mt-1">No Homebrew? Install it first: <a href="https://brew.sh" target="_blank">brew.sh</a></small>
+              </li>
+              <li class="mb-2">Install Claude Code:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="claude-mac-install"><code>npm install -g @anthropic-ai/claude-code</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('claude-mac-install', this)">📋 Copy</button>
+              </li>
+              <li class="mb-2">Navigate to your vault:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="claude-mac-cd"><code>cd /Users/YOURNAME/Documents/Obsidian/My\ Brain</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('claude-mac-cd', this)">📋 Copy</button>
+                <small class="text-muted d-block mt-1">Replace <code>My Brain</code> with whatever you named your vault. If you put it somewhere else, type <code>cd </code> (with a space) then drag your vault folder from Finder into Terminal.</small>
+              </li>
+              <li>Start Claude:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="claude-mac-run"><code>claude</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('claude-mac-run', this)">📋 Copy</button>
+              </li>
+            </ol>
+            <p class="mb-0">First run: Claude will ask you to sign in (browser window opens). Sign in with Google or email. After that, you're in.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" class="mt-4 mb-3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#claude-linux">🐧 Linux</button></h2>
+        <div id="claude-linux" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <ol>
+              <li class="mb-2">Open a terminal.</li>
+              <li class="mb-2">Install Node.js if you don't have it:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="claude-linux-node"><code># Ubuntu/Debian:
+sudo apt update && sudo apt install nodejs npm -y
+
+# Fedora:
+sudo dnf install nodejs npm -y
+
+# Arch:
+sudo pacman -S nodejs npm</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('claude-linux-node', this)">📋 Copy</button>
+              </li>
+              <li class="mb-2">Install Claude Code:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="claude-linux-install"><code>npm install -g @anthropic-ai/claude-code</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('claude-linux-install', this)">📋 Copy</button>
+              </li>
+              <li class="mb-2">Navigate to your vault:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="claude-linux-cd"><code>cd /Users/YOURNAME/Documents/Obsidian/My\ Brain</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('claude-linux-cd', this)">📋 Copy</button>
+                <small class="text-muted d-block mt-1">Replace <code>My Brain</code> with whatever you named your vault.</small>
+              </li>
+              <li>Start Claude:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="claude-linux-run"><code>claude</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('claude-linux-run', this)">📋 Copy</button>
+              </li>
+            </ol>
+            <p class="mb-0">First run: Claude will ask you to sign in. Follow the link it gives you.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" class="mt-4 mb-3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#claude-windows">🪟 Windows (via WSL)</button></h2>
+        <div id="claude-windows" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <div class="alert alert-warning mb-2">
+              <strong>⚠️ Prerequisite:</strong> You need WSL installed. If you haven't done it yet: open <strong>PowerShell as Administrator</strong> (right-click Start → Terminal (Admin)), run <code>wsl --install</code>, restart your computer, and set a Linux username/password when prompted. <a href="#platform-windows">Full Windows details ↓</a>
+            </div>
+            <ol>
+              <li class="mb-2">Open <strong>WSL</strong> (search Start menu for "WSL" or "Ubuntu")</li>
+              <li class="mb-2">Install Node.js:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="claude-win-node"><code>sudo apt update && sudo apt install nodejs npm -y</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('claude-win-node', this)">📋 Copy</button>
+              </li>
+              <li class="mb-2">Install Claude Code:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="claude-win-install"><code>npm install -g @anthropic-ai/claude-code</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('claude-win-install', this)">📋 Copy</button>
+              </li>
+              <li class="mb-2">Navigate to your vault:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="claude-win-cd"><code>cd /mnt/c/Users/YOURNAME/Documents/Obsidian/My\ Brain</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('claude-win-cd', this)">📋 Copy</button>
+                <small class="text-muted d-block mt-1">Replace <code>YOURNAME</code> with your Windows username and <code>My Brain</code> with your vault name. Your C: drive is <code>/mnt/c/</code> in WSL.</small>
+              </li>
+              <li>Start Claude:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="claude-win-run"><code>claude</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('claude-win-run', this)">📋 Copy</button>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-success">
+      <strong>✅ Verify:</strong> after typing <code>claude</code>, you should see Claude greet you and mention it's read your CLAUDE.md. Try typing <strong>"what's in my vault?"</strong> — it should tell you about the files it can see.
+    </div>
+
+    <h5>Cost (Claude)</h5>
+    <p><strong>Free tier:</strong> limited usage per day, works fine for trying it out.<br>
+    <strong>Claude Pro:</strong> $20/month — higher limits, best models, worth it if you use it daily.<br>
+    <a href="https://claude.ai/pricing" target="_blank">See current pricing →</a></p>
+
+    <h5>Daily use</h5>
+    <pre class="bg-dark text-light p-2 rounded"><code>cd /path/to/your/vault
+claude
+# Type what you need. Press Ctrl+C to exit.</code></pre>
+
+  </div>
+</div>
+
+<!-- OPTION B: HERMES + DEEPSEEK -->
+<div class="card border-success mb-4" id="option-hermes">
+  <div class="card-header bg-success text-white">
+    <h3 class="h4 mb-0">🔧 Option B — Hermes Agent + DeepSeek</h3>
+  </div>
+  <div class="card-body">
+
+    <div class="alert alert-success">
+      <strong>What you're installing:</strong> <code>hermes</code> — an open-source agent from Nous Research, configured to use DeepSeek's AI models. You'll need a DeepSeek API key (free to create, pay-per-use).
+    </div>
+
+    <h5>Step-by-step</h5>
+
+    <div class="accordion mb-3" id="hermes-install">
+      <div class="accordion-item">
+        <h2 class="accordion-header" class="mt-4 mb-3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hermes-mac">🍎 Mac</button></h2>
+        <div id="hermes-mac" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <ol>
+              <li class="mb-2">Open <strong>Terminal</strong>.</li>
+              <li class="mb-2">Install Hermes:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="hermes-mac-install"><code>curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('hermes-mac-install', this)">📋 Copy</button>
+              </li>
+              <li class="mb-2">Get a DeepSeek API key:
+                <ol type="a">
+                  <li>Go to <a href="https://platform.deepseek.com" target="_blank">platform.deepseek.com</a></li>
+                  <li>Sign up (email or Google)</li>
+                  <li>Go to "API Keys" → create a new key → copy it</li>
+                </ol>
+              </li>
+              <li class="mb-2">Configure Hermes to use DeepSeek:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="hermes-mac-config"><code>hermes config set provider deepseek
+hermes config set model deepseek-chat
+hermes config set api_key YOUR_DEEPSEEK_KEY</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('hermes-mac-config', this)">📋 Copy</button>
+                <small class="text-muted d-block mt-1">Replace <code>YOUR_DEEPSEEK_KEY</code> with the actual key you copied. It starts with <code>sk-</code>.</small>
+              </li>
+              <li class="mb-2">Navigate to your vault:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="hermes-mac-cd"><code>cd /Users/YOURNAME/Documents/Obsidian/My\ Brain</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('hermes-mac-cd', this)">📋 Copy</button>
+              </li>
+              <li>Start Hermes:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="hermes-mac-run"><code>hermes</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('hermes-mac-run', this)">📋 Copy</button>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" class="mt-4 mb-3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hermes-linux">🐧 Linux</button></h2>
+        <div id="hermes-linux" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <ol>
+              <li class="mb-2">Open a terminal.</li>
+              <li class="mb-2">Install Hermes:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="hermes-linux-install"><code>curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('hermes-linux-install', this)">📋 Copy</button>
+              </li>
+              <li class="mb-2">Get a DeepSeek API key:
+                <ol type="a">
+                  <li>Go to <a href="https://platform.deepseek.com" target="_blank">platform.deepseek.com</a></li>
+                  <li>Sign up → API Keys → create key → copy it</li>
+                </ol>
+              </li>
+              <li class="mb-2">Configure Hermes:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="hermes-linux-config"><code>hermes config set provider deepseek
+hermes config set model deepseek-chat
+hermes config set api_key YOUR_DEEPSEEK_KEY</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('hermes-linux-config', this)">📋 Copy</button>
+              </li>
+              <li class="mb-2">Navigate to your vault:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="hermes-linux-cd"><code>cd /Users/YOURNAME/Documents/Obsidian/My\ Brain</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('hermes-linux-cd', this)">📋 Copy</button>
+              </li>
+              <li>Start:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="hermes-linux-run"><code>hermes</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('hermes-linux-run', this)">📋 Copy</button>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" class="mt-4 mb-3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hermes-windows">🪟 Windows (via WSL)</button></h2>
+        <div id="hermes-windows" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <div class="alert alert-warning mb-2">
+              <strong>⚠️ Prerequisite:</strong> WSL must be installed. <a href="#platform-windows">See Windows section ↓</a>
+            </div>
+            <ol>
+              <li class="mb-2">Open WSL (search Start for "WSL" or "Ubuntu")</li>
+              <li class="mb-2">Install Hermes:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="hermes-win-install"><code>curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('hermes-win-install', this)">📋 Copy</button>
+              </li>
+              <li class="mb-2">Get a DeepSeek API key from <a href="https://platform.deepseek.com" target="_blank">platform.deepseek.com</a></li>
+              <li class="mb-2">Configure:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="hermes-win-config"><code>hermes config set provider deepseek
+hermes config set model deepseek-chat
+hermes config set api_key YOUR_KEY</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('hermes-win-config', this)">📋 Copy</button>
+              </li>
+              <li class="mb-2">Navigate to your vault:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="hermes-win-cd"><code>cd /mnt/c/Users/YOURNAME/Documents/Obsidian/My\ Brain</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('hermes-win-cd', this)">📋 Copy</button>
+              </li>
+              <li>Start:
+                <pre class="bg-dark text-light p-2 rounded mt-1" id="hermes-win-run"><code>hermes</code></pre>
+                <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('hermes-win-run', this)">📋 Copy</button>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-success">
+      <strong>✅ Verify:</strong> after typing <code>hermes</code>, you should see a welcome message. Try typing <strong>"what files are in my vault?"</strong> — it should list them.
+    </div>
+
+    <h5>Cost (Hermes + DeepSeek)</h5>
+    <p>DeepSeek charges by usage — roughly <strong>$2–$5/month</strong> for moderate daily use. You pre-load credit on your DeepSeek account. Hermes itself is free and open source. <a href="https://platform.deepseek.com" target="_blank">DeepSeek platform →</a></p>
+
+  </div>
+</div>
+
+<!-- PLATFORM NOTES -->
+<hr class="my-5">
+<h2 id="platform-notes" class="mt-4 mb-3">Platform-specific notes</h2>
+
+<div class="row g-4">
+  <div class="col-md-4">
+    <div class="card h-100" id="platform-windows">
+      <div class="card-header">🪟 Windows</div>
+      <div class="card-body">
+        <p><strong>WSL is required</strong> for both Claude Code and Hermes. Here's the full setup:</p>
+        <ol>
+          <li>Right-click Start → <strong>Terminal (Admin)</strong></li>
+          <li>Run: <code>wsl --install</code></li>
+          <li>Restart your computer</li>
+          <li>On restart, a Linux terminal opens. Set a username and password (simple is fine — it's just local)</li>
+          <li>You're done. WSL is installed forever. Open it anytime from the Start menu.</li>
+        </ol>
+        <p class="small text-muted mb-0"><strong>Vault location:</strong> put your Obsidian vault at <code>C:\Users\YOURNAME\Documents\Obsidian\My Brain</code>. In WSL, that's <code>/mnt/c/Users/YOURNAME/Documents/Obsidian/My\ Brain</code>. Obsidian opens it normally in Windows; the AI agent reaches it through WSL at the <code>/mnt/c/...</code> path.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-header">🍎 Mac</div>
+      <div class="card-body">
+        <p>Everything runs natively. The only prerequisite is <strong>Node.js</strong>:</p>
+        <pre class="bg-dark text-light p-2 rounded"><code>brew install node</code></pre>
+        <p>No Homebrew? Install it from <a href="https://brew.sh" target="_blank">brew.sh</a> first — it's the Mac package manager, you'll use it forever.</p>
+        <p class="small text-muted mb-0"><strong>Finding your vault path:</strong> in Finder, right-click your vault folder, hold Option, click "Copy [name] as Pathname". Or just drag the folder into Terminal after typing <code>cd </code>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-header">🐧 Linux</div>
+      <div class="card-body">
+        <p>Everything runs natively. You probably have Node.js — if not:</p>
+        <pre class="bg-dark text-light p-2 rounded"><code># Ubuntu/Debian
+sudo apt install nodejs npm -y
+
+# Fedora
+sudo dnf install nodejs npm -y</code></pre>
+        <p class="small text-muted mb-0">If <code>npm install -g</code> gives permission errors, <a href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally" target="_blank">fix npm permissions</a> (2-minute fix).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- USING IT -->
+<hr class="my-5">
+<h2 class="mt-4 mb-3">How you actually use it — day to day</h2>
+
+<p>Here's the physical process. Once it's installed, this is what you do every time.</p>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <ol class="mb-0">
+      <li class="mb-3"><strong>Open your terminal.</strong> On Mac: Spotlight → Terminal. On Windows: Start → WSL or Ubuntu. On Linux: you know where it is.</li>
+      <li class="mb-3"><strong>Go to your vault.</strong> Type the command for your OS exactly as shown — replace <code>YOURNAME</code> with your username and <code>My Brain</code> with whatever you named your vault:
+        <div class="row g-2 mt-2 mb-2">
+          <div class="col-md-4">
+            <div class="bg-dark text-light p-2 rounded" id="cd-windows"><code>cd /mnt/c/Users/YOURNAME/Documents/Obsidian/My\ Brain</code></div>
+            <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('cd-windows', this)">📋 Copy</button>
+            <div class="small text-muted mt-1">🪟 Windows (WSL)</div>
+          </div>
+          <div class="col-md-4">
+            <div class="bg-dark text-light p-2 rounded" id="cd-mac"><code>cd /Users/YOURNAME/Documents/Obsidian/My\ Brain</code></div>
+            <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('cd-mac', this)">📋 Copy</button>
+            <div class="small text-muted mt-1">🍎 Mac</div>
+          </div>
+          <div class="col-md-4">
+            <div class="bg-dark text-light p-2 rounded" id="cd-linux"><code>cd /home/YOURNAME/Documents/Obsidian/My\ Brain</code></div>
+            <button class="btn btn-outline-secondary btn-sm mt-1" onclick="copyCode('cd-linux', this)">📋 Copy</button>
+            <div class="small text-muted mt-1">🐧 Linux</div>
+          </div>
+        </div>
+        The <code>\ </code> before <code>Brain</code> is important — it tells the terminal the space is part of the name. The AI can only see the folder you start it from, so this step matters.
+      </li>
+      <li class="mb-3"><strong>Start the AI.</strong> Type <code>claude</code> or <code>hermes</code> and press Enter. It'll greet you — if you set up a name in CLAUDE.md, it'll introduce itself by that name. It tells you it's read your CLAUDE.md.</li>
+      <li class="mb-3"><strong>Talk to it.</strong> Type what you need in plain English. "Update my finances." "Research this artist." "What did I say about the house in my last journal entry?" "Draft a reply to this email." It reads your files, writes new ones, searches across everything. You talk. It works.</li>
+      <li class="mb-3"><strong>End the session.</strong> Press <kbd>Ctrl+C</kbd> (or type <code>/exit</code> in some tools). The AI goes away. Your files stay. Your CLAUDE.md stays. Next time you start it, it remembers everything you told it in CLAUDE.md — but not what you chatted about last session. If something from last session matters, put it in a note.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="row g-4 mb-4">
+  <div class="col-md-6">
+    <div class="card h-100 border-0 bg-light">
+      <div class="card-body">
+        <h5>✅ A typical session</h5>
+        <pre class="mb-0 small"><code>$ cd /Users/chris/Documents/Obsidian/My\ Brain
+$ claude
+
+👋 Hey! I'm Sam. I've read your CLAUDE.md.
+   I see you're working on the house sale and the newsletter.
+   What are we doing today?
+
+> Update my finances from the latest Monzo export
+
+📊 Got it. I can see Personal Finances.md and the new CSV.
+   Let me parse that and update the tracker...
+   Done. Card spend is £287 this month — £113 left.
+   Plata balance is down to £5,873.
+   Want me to flag anything that looks off?
+
+> Yeah, anything unusual?
+
+🔍 Two things:
+   1. £89 at Amazon — not your usual pattern
+   2. Admiral DD failed this month — does that need chasing?</code></pre>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100 border-0 bg-light">
+      <div class="card-body">
+        <h5>💡 What to expect</h5>
+        <ul class="mb-0">
+          <li><strong>It greets you by name.</strong> If your CLAUDE.md asks it to pick a name, it'll use the same one every time. "Morning — Sam here. What are we doing?"</li>
+          <li><strong>It reads CLAUDE.md fresh each session.</strong> Update it as projects change. The AI always starts from current context.</li>
+          <li><strong>It only knows what's in your vault.</strong> It can't browse the web unless you ask it to search. It can't see other folders. It works inside your notes.</li>
+          <li><strong>It writes to your vault.</strong> New notes, updated trackers, drafts — they appear in Obsidian. You can open them, edit them, delete them. They're your files.</li>
+          <li><strong>You're driving.</strong> The AI suggests, drafts, researches, organises. You decide. If it gets something wrong, tell it. It'll fix it.</li>
+          <li><strong>Session ends, files stay.</strong> The conversation vanishes when you close the terminal. Everything it wrote to your vault stays. That's the point.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h5 class="mt-4 mb-3">Real projects running this way</h5>
+
+<div class="row g-4 mb-4">
+  <div class="col-md-6">
+    <div class="card h-100 border-primary">
+      <div class="card-header bg-primary text-white"><strong>📻 Weekly radio show prep</strong></div>
+      <div class="card-body">
+        <p class="small text-muted mb-2">Every Thursday, a 2-hour live radio show. The AI handles research, writing, and planning.</p>
+        <p><strong>Chris does:</strong> picks the tracks, writes a brief in <code>AI Guidelines.md</code> — "here's the Qobuz playlist, the closer is Iron Maiden, Moment in History is these three tracks, new releases to highlight are X and Y."</p>
+        <p><strong>The AI does:</strong> researches every artist and track — chart positions, album context, release history, trivia. Fact-checks names, dates, and connections. Handles production logistics like file tagging, caption timing, and scheduling. Chris does the creative work — track ordering, scripting, tile art. The AI is the researcher and the organiser, not the voice.</p>
+        <p class="mb-0 small text-muted">Result: the research that used to take 3–4 hours of Googling is done in minutes. Chris spends his time on the creative decisions — what to play, what to say, how to say it.</p>
+        <p class="mt-2 mb-0 small"><strong>⚖️</strong> Less Than Zero's <a href="policies/ai_policy.html">AI policy</a> is clear: the AI handles admin and research. Creative work — tracklist ordering, tile art, social scripting — stays human. The show is one person's taste and one person's voice.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100 border-success">
+      <div class="card-header bg-success text-white"><strong>📅 Daily journal with memory</strong></div>
+      <div class="card-body">
+        <p class="small text-muted mb-2">Every evening, a journal entry. The AI helps reflect and remember.</p>
+        <p><strong>Chris does:</strong> talks through his day — what happened, what's on his mind.</p>
+        <p><strong>The AI does:</strong> pulls out highlights, lowlights, and the one thing that sat with him. Tracks habits. Cross-references previous entries ("you mentioned feeling this way last Tuesday too — pattern?"). Surfaces things he might have forgotten.</p>
+        <p class="mb-0 small text-muted">Result: a journal that actually remembers what you wrote yesterday. Not a diary — a second memory.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mb-4">
+  <div class="col-md-6">
+    <div class="card h-100 border-info">
+      <div class="card-header bg-info text-white"><strong>💰 Financial tracking (Peel)</strong></div>
+      <div class="card-body">
+        <p class="small text-muted mb-2">A single <code>Personal Finances.md</code> file. The AI takes on a persona — blunt, numbers-driven.</p>
+        <p><strong>Chris does:</strong> exports Monzo CSV, drops it in the vault, says "update the finances."</p>
+        <p><strong>The AI does:</strong> parses the bank export, updates the budget tracker, flags spending anomalies, calculates how much Plata is left, reminds him his monthly card budget is £400 and he's at £312 with 6 days to go. No small wins. No sugarcoating.</p>
+        <p class="mb-0 small text-muted">Result: a financial advisor that doesn't charge £200/hour and actually reads the numbers.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100 border-warning">
+      <div class="card-header bg-warning text-dark"><strong>🏠 House sale project</strong></div>
+      <div class="card-body">
+        <p class="small text-muted mb-2">Selling a house. Multiple estate agents to coordinate. Budgets to track. A chain to manage.</p>
+        <p><strong>Chris does:</strong> has conversations, makes calls, makes decisions.</p>
+        <p><strong>The AI does:</strong> maintains the project document with a dated activity log of every call, email, and development. Compares agent valuations. Tracks the budget calculator as real numbers come in. Flags new listings in the target area. Keeps a running summary of where things stand.</p>
+        <p class="mb-0 small text-muted">Result: a project manager that never loses track, never forgets to log a call, and always knows exactly what happened when.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h5 class="mt-4 mb-3">The pattern</h5>
+<p>You write a brief. The AI works inside your notes — reading, writing, searching, remembering. You stay in charge of decisions. It handles the execution. What you put in the vault is up to you: a radio show, a house sale, a budget, a novel, a PhD, a small business. The setup is the same.</p>
+
+<div class="row g-4 mt-3">
+  <div class="col-md-6">
+    <div class="card h-100 border-0 bg-light">
+      <div class="card-body">
+        <h5>✅ Real things Chris says</h5>
+        <ul class="mb-0">
+          <li>"Here's the Qobuz link — generate the episode"</li>
+          <li>"Update my finances from this Monzo export"</li>
+          <li>"Log this call with the estate agent and update the activity log"</li>
+          <li>"What did I say about stress in my journal this week?"</li>
+          <li>"Search my vault for anything about the house valuation"</li>
+          <li>"What new music is out this Friday?"</li>
+          <li>"Read CLAUDE.md and tell me what you know about me"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100 border-0 bg-light">
+      <div class="card-body">
+        <h5>💡 Things to know</h5>
+        <ul class="mb-0">
+          <li><strong>The AI remembers.</strong> It reads CLAUDE.md every session. Update it as your life changes.</li>
+          <li><strong>It works in your files.</strong> It reads what you wrote. It writes new notes. It searches across everything.</li>
+          <li><strong>You're still in charge.</strong> The AI suggests, drafts, and organises — you decide.</li>
+          <li><strong>Start with one thing.</strong> Pick one project. Get the AI helping with it. Add more as you trust it.</li>
+          <li><strong>Personas work.</strong> The AI picks a name and a voice. "You're my blunt financial advisor — call yourself Peel." The name sticks. The persona sticks.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAKING IT YOURS -->
+<hr class="my-5">
+<h2 class="mt-4 mb-3">Making it yours</h2>
+<p>The CLAUDE.md is the whole game. A good one turns the AI from a generic chatbot into something that knows your projects, your preferences, and your rules. As you use it, you'll find yourself adding to it — "actually, always use this format," "don't touch these folders," "here's how I think about this."</p>
+<p><strong>Let it pick a name.</strong> One of the first things a good CLAUDE.md does is ask the AI to name itself. It sounds small, but it changes the dynamic — you're talking to Peel, or Sam, or whoever they decided to be. The name sticks across sessions. A named AI is a collaborator. An unnamed one is a tool.</p>
+<p>That's the second brain emerging. The AI learns how you think because you told it — and it shows up with a name and a voice you recognise.</p>
+
+<!-- TROUBLESHOOTING -->
+<hr class="my-5">
+<h2 class="mt-4 mb-3">Troubleshooting</h2>
+
+<div class="accordion" id="troubleshooting">
+  <div class="accordion-item">
+    <h2 class="accordion-header" class="mt-4 mb-3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ts1">"command not found: claude" (or "hermes")</button></h2>
+    <div id="ts1" class="accordion-collapse collapse">
+      <div class="accordion-body">
+        <p>The tool didn't install to a place your terminal can find. Try:</p>
+        <ol>
+          <li>Close and reopen your terminal (this refreshes the command path)</li>
+          <li>If that doesn't work: <code>npm install -g @anthropic-ai/claude-code</code> (or the Hermes install command) again and watch for errors</li>
+          <li>If you see permission errors: fix <a href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally" target="_blank">npm global permissions</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" class="mt-4 mb-3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ts2">The AI can't find my vault / doesn't see my files</button></h2>
+    <div id="ts2" class="accordion-collapse collapse">
+      <div class="accordion-body">
+        <p>You probably started the AI from the wrong folder. Make sure you <code>cd</code> into your vault folder first. To check where you are: type <code>pwd</code> (print working directory). It should show the path to your vault folder.</p>
+        <p>Windows/WSL: remember your C: drive is at <code>/mnt/c/</code> — so <code>C:\Users\YOURNAME\Documents\Obsidian\My Brain</code> becomes <code>/mnt/c/Users/YOURNAME/Documents/Obsidian/My\ Brain</code></p>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" class="mt-4 mb-3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ts3">"npm: command not found"</button></h2>
+    <div id="ts3" class="accordion-collapse collapse">
+      <div class="accordion-body">
+        <p>Node.js isn't installed. See the platform notes above for your OS. On Linux: <code>sudo apt install nodejs npm -y</code> (Ubuntu/Debian) or <code>sudo dnf install nodejs npm -y</code> (Fedora).</p>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" class="mt-4 mb-3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ts4">Hermes: "Invalid API key" or connection error</button></h2>
+    <div id="ts4" class="accordion-collapse collapse">
+      <div class="accordion-body">
+        <ol>
+          <li>Check your key is correct: <code>hermes config get api_key</code></li>
+          <li>If it looks wrong, set it again: <code>hermes config set api_key YOUR_KEY</code></li>
+          <li>Make sure you've added credit to your DeepSeek account at <a href="https://platform.deepseek.com" target="_blank">platform.deepseek.com</a></li>
+          <li>Verify your provider: <code>hermes config get provider</code> should say <code>deepseek</code></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" class="mt-4 mb-3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ts5">The AI is giving generic answers and doesn't seem to know my stuff</button></h2>
+    <div id="ts5" class="accordion-collapse collapse">
+      <div class="accordion-body">
+        <p>Your CLAUDE.md is probably too vague or the AI didn't read it. Try:</p>
+        <ol>
+          <li>Restart the AI and say <strong>"Read CLAUDE.md first"</strong></li>
+          <li>Add more detail to CLAUDE.md — be specific about what you're working on</li>
+          <li>If the file is empty or very short, the AI has nothing to work with. Fill it out.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GLOSSARY -->
+<hr class="my-5">
+<h2 class="mt-4 mb-3">Glossary</h2>
+<p class="text-muted">Words that get thrown around. You can skip this.</p>
+
+<div class="table-responsive">
+  <table class="table table-sm">
+    <tr><td style="white-space:nowrap"><strong>Obsidian</strong></td><td>A free app for writing and linking notes. Like Notepad but smarter.</td></tr>
+    <tr><td style="white-space:nowrap"><strong>Vault</strong></td><td>A folder on your computer that Obsidian watches. Your "second brain."</td></tr>
+    <tr><td style="white-space:nowrap"><strong>Markdown</strong></td><td>A simple way to format text. <code>**bold**</code>, <code># heading</code>, <code>- list</code>. Obsidian files are markdown (.md).</td></tr>
+    <tr><td style="white-space:nowrap"><strong>CLAUDE.md</strong></td><td>The instruction file the AI reads. Named after Claude, but both Claude and Hermes read it.</td></tr>
+    <tr><td style="white-space:nowrap"><strong>AGENTS.md</strong></td><td>Optional. Extra instructions for specific AI tools.</td></tr>
+    <tr><td style="white-space:nowrap"><strong>CLI / Terminal</strong></td><td>A text-based way to control your computer. On Mac it's called Terminal, on Windows it's Command Prompt or PowerShell. You type commands, you get text back.</td></tr>
+    <tr><td style="white-space:nowrap"><strong>WSL</strong></td><td>Windows Subsystem for Linux. Lets you run Linux inside Windows. Both AI tools need it on Windows.</td></tr>
+    <tr><td style="white-space:nowrap"><strong>npm</strong></td><td>Node Package Manager. The thing that installs Claude Code. Comes with Node.js.</td></tr>
+    <tr><td style="white-space:nowrap"><strong>API key</strong></td><td>A password-like string that lets you use an AI service. Keep it private.</td></tr>
+    <tr><td style="white-space:nowrap"><strong>Anthropic</strong></td><td>The company that makes Claude.</td></tr>
+    <tr><td style="white-space:nowrap"><strong>DeepSeek</strong></td><td>A Chinese AI company that makes cheap, capable models.</td></tr>
+    <tr><td style="white-space:nowrap"><strong>Nous Research</strong></td><td>The open-source group that makes Hermes Agent.</td></tr>
+  </table>
+</div>
+
+<!-- FOOTER NOTE -->
+<div class="border-top pt-4 mt-5">
+  <p class="text-muted small">This page describes the setup used for <a href="index.html">Less Than Zero</a>. Questions? <a href="https://lessthanze.ro">Get in touch</a>. Want to see a real CLAUDE.md? The Less Than Zero vault has one — <a href="index.html">see what it enables</a>.</p>
+</div>
+
+</div>
+
+<!-- COPY-TO-CLIPBOARD SCRIPT -->
+<script>
+function copyCode(id, btn) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var text = el.textContent || el.innerText;
+  navigator.clipboard.writeText(text).then(function() {
+    var orig = btn.textContent;
+    btn.textContent = '✅ Copied!';
+    setTimeout(function() { btn.textContent = orig; }, 1500);
+  }).catch(function() {
+    alert('Could not copy. Select and copy manually.');
+  });
+}
+
+// Accordion fallback — works without Bootstrap JS
+document.addEventListener('click', function(e) {
+  var btn = e.target.closest('.accordion-button');
+  if (!btn) return;
+  var targetId = btn.getAttribute('data-bs-target');
+  if (!targetId) return;
+  var collapse = document.querySelector(targetId);
+  if (!collapse) return;
+  var isOpen = collapse.classList.contains('show');
+  // Close all siblings in the same accordion
+  var accordion = btn.closest('.accordion');
+  if (accordion) {
+    accordion.querySelectorAll('.accordion-collapse.show').forEach(function(c) {
+      c.classList.remove('show');
+    });
+    accordion.querySelectorAll('.accordion-button').forEach(function(b) {
+      b.classList.add('collapsed');
+    });
+  }
+  // Toggle this one
+  if (!isOpen) {
+    collapse.classList.add('show');
+    btn.classList.remove('collapsed');
+  }
+});
+</script>
+{% endblock %}

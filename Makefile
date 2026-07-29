@@ -1,5 +1,5 @@
 build:
-	venv/bin/python app.py
+	python3 app.py
 
 prepare_assets date:
 	./prepare_assets.sh {date}
