@@ -224,6 +224,14 @@
       }
       function scrollDown() { messages.scrollTop = messages.scrollHeight; }
 
+      function gifify(text) {
+        // Match common GIF URLs (GIPHY, Tenor, any .gif) and replace with <img>
+        return text.replace(
+          /(https?:\/\/\S+\.gif\b[^\s]*)/gi,
+          '<img src="$1" alt="gif" style="max-width:200px;max-height:200px;border-radius:8px;display:block;margin:4px 0;" loading="lazy" referrerpolicy="no-referrer">'
+        );
+      }
+
       function addRow(m) {
         var stick = atBottom();
         var row = document.createElement("div");
@@ -239,10 +247,11 @@
         }
         var nick = document.createElement("span");
         nick.className = "fw-bold me-1";
-        if (m.color) nick.style.color = m.color;  // stable per-person colour
-        nick.innerHTML = m.nick;                 // nick is escaped server-side
+        if (m.color) nick.style.color = m.color;
+        nick.innerHTML = m.nick;
         var body = document.createElement("span");
-        body.innerHTML = m.text;                 // text is escaped server-side
+        // Render GIF URLs as inline images; everything else is escaped server-side
+        body.innerHTML = gifify(m.text);
         row.appendChild(nick);
         row.appendChild(body);
         if (isMod) {
