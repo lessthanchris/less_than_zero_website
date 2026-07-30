@@ -18,6 +18,7 @@
         <button id="play-btn" type="button" class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center p-0"
                 style="width:48px;height:48px;font-size:1.1rem;" aria-label="Play">▶</button>
         <span id="play-label" class="text-muted small">Listen</span>
+        <span id="listener-count" class="badge bg-dark" style="display:none;" title="Current listeners">👂 0</span>
       </div>
       <!-- No native controls: this is a live stream, not a seekable file — a scrub bar
            and skip buttons are both confusing (there's no timeline) and, for the jukebox,
@@ -58,6 +59,7 @@
       var art = document.getElementById("live-art");
       var albumBox = document.getElementById("live-album");
       var chatCard = document.getElementById("live-chat");
+      var listenerCount = document.getElementById("listener-count");
       var lastTitle = "";
       var artCache = {};
 
@@ -112,6 +114,15 @@
               var rawTitle = src.title || src.yp_currently_playing || "";
               var isLiveShow = rawTitle.indexOf(LIVE_PREFIX) === 0;
               var title = isLiveShow ? rawTitle.slice(LIVE_PREFIX.length) : rawTitle;
+
+              // Update listener count from Icecast
+              var listeners = src.listeners || 0;
+              if (listeners > 0) {
+                listenerCount.textContent = "👂 " + listeners;
+                listenerCount.style.display = "";
+              } else {
+                listenerCount.style.display = "none";
+              }
 
               controls.style.display = "";
               if (isLiveShow) {
