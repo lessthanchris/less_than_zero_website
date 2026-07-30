@@ -40,7 +40,15 @@
       <div class="input-group input-group-sm">
         <input id="chat-nick" class="form-control" style="max-width:120px" maxlength="24" placeholder="name" autocomplete="off">
         <input id="chat-input" class="form-control" maxlength="500" placeholder="Say something…" autocomplete="off">
+        <button id="chat-gif" class="btn btn-outline-secondary" type="button" title="GIF picker">GIF</button>
         <button id="chat-send" class="btn btn-dark" type="button">Send</button>
+      </div>
+      <div id="gif-picker" style="display:none;margin-top:6px;">
+        <div class="input-group input-group-sm mb-2">
+          <input id="gif-search" class="form-control" placeholder="Search GIPHY…" maxlength="50">
+          <button id="gif-close" class="btn btn-outline-secondary" type="button">✕</button>
+        </div>
+        <div id="gif-results" style="display:flex;flex-wrap:wrap;gap:4px;max-height:180px;overflow-y:auto;"></div>
       </div>
     </div>
   </div>
@@ -311,6 +319,50 @@
         }
         sendBtn.onclick = send;
         input.addEventListener("keydown", function (e) { if (e.key === "Enter") send(); });
+
+        // GIF picker
+        var gifBtn = document.getElementById("chat-gif");
+        var gifPicker = document.getElementById("gif-picker");
+        var gifSearch = document.getElementById("gif-search");
+        var gifResults = document.getElementById("gif-results");
+        var gifClose = document.getElementById("gif-close");
+        var GIPHY_KEY = "dc6zaTOxFJmzC"; // public beta key
+
+        gifBtn.onclick = function () {
+          gifPicker.style.display = gifPicker.style.display === "none" ? "" : "none";
+          if (gifPicker.style.display !== "none") { gifSearch.focus(); searchGifs(""); }
+        };
+        gifClose.onclick = function () { gifPicker.style.display = "none"; };
+
+        var gifTimer;
+        gifSearch.addEventListener("input", function () {
+          clearTimeout(gifTimer);
+          gifTimer = setTimeout(function () { searchGifs(gifSearch.value); }, 300);
+        });
+
+        function searchGifs(q) {
+          q = q.trim() || "trending";
+          var url = "https://api.giphy.com/v1/gifs/" + (q === "trending" ? "trending" : "search") +
+            "?api_key=" + GIPHY_KEY + "&limit=12&rating=pg-13";
+          if (q !== "trending") url += "&q=" + encodeURIComponent(q);
+          fetch(url)
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+              gifResults.innerHTML = "";
+              (d.data || []).forEach(function (g) {
+                var img = document.createElement("img");
+                img.src = g.images.fixed_height_small.url;
+                img.style.cssText = "height:80px;cursor:pointer;border-radius:4px;border:2px solid transparent;";
+                img.title = g.title;
+                img.onclick = function () {
+                  input.value = (input.value + " " + g.images.original.url).trim();
+                  gifPicker.style.display = "none";
+                  input.focus();
+                };
+                gifResults.appendChild(img);
+              });
+            });
+        }
       });
     })();
   </script>
