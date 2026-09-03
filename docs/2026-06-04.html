@@ -24,8 +24,7 @@
   </script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/site.css">
   <link rel="stylesheet" href="/static/search.css">
   <title>4th June 2026 — Less Than Zero</title>
@@ -33,24 +32,30 @@
 {"@context":"https://schema.org","@type":"MusicPlaylist","name":"Less Than Zero \u2014 4th June 2026","url":"https://lessthanze.ro/2026-06-04.html","numTracks":22,"track":[{"@type":"MusicRecording","name":"Myth","byArtist":"Beach House"},{"@type":"MusicRecording","name":"kisses","byArtist":"Slowdive"},{"@type":"MusicRecording","name":"Into the Magic Land","byArtist":"Boards of Canada"},{"@type":"MusicRecording","name":"I Wasn\u2019t Fully Cooked","byArtist":"knitting"},{"@type":"MusicRecording","name":"Woozy With Cider (Jon Hopkins remix)","byArtist":"James Yorkston"},{"@type":"MusicRecording","name":"Colors","byArtist":"The Tallest Man On Earth"},{"@type":"MusicRecording","name":"January Wolf Moon","byArtist":"Dan Strauss"},{"@type":"MusicRecording","name":"I Can\u2019t Read Your Mind","byArtist":"Willie Nelson"},{"@type":"MusicRecording","name":"Moving After You","byArtist":"Hurry"},{"@type":"MusicRecording","name":"It Only Takes One Lion","byArtist":"Belle and Sebastian"},{"@type":"MusicRecording","name":"Rewind","byArtist":"feeble little horse"},{"@type":"MusicRecording","name":"In the City","byArtist":"The Jam"},{"@type":"MusicRecording","name":"Two Tribes","byArtist":"Frankie Goes to Hollywood"},{"@type":"MusicRecording","name":"Broken Things","byArtist":"Dave Matthews Band"},{"@type":"MusicRecording","name":"DISOBEY","byArtist":"Pussy Riot"},{"@type":"MusicRecording","name":"Head Alight","byArtist":"Basement"},{"@type":"MusicRecording","name":"Full Cloud","byArtist":"Atta Boy"},{"@type":"MusicRecording","name":"Sober to Death","byArtist":"Car Seat Headrest"},{"@type":"MusicRecording","name":"Sur la plage","byArtist":"Laura Cahen"},{"@type":"MusicRecording","name":"What You Want (Fcukers Remix)","byArtist":"Ang\u00e8le"},{"@type":"MusicRecording","name":"Round Of Applause At The End Of The World","byArtist":"Wild Pink"},{"@type":"MusicRecording","name":"Found God in a Tomato","byArtist":"Psychedelic Porn Crumpets"}]}
 </script>
 </head>
-<body class="bg-white text-dark">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/index.html"><span class="brand-dot"></span>Less Than Zero</a>
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/index.html">
+        <span class="ltz-logo">
+          <span class="ltz-mono" style="font-size:.6rem; font-weight:700;">LTZ</span>
+          <span class="brand-dot" style="position:absolute; top:-3px; right:-3px; margin:0;"></span>
+        </span>
+        <span>Less Than Zero</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="/archive.html">Search</a></li>
-          <li class="nav-item"><a class="nav-link" href="/graph.html">Graph</a></li>
-          <li class="nav-item"><a class="nav-link" href="/stats.html">Stats</a></li>
-          <li class="nav-item"><a class="nav-link" href="/sources.html">Sources</a></li>
-          <li class="nav-item"><a class="nav-link" href="/calendar.html">Releases</a></li>
-          <li class="nav-item"><a class="nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/archive.html">Search</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/graph.html">Graph</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/stats.html">Stats</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/sources.html">Sources</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/calendar.html">Releases</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
           <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-            <a class="btn btn-discord btn-sm rounded-pill" href="https://discord.gg/ptjQ3bf4CD" target="_blank">Join the Discord</a>
+            <a class="ltz-btn discord" href="https://discord.gg/ptjQ3bf4CD" target="_blank">Join the Discord</a>
           </li>
         </ul>
       </div>
@@ -58,133 +63,199 @@
   </nav>
   <div class="container py-4">
 
-<div class="row align-items-center mb-4">
-  <div class="col-md-2 mb-3 mb-md-0">
-    <img src="/images/2026-06-04.thumbnail.jpg" class="img-fluid rounded">
+<div class="d-flex flex-column flex-md-row gap-4 mb-4">
+  <div class="ltz-bracket flex-shrink-0" style="width:150px; height:150px;">
+    <span class="ltz-bracket-mark ltz-bracket-tl"></span><span class="ltz-bracket-mark ltz-bracket-tr"></span>
+    <span class="ltz-bracket-mark ltz-bracket-bl"></span><span class="ltz-bracket-mark ltz-bracket-br"></span>
+    <img src="/images/2026-06-04.thumbnail.jpg" class="w-100 h-100" style="object-fit:cover;">
   </div>
-  <div class="col-md-10">
-    <h1 class="h3 mb-2">4th June 2026</h1>
-    <a href="https://www.patreon.com/posts/160172635" class="btn btn-outline-dark btn-sm me-2" target="_blank">Listen on Patreon</a>
-  </div>
-</div>
-
-<div class="alert alert-light border d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-  <span>Heard something you liked? Come talk about it.</span>
-  <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-discord btn-sm rounded-pill" target="_blank">Join the Discord</a>
-</div>
-
-<h2 class="h5 mb-3">Tracklist</h2>
-<div class="list-group list-group-flush">
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">1.</span>
-    <strong>Beach House</strong> — Myth
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">2.</span>
-    <strong>Slowdive</strong> — kisses
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">3.</span>
-    <strong>Boards of Canada</strong> — Into the Magic Land
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">4.</span>
-    <strong>knitting</strong> — I Wasn’t Fully Cooked
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">5.</span>
-    <strong>James Yorkston</strong> — Woozy With Cider (Jon Hopkins remix)
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">6.</span>
-    <strong>The Tallest Man On Earth</strong> — Colors
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">7.</span>
-    <strong>Dan Strauss</strong> — January Wolf Moon
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">8.</span>
-    <strong>Willie Nelson</strong> — I Can’t Read Your Mind
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">9.</span>
-    <strong>Hurry</strong> — Moving After You
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">10.</span>
-    <strong>Belle and Sebastian</strong> — It Only Takes One Lion
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">11.</span>
-    <strong>feeble little horse</strong> — Rewind
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">12.</span>
-    <strong>The Jam</strong> — In the City
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">13.</span>
-    <strong>Frankie Goes to Hollywood</strong> — Two Tribes
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">14.</span>
-    <strong>Dave Matthews Band</strong> — Broken Things
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">15.</span>
-    <strong>Pussy Riot</strong> — DISOBEY
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">16.</span>
-    <strong>Basement</strong> — Head Alight
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">17.</span>
-    <strong>Atta Boy</strong> — Full Cloud
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">18.</span>
-    <strong>Car Seat Headrest</strong> — Sober to Death
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">19.</span>
-    <strong>Laura Cahen</strong> — Sur la plage
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">20.</span>
-    <strong>Angèle</strong> — What You Want (Fcukers Remix)
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">21.</span>
-    <strong>Wild Pink</strong> — Round Of Applause At The End Of The World
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">22.</span>
-    <strong>Psychedelic Porn Crumpets</strong> — Found God in a Tomato
+  <div class="flex-grow-1">
+    <p class="ltz-label mb-2" style="color:var(--accent);">Episode Manifest</p>
+    <h1 class="mb-3" style="font-size:2.6rem; font-weight:800; text-transform:uppercase; letter-spacing:-0.01em; line-height:0.95;">4th June 2026</h1>
+    <div class="d-flex flex-wrap gap-2 mb-3">
+      <a href="https://www.patreon.com/posts/160172635" class="ltz-btn" target="_blank">Listen on Patreon</a>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <svg class="ltz-icon flex-shrink-0" style="color:var(--ink);" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square">
+        <line x1="3" y1="11" x2="3" y2="6"></line>
+        <line x1="8" y1="11" x2="8" y2="3"></line>
+        <line x1="13" y1="11" x2="13" y2="8"></line>
+      </svg>
+      <div class="d-flex flex-wrap gap-2 flex-grow-1">
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Signal</div>
+          <div class="ltz-cell-value">FM LIVE</div>
+        </div>
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Region</div>
+          <div class="ltz-cell-value">UK ONLY</div>
+        </div>
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Licence</div>
+          <div class="ltz-cell-value">PRS LC-004689</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 p-3" style="border:2px solid var(--ink); border-radius:2px;">
+  <span class="ltz-mono" style="font-size:.85rem; color:var(--ink-soft);">Heard something you liked? Join the conversation on Discord.</span>
+  <a href="https://discord.gg/ptjQ3bf4CD" class="ltz-btn discord" target="_blank">Join the Discord</a>
+</div>
+
+<div class="d-flex justify-content-between align-items-baseline mb-2">
+  <div class="d-flex align-items-center gap-2">
+    <svg class="ltz-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="square">
+      <line x1="2" y1="2" x2="2" y2="13"></line>
+      <line x1="2" y1="4" x2="12" y2="4"></line>
+      <line x1="2" y1="8" x2="9" y2="8"></line>
+      <line x1="2" y1="12" x2="11" y2="12"></line>
+    </svg>
+    <span class="ltz-label">Cargo Manifest — Playout Log</span>
+    <span class="ltz-mono" style="font-size:.6rem; color:var(--ink-faint); letter-spacing:.06em;">DOC. LTZ-20260604</span>
   </div>
-  <footer class="border-top py-4 mt-4">
+  <span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint);">22 TRACKS</span>
+</div>
+<div class="ltz-manifest-header">
+  <div style="width:26px;">Trk</div>
+  <div style="width:240px;">Artist</div>
+  <div>Title</div>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">01</span>
+  <span class="ltz-rowartist">Beach House</span>
+  <span class="ltz-rowtrack">Myth</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">02</span>
+  <span class="ltz-rowartist">Slowdive</span>
+  <span class="ltz-rowtrack">kisses</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">03</span>
+  <span class="ltz-rowartist">Boards of Canada</span>
+  <span class="ltz-rowtrack">Into the Magic Land</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">04</span>
+  <span class="ltz-rowartist">knitting</span>
+  <span class="ltz-rowtrack">I Wasn’t Fully Cooked</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">05</span>
+  <span class="ltz-rowartist">James Yorkston</span>
+  <span class="ltz-rowtrack">Woozy With Cider (Jon Hopkins remix)</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">06</span>
+  <span class="ltz-rowartist">The Tallest Man On Earth</span>
+  <span class="ltz-rowtrack">Colors</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">07</span>
+  <span class="ltz-rowartist">Dan Strauss</span>
+  <span class="ltz-rowtrack">January Wolf Moon</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">08</span>
+  <span class="ltz-rowartist">Willie Nelson</span>
+  <span class="ltz-rowtrack">I Can’t Read Your Mind</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">09</span>
+  <span class="ltz-rowartist">Hurry</span>
+  <span class="ltz-rowtrack">Moving After You</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">10</span>
+  <span class="ltz-rowartist">Belle and Sebastian</span>
+  <span class="ltz-rowtrack">It Only Takes One Lion</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">11</span>
+  <span class="ltz-rowartist">feeble little horse</span>
+  <span class="ltz-rowtrack">Rewind</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">12</span>
+  <span class="ltz-rowartist">The Jam</span>
+  <span class="ltz-rowtrack">In the City</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">13</span>
+  <span class="ltz-rowartist">Frankie Goes to Hollywood</span>
+  <span class="ltz-rowtrack">Two Tribes</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">14</span>
+  <span class="ltz-rowartist">Dave Matthews Band</span>
+  <span class="ltz-rowtrack">Broken Things</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">15</span>
+  <span class="ltz-rowartist">Pussy Riot</span>
+  <span class="ltz-rowtrack">DISOBEY</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">16</span>
+  <span class="ltz-rowartist">Basement</span>
+  <span class="ltz-rowtrack">Head Alight</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">17</span>
+  <span class="ltz-rowartist">Atta Boy</span>
+  <span class="ltz-rowtrack">Full Cloud</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">18</span>
+  <span class="ltz-rowartist">Car Seat Headrest</span>
+  <span class="ltz-rowtrack">Sober to Death</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">19</span>
+  <span class="ltz-rowartist">Laura Cahen</span>
+  <span class="ltz-rowtrack">Sur la plage</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">20</span>
+  <span class="ltz-rowartist">Angèle</span>
+  <span class="ltz-rowtrack">What You Want (Fcukers Remix)</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">21</span>
+  <span class="ltz-rowartist">Wild Pink</span>
+  <span class="ltz-rowtrack">Round Of Applause At The End Of The World</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">22</span>
+  <span class="ltz-rowartist">Psychedelic Porn Crumpets</span>
+  <span class="ltz-rowtrack">Found God in a Tomato</span>
+</div>
+<div class="text-center pt-4">
+  <span class="ltz-mono" style="font-size:.66rem; letter-spacing:.1em; color:var(--ink-faint);">END OF MANIFEST</span>
+</div>
+
+  </div>
+  <footer class="ltz-footer py-4 mt-4">
     <div class="container text-center">
       <p class="mb-3">
-        <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-discord btn-sm rounded-pill me-2" target="_blank">Join the Discord</a>
-        <a href="https://www.patreon.com/LessThanZero789" class="btn btn-outline-secondary btn-sm rounded-pill" target="_blank">Support on Patreon</a>
+        <a href="https://discord.gg/ptjQ3bf4CD" class="ltz-btn discord me-2" target="_blank">Join the Discord</a>
+        <a href="https://www.patreon.com/LessThanZero789" class="ltz-btn" style="border-color:var(--paper); color:var(--paper);" target="_blank">Support on Patreon</a>
       </p>
-      <p class="mb-3 small"><a href="https://play.qobuz.com/playlist/69609247" target="_blank">Subscribe to the always-current show on Qobuz &rarr;</a></p>
-      <p class="mb-3 small">In collaboration with <a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></p>
-      <p class="mb-3 small">
+      <p class="mb-3 ltz-footer-links"><a href="https://play.qobuz.com/playlist/69609247" target="_blank">Subscribe to the always-current show on Qobuz &rarr;</a></p>
+      <p class="mb-3 ltz-footer-links">In collaboration with <a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></p>
+      <p class="mb-3 ltz-footer-links">
         <a href="/stats.html">By the numbers</a>
         &middot; <a href="/sources.html">Where we find the music</a>
         &middot; <a href="/feed.xml">RSS feed</a>
         &middot; <a href="#" data-surprise>Surprise me &#127922;</a>
       </p>
-      <p class="mb-1 text-muted small">Less Than Zero broadcasts to a UK audience.</p>
-      <p class="mb-0 text-muted small">Licensed by
-        <a href="https://www.prsformusic.com" class="link-secondary">PRS for Music</a>
+      <p class="mb-1 ltz-footer-compliance">Less Than Zero broadcasts to a UK audience.</p>
+      <p class="mb-0 ltz-footer-compliance">Licensed by
+        <a href="https://www.prsformusic.com">PRS for Music</a>
         (LC-004689) and
-        <a href="https://www.ppluk.com" class="link-secondary">PPL</a>
+        <a href="https://www.ppluk.com">PPL</a>
         (Linear Webcast Licence).
       </p>
     </div>

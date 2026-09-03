@@ -24,8 +24,7 @@
   </script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/site.css">
   <link rel="stylesheet" href="/static/search.css">
   <title>3rd August 2023 — Less Than Zero</title>
@@ -33,24 +32,30 @@
 {"@context":"https://schema.org","@type":"MusicPlaylist","name":"Less Than Zero \u2014 3rd August 2023","url":"https://lessthanze.ro/2023-08-03.html","numTracks":25,"track":[{"@type":"MusicRecording","name":"2080","byArtist":"Yeasayer"},{"@type":"MusicRecording","name":"This New Noise - Live","byArtist":"Public Service Broadcasting,BBC Symphony Orchestra,Jules Buckley"},{"@type":"MusicRecording","name":"17-18 Lovesong","byArtist":"Lifeguard"},{"@type":"MusicRecording","name":"Shot By Both Sides","byArtist":"Magazine"},{"@type":"MusicRecording","name":"Night or Day","byArtist":"LOOK MUM NO COMPUTER"},{"@type":"MusicRecording","name":"It\u0027ll All Work Out","byArtist":"Tom Petty and the Heartbreakers"},{"@type":"MusicRecording","name":"The Sea Is a Good Place to Think of the Future","byArtist":"Los Campesinos!"},{"@type":"MusicRecording","name":"The Crane Wife 3","byArtist":"The Decemberists"},{"@type":"MusicRecording","name":"Making Plans For Nigel","byArtist":"XTC"},{"@type":"MusicRecording","name":"End Of The Summertime","byArtist":"The Fernweh"},{"@type":"MusicRecording","name":"That Rainy Dawn (Winter)","byArtist":"Eje Eje"},{"@type":"MusicRecording","name":"Really Really Light","byArtist":"The New Pornographers"},{"@type":"MusicRecording","name":"Glass, Concrete \u0026 Stone","byArtist":"David Byrne"},{"@type":"MusicRecording","name":"To My Love","byArtist":"July Skies"},{"@type":"MusicRecording","name":"Start Somewhere","byArtist":"Courtney Barnett"},{"@type":"MusicRecording","name":"Handshake Drugs","byArtist":"Wilco"},{"@type":"MusicRecording","name":"Mancey","byArtist":"Andrew Bird"},{"@type":"MusicRecording","name":"Devil Town","byArtist":"Daniel Johnston"},{"@type":"MusicRecording","name":"Hurt","byArtist":"Souad Massi"},{"@type":"MusicRecording","name":"It\u0027ll All Work Out (Bonus Track)","byArtist":"Phoebe Bridgers"},{"@type":"MusicRecording","name":"Undertow","byArtist":"Warpaint"},{"@type":"MusicRecording","name":"Loading","byArtist":"James Blake"},{"@type":"MusicRecording","name":"Ecstasy","byArtist":"JJ"},{"@type":"MusicRecording","name":"Bunny Is A Rider - Doss Remix","byArtist":"Caroline Polachek,Doss"},{"@type":"MusicRecording","name":"Go Dig My Grave","byArtist":"Lankum"}]}
 </script>
 </head>
-<body class="bg-white text-dark">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/index.html"><span class="brand-dot"></span>Less Than Zero</a>
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/index.html">
+        <span class="ltz-logo">
+          <span class="ltz-mono" style="font-size:.6rem; font-weight:700;">LTZ</span>
+          <span class="brand-dot" style="position:absolute; top:-3px; right:-3px; margin:0;"></span>
+        </span>
+        <span>Less Than Zero</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="/archive.html">Search</a></li>
-          <li class="nav-item"><a class="nav-link" href="/graph.html">Graph</a></li>
-          <li class="nav-item"><a class="nav-link" href="/stats.html">Stats</a></li>
-          <li class="nav-item"><a class="nav-link" href="/sources.html">Sources</a></li>
-          <li class="nav-item"><a class="nav-link" href="/calendar.html">Releases</a></li>
-          <li class="nav-item"><a class="nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/archive.html">Search</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/graph.html">Graph</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/stats.html">Stats</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/sources.html">Sources</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/calendar.html">Releases</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
           <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-            <a class="btn btn-discord btn-sm rounded-pill" href="https://discord.gg/ptjQ3bf4CD" target="_blank">Join the Discord</a>
+            <a class="ltz-btn discord" href="https://discord.gg/ptjQ3bf4CD" target="_blank">Join the Discord</a>
           </li>
         </ul>
       </div>
@@ -58,146 +63,215 @@
   </nav>
   <div class="container py-4">
 
-<div class="row align-items-center mb-4">
-  <div class="col-md-2 mb-3 mb-md-0">
-    <img src="/images/2023-08-03.thumbnail.jpg" class="img-fluid rounded">
+<div class="d-flex flex-column flex-md-row gap-4 mb-4">
+  <div class="ltz-bracket flex-shrink-0" style="width:150px; height:150px;">
+    <span class="ltz-bracket-mark ltz-bracket-tl"></span><span class="ltz-bracket-mark ltz-bracket-tr"></span>
+    <span class="ltz-bracket-mark ltz-bracket-bl"></span><span class="ltz-bracket-mark ltz-bracket-br"></span>
+    <img src="/images/2023-08-03.thumbnail.jpg" class="w-100 h-100" style="object-fit:cover;">
   </div>
-  <div class="col-md-10">
-    <h1 class="h3 mb-2">3rd August 2023</h1>
-    <a href="https://www.mixcloud.com/less-than-zero/less-than-zero-curated-indie-ambient-electronica-3rd-of-august-2023/" class="btn btn-outline-dark btn-sm me-2" target="_blank">Listen on Mixcloud</a>
-    <a href="https://open.spotify.com/playlist/7Jx3Bx0SHwF2K4XB8rxlKd" class="btn btn-outline-dark btn-sm me-2" target="_blank">Spotify</a>
-  </div>
-</div>
-
-<div class="alert alert-light border d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-  <span>Heard something you liked? Come talk about it.</span>
-  <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-discord btn-sm rounded-pill" target="_blank">Join the Discord</a>
-</div>
-
-<h2 class="h5 mb-3">Tracklist</h2>
-<div class="list-group list-group-flush">
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">1.</span>
-    <strong>Yeasayer</strong> — 2080
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">2.</span>
-    <strong>Public Service Broadcasting,BBC Symphony Orchestra,Jules Buckley</strong> — This New Noise - Live
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">3.</span>
-    <strong>Lifeguard</strong> — 17-18 Lovesong
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">4.</span>
-    <strong>Magazine</strong> — Shot By Both Sides
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">5.</span>
-    <strong>LOOK MUM NO COMPUTER</strong> — Night or Day
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">6.</span>
-    <strong>Tom Petty and the Heartbreakers</strong> — It'll All Work Out
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">7.</span>
-    <strong>Los Campesinos!</strong> — The Sea Is a Good Place to Think of the Future
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">8.</span>
-    <strong>The Decemberists</strong> — The Crane Wife 3
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">9.</span>
-    <strong>XTC</strong> — Making Plans For Nigel
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">10.</span>
-    <strong>The Fernweh</strong> — End Of The Summertime
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">11.</span>
-    <strong>Eje Eje</strong> — That Rainy Dawn (Winter)
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">12.</span>
-    <strong>The New Pornographers</strong> — Really Really Light
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">13.</span>
-    <strong>David Byrne</strong> — Glass, Concrete & Stone
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">14.</span>
-    <strong>July Skies</strong> — To My Love
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">15.</span>
-    <strong>Courtney Barnett</strong> — Start Somewhere
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">16.</span>
-    <strong>Wilco</strong> — Handshake Drugs
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">17.</span>
-    <strong>Andrew Bird</strong> — Mancey
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">18.</span>
-    <strong>Daniel Johnston</strong> — Devil Town
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">19.</span>
-    <strong>Souad Massi</strong> — Hurt
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">20.</span>
-    <strong>Phoebe Bridgers</strong> — It'll All Work Out (Bonus Track)
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">21.</span>
-    <strong>Warpaint</strong> — Undertow
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">22.</span>
-    <strong>James Blake</strong> — Loading
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">23.</span>
-    <strong>JJ</strong> — Ecstasy
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">24.</span>
-    <strong>Caroline Polachek,Doss</strong> — Bunny Is A Rider - Doss Remix
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">25.</span>
-    <strong>Lankum</strong> — Go Dig My Grave
+  <div class="flex-grow-1">
+    <p class="ltz-label mb-2" style="color:var(--accent);">Episode Manifest</p>
+    <h1 class="mb-3" style="font-size:2.6rem; font-weight:800; text-transform:uppercase; letter-spacing:-0.01em; line-height:0.95;">3rd August 2023</h1>
+    <div class="d-flex flex-wrap gap-2 mb-3">
+      <a href="https://www.mixcloud.com/less-than-zero/less-than-zero-curated-indie-ambient-electronica-3rd-of-august-2023/" class="ltz-btn" target="_blank">Listen on Mixcloud</a>
+      <a href="https://open.spotify.com/playlist/7Jx3Bx0SHwF2K4XB8rxlKd" class="ltz-btn" target="_blank">Spotify</a>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <svg class="ltz-icon flex-shrink-0" style="color:var(--ink);" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square">
+        <line x1="3" y1="11" x2="3" y2="6"></line>
+        <line x1="8" y1="11" x2="8" y2="3"></line>
+        <line x1="13" y1="11" x2="13" y2="8"></line>
+      </svg>
+      <div class="d-flex flex-wrap gap-2 flex-grow-1">
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Signal</div>
+          <div class="ltz-cell-value">FM LIVE</div>
+        </div>
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Region</div>
+          <div class="ltz-cell-value">UK ONLY</div>
+        </div>
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Licence</div>
+          <div class="ltz-cell-value">PRS LC-004689</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 p-3" style="border:2px solid var(--ink); border-radius:2px;">
+  <span class="ltz-mono" style="font-size:.85rem; color:var(--ink-soft);">Heard something you liked? Join the conversation on Discord.</span>
+  <a href="https://discord.gg/ptjQ3bf4CD" class="ltz-btn discord" target="_blank">Join the Discord</a>
+</div>
+
+<div class="d-flex justify-content-between align-items-baseline mb-2">
+  <div class="d-flex align-items-center gap-2">
+    <svg class="ltz-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="square">
+      <line x1="2" y1="2" x2="2" y2="13"></line>
+      <line x1="2" y1="4" x2="12" y2="4"></line>
+      <line x1="2" y1="8" x2="9" y2="8"></line>
+      <line x1="2" y1="12" x2="11" y2="12"></line>
+    </svg>
+    <span class="ltz-label">Cargo Manifest — Playout Log</span>
+    <span class="ltz-mono" style="font-size:.6rem; color:var(--ink-faint); letter-spacing:.06em;">DOC. LTZ-20230803</span>
   </div>
-  <footer class="border-top py-4 mt-4">
+  <span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint);">25 TRACKS</span>
+</div>
+<div class="ltz-manifest-header">
+  <div style="width:26px;">Trk</div>
+  <div style="width:240px;">Artist</div>
+  <div>Title</div>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">01</span>
+  <span class="ltz-rowartist">Yeasayer</span>
+  <span class="ltz-rowtrack">2080</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">02</span>
+  <span class="ltz-rowartist">Public Service Broadcasting,BBC Symphony Orchestra,Jules Buckley</span>
+  <span class="ltz-rowtrack">This New Noise - Live</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">03</span>
+  <span class="ltz-rowartist">Lifeguard</span>
+  <span class="ltz-rowtrack">17-18 Lovesong</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">04</span>
+  <span class="ltz-rowartist">Magazine</span>
+  <span class="ltz-rowtrack">Shot By Both Sides</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">05</span>
+  <span class="ltz-rowartist">LOOK MUM NO COMPUTER</span>
+  <span class="ltz-rowtrack">Night or Day</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">06</span>
+  <span class="ltz-rowartist">Tom Petty and the Heartbreakers</span>
+  <span class="ltz-rowtrack">It'll All Work Out</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">07</span>
+  <span class="ltz-rowartist">Los Campesinos!</span>
+  <span class="ltz-rowtrack">The Sea Is a Good Place to Think of the Future</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">08</span>
+  <span class="ltz-rowartist">The Decemberists</span>
+  <span class="ltz-rowtrack">The Crane Wife 3</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">09</span>
+  <span class="ltz-rowartist">XTC</span>
+  <span class="ltz-rowtrack">Making Plans For Nigel</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">10</span>
+  <span class="ltz-rowartist">The Fernweh</span>
+  <span class="ltz-rowtrack">End Of The Summertime</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">11</span>
+  <span class="ltz-rowartist">Eje Eje</span>
+  <span class="ltz-rowtrack">That Rainy Dawn (Winter)</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">12</span>
+  <span class="ltz-rowartist">The New Pornographers</span>
+  <span class="ltz-rowtrack">Really Really Light</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">13</span>
+  <span class="ltz-rowartist">David Byrne</span>
+  <span class="ltz-rowtrack">Glass, Concrete & Stone</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">14</span>
+  <span class="ltz-rowartist">July Skies</span>
+  <span class="ltz-rowtrack">To My Love</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">15</span>
+  <span class="ltz-rowartist">Courtney Barnett</span>
+  <span class="ltz-rowtrack">Start Somewhere</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">16</span>
+  <span class="ltz-rowartist">Wilco</span>
+  <span class="ltz-rowtrack">Handshake Drugs</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">17</span>
+  <span class="ltz-rowartist">Andrew Bird</span>
+  <span class="ltz-rowtrack">Mancey</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">18</span>
+  <span class="ltz-rowartist">Daniel Johnston</span>
+  <span class="ltz-rowtrack">Devil Town</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">19</span>
+  <span class="ltz-rowartist">Souad Massi</span>
+  <span class="ltz-rowtrack">Hurt</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">20</span>
+  <span class="ltz-rowartist">Phoebe Bridgers</span>
+  <span class="ltz-rowtrack">It'll All Work Out (Bonus Track)</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">21</span>
+  <span class="ltz-rowartist">Warpaint</span>
+  <span class="ltz-rowtrack">Undertow</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">22</span>
+  <span class="ltz-rowartist">James Blake</span>
+  <span class="ltz-rowtrack">Loading</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">23</span>
+  <span class="ltz-rowartist">JJ</span>
+  <span class="ltz-rowtrack">Ecstasy</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">24</span>
+  <span class="ltz-rowartist">Caroline Polachek,Doss</span>
+  <span class="ltz-rowtrack">Bunny Is A Rider - Doss Remix</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">25</span>
+  <span class="ltz-rowartist">Lankum</span>
+  <span class="ltz-rowtrack">Go Dig My Grave</span>
+</div>
+<div class="text-center pt-4">
+  <span class="ltz-mono" style="font-size:.66rem; letter-spacing:.1em; color:var(--ink-faint);">END OF MANIFEST</span>
+</div>
+
+  </div>
+  <footer class="ltz-footer py-4 mt-4">
     <div class="container text-center">
       <p class="mb-3">
-        <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-discord btn-sm rounded-pill me-2" target="_blank">Join the Discord</a>
-        <a href="https://www.patreon.com/LessThanZero789" class="btn btn-outline-secondary btn-sm rounded-pill" target="_blank">Support on Patreon</a>
+        <a href="https://discord.gg/ptjQ3bf4CD" class="ltz-btn discord me-2" target="_blank">Join the Discord</a>
+        <a href="https://www.patreon.com/LessThanZero789" class="ltz-btn" style="border-color:var(--paper); color:var(--paper);" target="_blank">Support on Patreon</a>
       </p>
-      <p class="mb-3 small"><a href="https://play.qobuz.com/playlist/69609247" target="_blank">Subscribe to the always-current show on Qobuz &rarr;</a></p>
-      <p class="mb-3 small">In collaboration with <a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></p>
-      <p class="mb-3 small">
+      <p class="mb-3 ltz-footer-links"><a href="https://play.qobuz.com/playlist/69609247" target="_blank">Subscribe to the always-current show on Qobuz &rarr;</a></p>
+      <p class="mb-3 ltz-footer-links">In collaboration with <a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></p>
+      <p class="mb-3 ltz-footer-links">
         <a href="/stats.html">By the numbers</a>
         &middot; <a href="/sources.html">Where we find the music</a>
         &middot; <a href="/feed.xml">RSS feed</a>
         &middot; <a href="#" data-surprise>Surprise me &#127922;</a>
       </p>
-      <p class="mb-1 text-muted small">Less Than Zero broadcasts to a UK audience.</p>
-      <p class="mb-0 text-muted small">Licensed by
-        <a href="https://www.prsformusic.com" class="link-secondary">PRS for Music</a>
+      <p class="mb-1 ltz-footer-compliance">Less Than Zero broadcasts to a UK audience.</p>
+      <p class="mb-0 ltz-footer-compliance">Licensed by
+        <a href="https://www.prsformusic.com">PRS for Music</a>
         (LC-004689) and
-        <a href="https://www.ppluk.com" class="link-secondary">PPL</a>
+        <a href="https://www.ppluk.com">PPL</a>
         (Linear Webcast Licence).
       </p>
     </div>

@@ -24,8 +24,7 @@
   </script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/site.css">
   <link rel="stylesheet" href="/static/search.css">
   <title>30th November 2023 — Less Than Zero</title>
@@ -33,24 +32,30 @@
 {"@context":"https://schema.org","@type":"MusicPlaylist","name":"Less Than Zero \u2014 30th November 2023","url":"https://lessthanze.ro/2023-11-30.html","numTracks":26,"track":[{"@type":"MusicRecording","name":"Missing","byArtist":"The xx"},{"@type":"MusicRecording","name":"She Don\u0027t Use Jelly","byArtist":"The Flaming Lips"},{"@type":"MusicRecording","name":"T.I.M","byArtist":"LOOK MUM NO COMPUTER"},{"@type":"MusicRecording","name":"All Grown Up","byArtist":"Shelf Lives"},{"@type":"MusicRecording","name":"Remember Me","byArtist":"Sea Power"},{"@type":"MusicRecording","name":"Take Me to the River","byArtist":"Al Green"},{"@type":"MusicRecording","name":"Single Handed Sailor","byArtist":"Dire Straits"},{"@type":"MusicRecording","name":"Edith","byArtist":"Cuco"},{"@type":"MusicRecording","name":"GMF","byArtist":"John Grant,Sin\ufffdad O\u0027Connor"},{"@type":"MusicRecording","name":"Life In A Scotch Sittingroom 2 Episode 11","byArtist":"Ivor Cutler"},{"@type":"MusicRecording","name":"Sata-Sata!","byArtist":"Mari Kalkun,VHK keelpilliorkester"},{"@type":"MusicRecording","name":"Moving On","byArtist":"Explosions In The Sky"},{"@type":"MusicRecording","name":"River Man","byArtist":"Nick Drake"},{"@type":"MusicRecording","name":"Him or Me","byArtist":"Empire"},{"@type":"MusicRecording","name":"La Tristesse Durera (Scream to a Sigh)","byArtist":"Manic Street Preachers"},{"@type":"MusicRecording","name":"Take Me to the River","byArtist":"Talking Heads"},{"@type":"MusicRecording","name":"gardenside","byArtist":"Swansea Skag"},{"@type":"MusicRecording","name":"Make You Proud","byArtist":"Palace"},{"@type":"MusicRecording","name":"There Are No More Almond Trees","byArtist":"Clementine Was Right"},{"@type":"MusicRecording","name":"The Good Old Days","byArtist":"The Libertines"},{"@type":"MusicRecording","name":"Slice","byArtist":"O"},{"@type":"MusicRecording","name":"Millions of Billions","byArtist":"Blitzen Trapper"},{"@type":"MusicRecording","name":"Concerning the UFO sighting near Highland, Illinois","byArtist":"Sufjan Stevens"},{"@type":"MusicRecording","name":"Money","byArtist":"The Flying Lizards"},{"@type":"MusicRecording","name":"Running - (DT\u0027s BKNY Version) [Mixed]","byArtist":"Moderat,Danny Tenaglia"},{"@type":"MusicRecording","name":"In For The Kill - Skream\u0027s Let\u0027s Get Ravey Remix","byArtist":"La Roux,Skream"}]}
 </script>
 </head>
-<body class="bg-white text-dark">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/index.html"><span class="brand-dot"></span>Less Than Zero</a>
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/index.html">
+        <span class="ltz-logo">
+          <span class="ltz-mono" style="font-size:.6rem; font-weight:700;">LTZ</span>
+          <span class="brand-dot" style="position:absolute; top:-3px; right:-3px; margin:0;"></span>
+        </span>
+        <span>Less Than Zero</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="/archive.html">Search</a></li>
-          <li class="nav-item"><a class="nav-link" href="/graph.html">Graph</a></li>
-          <li class="nav-item"><a class="nav-link" href="/stats.html">Stats</a></li>
-          <li class="nav-item"><a class="nav-link" href="/sources.html">Sources</a></li>
-          <li class="nav-item"><a class="nav-link" href="/calendar.html">Releases</a></li>
-          <li class="nav-item"><a class="nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/archive.html">Search</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/graph.html">Graph</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/stats.html">Stats</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/sources.html">Sources</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/calendar.html">Releases</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
           <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-            <a class="btn btn-discord btn-sm rounded-pill" href="https://discord.gg/ptjQ3bf4CD" target="_blank">Join the Discord</a>
+            <a class="ltz-btn discord" href="https://discord.gg/ptjQ3bf4CD" target="_blank">Join the Discord</a>
           </li>
         </ul>
       </div>
@@ -58,150 +63,220 @@
   </nav>
   <div class="container py-4">
 
-<div class="row align-items-center mb-4">
-  <div class="col-md-2 mb-3 mb-md-0">
-    <img src="/images/2023-11-30.thumbnail.jpg" class="img-fluid rounded">
+<div class="d-flex flex-column flex-md-row gap-4 mb-4">
+  <div class="ltz-bracket flex-shrink-0" style="width:150px; height:150px;">
+    <span class="ltz-bracket-mark ltz-bracket-tl"></span><span class="ltz-bracket-mark ltz-bracket-tr"></span>
+    <span class="ltz-bracket-mark ltz-bracket-bl"></span><span class="ltz-bracket-mark ltz-bracket-br"></span>
+    <img src="/images/2023-11-30.thumbnail.jpg" class="w-100 h-100" style="object-fit:cover;">
   </div>
-  <div class="col-md-10">
-    <h1 class="h3 mb-2">30th November 2023</h1>
-    <a href="https://www.mixcloud.com/less-than-zero/guess-its-time-for-some-christmas-music-less-than-zero-live-30th-november-2023-20231130-183552/" class="btn btn-outline-dark btn-sm me-2" target="_blank">Listen on Mixcloud</a>
-    <a href="https://open.spotify.com/playlist/01FXsh3VVx5KvgNqxQxqJ3" class="btn btn-outline-dark btn-sm me-2" target="_blank">Spotify</a>
-  </div>
-</div>
-
-<div class="alert alert-light border d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-  <span>Heard something you liked? Come talk about it.</span>
-  <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-discord btn-sm rounded-pill" target="_blank">Join the Discord</a>
-</div>
-
-<h2 class="h5 mb-3">Tracklist</h2>
-<div class="list-group list-group-flush">
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">1.</span>
-    <strong>The xx</strong> — Missing
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">2.</span>
-    <strong>The Flaming Lips</strong> — She Don't Use Jelly
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">3.</span>
-    <strong>LOOK MUM NO COMPUTER</strong> — T.I.M
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">4.</span>
-    <strong>Shelf Lives</strong> — All Grown Up
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">5.</span>
-    <strong>Sea Power</strong> — Remember Me
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">6.</span>
-    <strong>Al Green</strong> — Take Me to the River
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">7.</span>
-    <strong>Dire Straits</strong> — Single Handed Sailor
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">8.</span>
-    <strong>Cuco</strong> — Edith
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">9.</span>
-    <strong>John Grant,Sin�ad O'Connor</strong> — GMF
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">10.</span>
-    <strong>Ivor Cutler</strong> — Life In A Scotch Sittingroom 2 Episode 11
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">11.</span>
-    <strong>Mari Kalkun,VHK keelpilliorkester</strong> — Sata-Sata!
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">12.</span>
-    <strong>Explosions In The Sky</strong> — Moving On
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">13.</span>
-    <strong>Nick Drake</strong> — River Man
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">14.</span>
-    <strong>Empire</strong> — Him or Me
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">15.</span>
-    <strong>Manic Street Preachers</strong> — La Tristesse Durera (Scream to a Sigh)
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">16.</span>
-    <strong>Talking Heads</strong> — Take Me to the River
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">17.</span>
-    <strong>Swansea Skag</strong> — gardenside
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">18.</span>
-    <strong>Palace</strong> — Make You Proud
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">19.</span>
-    <strong>Clementine Was Right</strong> — There Are No More Almond Trees
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">20.</span>
-    <strong>The Libertines</strong> — The Good Old Days
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">21.</span>
-    <strong>O</strong> — Slice
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">22.</span>
-    <strong>Blitzen Trapper</strong> — Millions of Billions
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">23.</span>
-    <strong>Sufjan Stevens</strong> — Concerning the UFO sighting near Highland, Illinois
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">24.</span>
-    <strong>The Flying Lizards</strong> — Money
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">25.</span>
-    <strong>Moderat,Danny Tenaglia</strong> — Running - (DT's BKNY Version) [Mixed]
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">26.</span>
-    <strong>La Roux,Skream</strong> — In For The Kill - Skream's Let's Get Ravey Remix
+  <div class="flex-grow-1">
+    <p class="ltz-label mb-2" style="color:var(--accent);">Episode Manifest</p>
+    <h1 class="mb-3" style="font-size:2.6rem; font-weight:800; text-transform:uppercase; letter-spacing:-0.01em; line-height:0.95;">30th November 2023</h1>
+    <div class="d-flex flex-wrap gap-2 mb-3">
+      <a href="https://www.mixcloud.com/less-than-zero/guess-its-time-for-some-christmas-music-less-than-zero-live-30th-november-2023-20231130-183552/" class="ltz-btn" target="_blank">Listen on Mixcloud</a>
+      <a href="https://open.spotify.com/playlist/01FXsh3VVx5KvgNqxQxqJ3" class="ltz-btn" target="_blank">Spotify</a>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <svg class="ltz-icon flex-shrink-0" style="color:var(--ink);" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square">
+        <line x1="3" y1="11" x2="3" y2="6"></line>
+        <line x1="8" y1="11" x2="8" y2="3"></line>
+        <line x1="13" y1="11" x2="13" y2="8"></line>
+      </svg>
+      <div class="d-flex flex-wrap gap-2 flex-grow-1">
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Signal</div>
+          <div class="ltz-cell-value">FM LIVE</div>
+        </div>
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Region</div>
+          <div class="ltz-cell-value">UK ONLY</div>
+        </div>
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Licence</div>
+          <div class="ltz-cell-value">PRS LC-004689</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 p-3" style="border:2px solid var(--ink); border-radius:2px;">
+  <span class="ltz-mono" style="font-size:.85rem; color:var(--ink-soft);">Heard something you liked? Join the conversation on Discord.</span>
+  <a href="https://discord.gg/ptjQ3bf4CD" class="ltz-btn discord" target="_blank">Join the Discord</a>
+</div>
+
+<div class="d-flex justify-content-between align-items-baseline mb-2">
+  <div class="d-flex align-items-center gap-2">
+    <svg class="ltz-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="square">
+      <line x1="2" y1="2" x2="2" y2="13"></line>
+      <line x1="2" y1="4" x2="12" y2="4"></line>
+      <line x1="2" y1="8" x2="9" y2="8"></line>
+      <line x1="2" y1="12" x2="11" y2="12"></line>
+    </svg>
+    <span class="ltz-label">Cargo Manifest — Playout Log</span>
+    <span class="ltz-mono" style="font-size:.6rem; color:var(--ink-faint); letter-spacing:.06em;">DOC. LTZ-20231130</span>
   </div>
-  <footer class="border-top py-4 mt-4">
+  <span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint);">26 TRACKS</span>
+</div>
+<div class="ltz-manifest-header">
+  <div style="width:26px;">Trk</div>
+  <div style="width:240px;">Artist</div>
+  <div>Title</div>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">01</span>
+  <span class="ltz-rowartist">The xx</span>
+  <span class="ltz-rowtrack">Missing</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">02</span>
+  <span class="ltz-rowartist">The Flaming Lips</span>
+  <span class="ltz-rowtrack">She Don't Use Jelly</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">03</span>
+  <span class="ltz-rowartist">LOOK MUM NO COMPUTER</span>
+  <span class="ltz-rowtrack">T.I.M</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">04</span>
+  <span class="ltz-rowartist">Shelf Lives</span>
+  <span class="ltz-rowtrack">All Grown Up</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">05</span>
+  <span class="ltz-rowartist">Sea Power</span>
+  <span class="ltz-rowtrack">Remember Me</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">06</span>
+  <span class="ltz-rowartist">Al Green</span>
+  <span class="ltz-rowtrack">Take Me to the River</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">07</span>
+  <span class="ltz-rowartist">Dire Straits</span>
+  <span class="ltz-rowtrack">Single Handed Sailor</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">08</span>
+  <span class="ltz-rowartist">Cuco</span>
+  <span class="ltz-rowtrack">Edith</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">09</span>
+  <span class="ltz-rowartist">John Grant,Sin�ad O'Connor</span>
+  <span class="ltz-rowtrack">GMF</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">10</span>
+  <span class="ltz-rowartist">Ivor Cutler</span>
+  <span class="ltz-rowtrack">Life In A Scotch Sittingroom 2 Episode 11</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">11</span>
+  <span class="ltz-rowartist">Mari Kalkun,VHK keelpilliorkester</span>
+  <span class="ltz-rowtrack">Sata-Sata!</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">12</span>
+  <span class="ltz-rowartist">Explosions In The Sky</span>
+  <span class="ltz-rowtrack">Moving On</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">13</span>
+  <span class="ltz-rowartist">Nick Drake</span>
+  <span class="ltz-rowtrack">River Man</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">14</span>
+  <span class="ltz-rowartist">Empire</span>
+  <span class="ltz-rowtrack">Him or Me</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">15</span>
+  <span class="ltz-rowartist">Manic Street Preachers</span>
+  <span class="ltz-rowtrack">La Tristesse Durera (Scream to a Sigh)</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">16</span>
+  <span class="ltz-rowartist">Talking Heads</span>
+  <span class="ltz-rowtrack">Take Me to the River</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">17</span>
+  <span class="ltz-rowartist">Swansea Skag</span>
+  <span class="ltz-rowtrack">gardenside</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">18</span>
+  <span class="ltz-rowartist">Palace</span>
+  <span class="ltz-rowtrack">Make You Proud</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">19</span>
+  <span class="ltz-rowartist">Clementine Was Right</span>
+  <span class="ltz-rowtrack">There Are No More Almond Trees</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">20</span>
+  <span class="ltz-rowartist">The Libertines</span>
+  <span class="ltz-rowtrack">The Good Old Days</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">21</span>
+  <span class="ltz-rowartist">O</span>
+  <span class="ltz-rowtrack">Slice</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">22</span>
+  <span class="ltz-rowartist">Blitzen Trapper</span>
+  <span class="ltz-rowtrack">Millions of Billions</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">23</span>
+  <span class="ltz-rowartist">Sufjan Stevens</span>
+  <span class="ltz-rowtrack">Concerning the UFO sighting near Highland, Illinois</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">24</span>
+  <span class="ltz-rowartist">The Flying Lizards</span>
+  <span class="ltz-rowtrack">Money</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">25</span>
+  <span class="ltz-rowartist">Moderat,Danny Tenaglia</span>
+  <span class="ltz-rowtrack">Running - (DT's BKNY Version) [Mixed]</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">26</span>
+  <span class="ltz-rowartist">La Roux,Skream</span>
+  <span class="ltz-rowtrack">In For The Kill - Skream's Let's Get Ravey Remix</span>
+</div>
+<div class="text-center pt-4">
+  <span class="ltz-mono" style="font-size:.66rem; letter-spacing:.1em; color:var(--ink-faint);">END OF MANIFEST</span>
+</div>
+
+  </div>
+  <footer class="ltz-footer py-4 mt-4">
     <div class="container text-center">
       <p class="mb-3">
-        <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-discord btn-sm rounded-pill me-2" target="_blank">Join the Discord</a>
-        <a href="https://www.patreon.com/LessThanZero789" class="btn btn-outline-secondary btn-sm rounded-pill" target="_blank">Support on Patreon</a>
+        <a href="https://discord.gg/ptjQ3bf4CD" class="ltz-btn discord me-2" target="_blank">Join the Discord</a>
+        <a href="https://www.patreon.com/LessThanZero789" class="ltz-btn" style="border-color:var(--paper); color:var(--paper);" target="_blank">Support on Patreon</a>
       </p>
-      <p class="mb-3 small"><a href="https://play.qobuz.com/playlist/69609247" target="_blank">Subscribe to the always-current show on Qobuz &rarr;</a></p>
-      <p class="mb-3 small">In collaboration with <a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></p>
-      <p class="mb-3 small">
+      <p class="mb-3 ltz-footer-links"><a href="https://play.qobuz.com/playlist/69609247" target="_blank">Subscribe to the always-current show on Qobuz &rarr;</a></p>
+      <p class="mb-3 ltz-footer-links">In collaboration with <a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></p>
+      <p class="mb-3 ltz-footer-links">
         <a href="/stats.html">By the numbers</a>
         &middot; <a href="/sources.html">Where we find the music</a>
         &middot; <a href="/feed.xml">RSS feed</a>
         &middot; <a href="#" data-surprise>Surprise me &#127922;</a>
       </p>
-      <p class="mb-1 text-muted small">Less Than Zero broadcasts to a UK audience.</p>
-      <p class="mb-0 text-muted small">Licensed by
-        <a href="https://www.prsformusic.com" class="link-secondary">PRS for Music</a>
+      <p class="mb-1 ltz-footer-compliance">Less Than Zero broadcasts to a UK audience.</p>
+      <p class="mb-0 ltz-footer-compliance">Licensed by
+        <a href="https://www.prsformusic.com">PRS for Music</a>
         (LC-004689) and
-        <a href="https://www.ppluk.com" class="link-secondary">PPL</a>
+        <a href="https://www.ppluk.com">PPL</a>
         (Linear Webcast Licence).
       </p>
     </div>

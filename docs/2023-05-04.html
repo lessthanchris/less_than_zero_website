@@ -24,8 +24,7 @@
   </script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/site.css">
   <link rel="stylesheet" href="/static/search.css">
   <title>4th May 2023 — Less Than Zero</title>
@@ -33,24 +32,30 @@
 {"@context":"https://schema.org","@type":"MusicPlaylist","name":"Less Than Zero \u2014 4th May 2023","url":"https://lessthanze.ro/2023-05-04.html","numTracks":28,"track":[{"@type":"MusicRecording","name":"Pass This On","byArtist":"The Knife"},{"@type":"MusicRecording","name":"Spit on a Stranger","byArtist":"Pavement"},{"@type":"MusicRecording","name":"Grease In Your Hair","byArtist":"The National"},{"@type":"MusicRecording","name":"Rock Pools","byArtist":"Saint Saviour,Willy Mason"},{"@type":"MusicRecording","name":"Dare Me","byArtist":"Beach Fossils"},{"@type":"MusicRecording","name":"Peggy Sue","byArtist":"Buddy Holly,The Crickets"},{"@type":"MusicRecording","name":"Do You Believe Her","byArtist":"The Raveonettes,The Brian Jonestown Massacre"},{"@type":"MusicRecording","name":"Whirring","byArtist":"The Joy Formidable"},{"@type":"MusicRecording","name":"You","byArtist":"Bad Religion"},{"@type":"MusicRecording","name":"No Cigar","byArtist":"Millencolin"},{"@type":"MusicRecording","name":"Lads Lads Lads","byArtist":"Lambrini Girls"},{"@type":"MusicRecording","name":"Never Fight A Man With A Perm","byArtist":"IDLES"},{"@type":"MusicRecording","name":"Hold Back The Scythe","byArtist":"James Knowles"},{"@type":"MusicRecording","name":"Small Noise - Instrumental","byArtist":"Brian Eno"},{"@type":"MusicRecording","name":"Ellis Island","byArtist":"Meredith Monk,Katia Lab\u00e8que,Marielle Lab\u00e8que,Bryce Dessner,David Chalmin"},{"@type":"MusicRecording","name":"New Nebulae","byArtist":"Kazuma Okabayashi"},{"@type":"MusicRecording","name":"GREEN","byArtist":"Hiroshi Yoshimura"},{"@type":"MusicRecording","name":"May","byArtist":"Complete Mountain Almanac,Rebekka Karijord,Bryce Dessner,Aaron Dessner,Jessica Dessner"},{"@type":"MusicRecording","name":"Dreamer","byArtist":"Nabihah Iqbal"},{"@type":"MusicRecording","name":"Hot \u0026 Heavy","byArtist":"Lucy Dacus"},{"@type":"MusicRecording","name":"A Child\u0027s Question, August","byArtist":"PJ Harvey"},{"@type":"MusicRecording","name":"Peggy Sue","byArtist":"Lou Reed"},{"@type":"MusicRecording","name":"Zorbing","byArtist":"Stornoway"},{"@type":"MusicRecording","name":"Little Bit","byArtist":"Lykke Li"},{"@type":"MusicRecording","name":"The Green Manalishi (With the Two Prong Crown) - 2013 Remaster","byArtist":"Fleetwood Mac"},{"@type":"MusicRecording","name":"Life Is Yours - Dan Carey Dub","byArtist":"Foals,Dan Carey"},{"@type":"MusicRecording","name":"Hustler","byArtist":"Simian Mobile Disco"},{"@type":"MusicRecording","name":"Falling Apart - Divino Ni\u00f1o Remix","byArtist":"Slow Pulp,Divino Ni\u00f1o"}]}
 </script>
 </head>
-<body class="bg-white text-dark">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/index.html"><span class="brand-dot"></span>Less Than Zero</a>
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/index.html">
+        <span class="ltz-logo">
+          <span class="ltz-mono" style="font-size:.6rem; font-weight:700;">LTZ</span>
+          <span class="brand-dot" style="position:absolute; top:-3px; right:-3px; margin:0;"></span>
+        </span>
+        <span>Less Than Zero</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="/archive.html">Search</a></li>
-          <li class="nav-item"><a class="nav-link" href="/graph.html">Graph</a></li>
-          <li class="nav-item"><a class="nav-link" href="/stats.html">Stats</a></li>
-          <li class="nav-item"><a class="nav-link" href="/sources.html">Sources</a></li>
-          <li class="nav-item"><a class="nav-link" href="/calendar.html">Releases</a></li>
-          <li class="nav-item"><a class="nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/archive.html">Search</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/graph.html">Graph</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/stats.html">Stats</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/sources.html">Sources</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/calendar.html">Releases</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
           <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-            <a class="btn btn-discord btn-sm rounded-pill" href="https://discord.gg/ptjQ3bf4CD" target="_blank">Join the Discord</a>
+            <a class="ltz-btn discord" href="https://discord.gg/ptjQ3bf4CD" target="_blank">Join the Discord</a>
           </li>
         </ul>
       </div>
@@ -58,158 +63,230 @@
   </nav>
   <div class="container py-4">
 
-<div class="row align-items-center mb-4">
-  <div class="col-md-2 mb-3 mb-md-0">
-    <img src="/images/2023-05-04.thumbnail.jpg" class="img-fluid rounded">
+<div class="d-flex flex-column flex-md-row gap-4 mb-4">
+  <div class="ltz-bracket flex-shrink-0" style="width:150px; height:150px;">
+    <span class="ltz-bracket-mark ltz-bracket-tl"></span><span class="ltz-bracket-mark ltz-bracket-tr"></span>
+    <span class="ltz-bracket-mark ltz-bracket-bl"></span><span class="ltz-bracket-mark ltz-bracket-br"></span>
+    <img src="/images/2023-05-04.thumbnail.jpg" class="w-100 h-100" style="object-fit:cover;">
   </div>
-  <div class="col-md-10">
-    <h1 class="h3 mb-2">4th May 2023</h1>
-    <a href="https://www.mixcloud.com/less-than-zero/less-than-zero-curated-indie-ambient-electronica-4th-may-2023-20230504-175710/" class="btn btn-outline-dark btn-sm me-2" target="_blank">Listen on Mixcloud</a>
-    <a href="https://open.spotify.com/playlist/52zMgoeCKfyVVeZjH5SFnH" class="btn btn-outline-dark btn-sm me-2" target="_blank">Spotify</a>
-  </div>
-</div>
-
-<div class="alert alert-light border d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-  <span>Heard something you liked? Come talk about it.</span>
-  <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-discord btn-sm rounded-pill" target="_blank">Join the Discord</a>
-</div>
-
-<h2 class="h5 mb-3">Tracklist</h2>
-<div class="list-group list-group-flush">
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">1.</span>
-    <strong>The Knife</strong> — Pass This On
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">2.</span>
-    <strong>Pavement</strong> — Spit on a Stranger
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">3.</span>
-    <strong>The National</strong> — Grease In Your Hair
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">4.</span>
-    <strong>Saint Saviour,Willy Mason</strong> — Rock Pools
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">5.</span>
-    <strong>Beach Fossils</strong> — Dare Me
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">6.</span>
-    <strong>Buddy Holly,The Crickets</strong> — Peggy Sue
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">7.</span>
-    <strong>The Raveonettes,The Brian Jonestown Massacre</strong> — Do You Believe Her
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">8.</span>
-    <strong>The Joy Formidable</strong> — Whirring
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">9.</span>
-    <strong>Bad Religion</strong> — You
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">10.</span>
-    <strong>Millencolin</strong> — No Cigar
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">11.</span>
-    <strong>Lambrini Girls</strong> — Lads Lads Lads
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">12.</span>
-    <strong>IDLES</strong> — Never Fight A Man With A Perm
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">13.</span>
-    <strong>James Knowles</strong> — Hold Back The Scythe
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">14.</span>
-    <strong>Brian Eno</strong> — Small Noise - Instrumental
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">15.</span>
-    <strong>Meredith Monk,Katia Labèque,Marielle Labèque,Bryce Dessner,David Chalmin</strong> — Ellis Island
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">16.</span>
-    <strong>Kazuma Okabayashi</strong> — New Nebulae
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">17.</span>
-    <strong>Hiroshi Yoshimura</strong> — GREEN
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">18.</span>
-    <strong>Complete Mountain Almanac,Rebekka Karijord,Bryce Dessner,Aaron Dessner,Jessica Dessner</strong> — May
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">19.</span>
-    <strong>Nabihah Iqbal</strong> — Dreamer
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">20.</span>
-    <strong>Lucy Dacus</strong> — Hot & Heavy
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">21.</span>
-    <strong>PJ Harvey</strong> — A Child's Question, August
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">22.</span>
-    <strong>Lou Reed</strong> — Peggy Sue
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">23.</span>
-    <strong>Stornoway</strong> — Zorbing
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">24.</span>
-    <strong>Lykke Li</strong> — Little Bit
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">25.</span>
-    <strong>Fleetwood Mac</strong> — The Green Manalishi (With the Two Prong Crown) - 2013 Remaster
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">26.</span>
-    <strong>Foals,Dan Carey</strong> — Life Is Yours - Dan Carey Dub
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">27.</span>
-    <strong>Simian Mobile Disco</strong> — Hustler
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">28.</span>
-    <strong>Slow Pulp,Divino Niño</strong> — Falling Apart - Divino Niño Remix
+  <div class="flex-grow-1">
+    <p class="ltz-label mb-2" style="color:var(--accent);">Episode Manifest</p>
+    <h1 class="mb-3" style="font-size:2.6rem; font-weight:800; text-transform:uppercase; letter-spacing:-0.01em; line-height:0.95;">4th May 2023</h1>
+    <div class="d-flex flex-wrap gap-2 mb-3">
+      <a href="https://www.mixcloud.com/less-than-zero/less-than-zero-curated-indie-ambient-electronica-4th-may-2023-20230504-175710/" class="ltz-btn" target="_blank">Listen on Mixcloud</a>
+      <a href="https://open.spotify.com/playlist/52zMgoeCKfyVVeZjH5SFnH" class="ltz-btn" target="_blank">Spotify</a>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <svg class="ltz-icon flex-shrink-0" style="color:var(--ink);" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square">
+        <line x1="3" y1="11" x2="3" y2="6"></line>
+        <line x1="8" y1="11" x2="8" y2="3"></line>
+        <line x1="13" y1="11" x2="13" y2="8"></line>
+      </svg>
+      <div class="d-flex flex-wrap gap-2 flex-grow-1">
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Signal</div>
+          <div class="ltz-cell-value">FM LIVE</div>
+        </div>
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Region</div>
+          <div class="ltz-cell-value">UK ONLY</div>
+        </div>
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Licence</div>
+          <div class="ltz-cell-value">PRS LC-004689</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 p-3" style="border:2px solid var(--ink); border-radius:2px;">
+  <span class="ltz-mono" style="font-size:.85rem; color:var(--ink-soft);">Heard something you liked? Join the conversation on Discord.</span>
+  <a href="https://discord.gg/ptjQ3bf4CD" class="ltz-btn discord" target="_blank">Join the Discord</a>
+</div>
+
+<div class="d-flex justify-content-between align-items-baseline mb-2">
+  <div class="d-flex align-items-center gap-2">
+    <svg class="ltz-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="square">
+      <line x1="2" y1="2" x2="2" y2="13"></line>
+      <line x1="2" y1="4" x2="12" y2="4"></line>
+      <line x1="2" y1="8" x2="9" y2="8"></line>
+      <line x1="2" y1="12" x2="11" y2="12"></line>
+    </svg>
+    <span class="ltz-label">Cargo Manifest — Playout Log</span>
+    <span class="ltz-mono" style="font-size:.6rem; color:var(--ink-faint); letter-spacing:.06em;">DOC. LTZ-20230504</span>
   </div>
-  <footer class="border-top py-4 mt-4">
+  <span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint);">28 TRACKS</span>
+</div>
+<div class="ltz-manifest-header">
+  <div style="width:26px;">Trk</div>
+  <div style="width:240px;">Artist</div>
+  <div>Title</div>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">01</span>
+  <span class="ltz-rowartist">The Knife</span>
+  <span class="ltz-rowtrack">Pass This On</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">02</span>
+  <span class="ltz-rowartist">Pavement</span>
+  <span class="ltz-rowtrack">Spit on a Stranger</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">03</span>
+  <span class="ltz-rowartist">The National</span>
+  <span class="ltz-rowtrack">Grease In Your Hair</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">04</span>
+  <span class="ltz-rowartist">Saint Saviour,Willy Mason</span>
+  <span class="ltz-rowtrack">Rock Pools</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">05</span>
+  <span class="ltz-rowartist">Beach Fossils</span>
+  <span class="ltz-rowtrack">Dare Me</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">06</span>
+  <span class="ltz-rowartist">Buddy Holly,The Crickets</span>
+  <span class="ltz-rowtrack">Peggy Sue</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">07</span>
+  <span class="ltz-rowartist">The Raveonettes,The Brian Jonestown Massacre</span>
+  <span class="ltz-rowtrack">Do You Believe Her</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">08</span>
+  <span class="ltz-rowartist">The Joy Formidable</span>
+  <span class="ltz-rowtrack">Whirring</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">09</span>
+  <span class="ltz-rowartist">Bad Religion</span>
+  <span class="ltz-rowtrack">You</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">10</span>
+  <span class="ltz-rowartist">Millencolin</span>
+  <span class="ltz-rowtrack">No Cigar</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">11</span>
+  <span class="ltz-rowartist">Lambrini Girls</span>
+  <span class="ltz-rowtrack">Lads Lads Lads</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">12</span>
+  <span class="ltz-rowartist">IDLES</span>
+  <span class="ltz-rowtrack">Never Fight A Man With A Perm</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">13</span>
+  <span class="ltz-rowartist">James Knowles</span>
+  <span class="ltz-rowtrack">Hold Back The Scythe</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">14</span>
+  <span class="ltz-rowartist">Brian Eno</span>
+  <span class="ltz-rowtrack">Small Noise - Instrumental</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">15</span>
+  <span class="ltz-rowartist">Meredith Monk,Katia Labèque,Marielle Labèque,Bryce Dessner,David Chalmin</span>
+  <span class="ltz-rowtrack">Ellis Island</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">16</span>
+  <span class="ltz-rowartist">Kazuma Okabayashi</span>
+  <span class="ltz-rowtrack">New Nebulae</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">17</span>
+  <span class="ltz-rowartist">Hiroshi Yoshimura</span>
+  <span class="ltz-rowtrack">GREEN</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">18</span>
+  <span class="ltz-rowartist">Complete Mountain Almanac,Rebekka Karijord,Bryce Dessner,Aaron Dessner,Jessica Dessner</span>
+  <span class="ltz-rowtrack">May</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">19</span>
+  <span class="ltz-rowartist">Nabihah Iqbal</span>
+  <span class="ltz-rowtrack">Dreamer</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">20</span>
+  <span class="ltz-rowartist">Lucy Dacus</span>
+  <span class="ltz-rowtrack">Hot & Heavy</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">21</span>
+  <span class="ltz-rowartist">PJ Harvey</span>
+  <span class="ltz-rowtrack">A Child's Question, August</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">22</span>
+  <span class="ltz-rowartist">Lou Reed</span>
+  <span class="ltz-rowtrack">Peggy Sue</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">23</span>
+  <span class="ltz-rowartist">Stornoway</span>
+  <span class="ltz-rowtrack">Zorbing</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">24</span>
+  <span class="ltz-rowartist">Lykke Li</span>
+  <span class="ltz-rowtrack">Little Bit</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">25</span>
+  <span class="ltz-rowartist">Fleetwood Mac</span>
+  <span class="ltz-rowtrack">The Green Manalishi (With the Two Prong Crown) - 2013 Remaster</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">26</span>
+  <span class="ltz-rowartist">Foals,Dan Carey</span>
+  <span class="ltz-rowtrack">Life Is Yours - Dan Carey Dub</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">27</span>
+  <span class="ltz-rowartist">Simian Mobile Disco</span>
+  <span class="ltz-rowtrack">Hustler</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">28</span>
+  <span class="ltz-rowartist">Slow Pulp,Divino Niño</span>
+  <span class="ltz-rowtrack">Falling Apart - Divino Niño Remix</span>
+</div>
+<div class="text-center pt-4">
+  <span class="ltz-mono" style="font-size:.66rem; letter-spacing:.1em; color:var(--ink-faint);">END OF MANIFEST</span>
+</div>
+
+  </div>
+  <footer class="ltz-footer py-4 mt-4">
     <div class="container text-center">
       <p class="mb-3">
-        <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-discord btn-sm rounded-pill me-2" target="_blank">Join the Discord</a>
-        <a href="https://www.patreon.com/LessThanZero789" class="btn btn-outline-secondary btn-sm rounded-pill" target="_blank">Support on Patreon</a>
+        <a href="https://discord.gg/ptjQ3bf4CD" class="ltz-btn discord me-2" target="_blank">Join the Discord</a>
+        <a href="https://www.patreon.com/LessThanZero789" class="ltz-btn" style="border-color:var(--paper); color:var(--paper);" target="_blank">Support on Patreon</a>
       </p>
-      <p class="mb-3 small"><a href="https://play.qobuz.com/playlist/69609247" target="_blank">Subscribe to the always-current show on Qobuz &rarr;</a></p>
-      <p class="mb-3 small">In collaboration with <a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></p>
-      <p class="mb-3 small">
+      <p class="mb-3 ltz-footer-links"><a href="https://play.qobuz.com/playlist/69609247" target="_blank">Subscribe to the always-current show on Qobuz &rarr;</a></p>
+      <p class="mb-3 ltz-footer-links">In collaboration with <a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></p>
+      <p class="mb-3 ltz-footer-links">
         <a href="/stats.html">By the numbers</a>
         &middot; <a href="/sources.html">Where we find the music</a>
         &middot; <a href="/feed.xml">RSS feed</a>
         &middot; <a href="#" data-surprise>Surprise me &#127922;</a>
       </p>
-      <p class="mb-1 text-muted small">Less Than Zero broadcasts to a UK audience.</p>
-      <p class="mb-0 text-muted small">Licensed by
-        <a href="https://www.prsformusic.com" class="link-secondary">PRS for Music</a>
+      <p class="mb-1 ltz-footer-compliance">Less Than Zero broadcasts to a UK audience.</p>
+      <p class="mb-0 ltz-footer-compliance">Licensed by
+        <a href="https://www.prsformusic.com">PRS for Music</a>
         (LC-004689) and
-        <a href="https://www.ppluk.com" class="link-secondary">PPL</a>
+        <a href="https://www.ppluk.com">PPL</a>
         (Linear Webcast Licence).
       </p>
     </div>

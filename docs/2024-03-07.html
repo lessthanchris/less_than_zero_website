@@ -24,8 +24,7 @@
   </script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/site.css">
   <link rel="stylesheet" href="/static/search.css">
   <title>7th March 2024 — Less Than Zero</title>
@@ -33,24 +32,30 @@
 {"@context":"https://schema.org","@type":"MusicPlaylist","name":"Less Than Zero \u2014 7th March 2024","url":"https://lessthanze.ro/2024-03-07.html","numTracks":25,"track":[{"@type":"MusicRecording","name":"Tejano Blue","byArtist":"Cigarettes After Sex"},{"@type":"MusicRecording","name":"Huggin \u0026 Kissin","byArtist":"Big Black Delta"},{"@type":"MusicRecording","name":"Goodbye Horses","byArtist":"Q Lazzarus"},{"@type":"MusicRecording","name":"Crimewave","byArtist":"Crystal Castles,HEALTH"},{"@type":"MusicRecording","name":"Allatonceness","byArtist":"Arab Strap"},{"@type":"MusicRecording","name":"Ring of Fire","byArtist":"Johnny Cash"},{"@type":"MusicRecording","name":"Mudroom","byArtist":"Tiny Habits"},{"@type":"MusicRecording","name":"Palestrina Gabriel","byArtist":"Max Cooper,Sarah Aristidou,Kim Sheehan,Tom Hodge"},{"@type":"MusicRecording","name":"From a Silence Within","byArtist":"Renzo Spiteri"},{"@type":"MusicRecording","name":"Maritime Radio","byArtist":"Oisin Leech,Steve Gunn"},{"@type":"MusicRecording","name":"Down By The Water","byArtist":"PJ Harvey"},{"@type":"MusicRecording","name":"Ring of Fire (from the Netflix Film \u0027Damsel\u0027)","byArtist":"Lykke Li"},{"@type":"MusicRecording","name":"Until We Become the Change","byArtist":"Herkja"},{"@type":"MusicRecording","name":"Frost and Snow","byArtist":"Jenny Sturgeon,Alice Allen,Grant Anderson"},{"@type":"MusicRecording","name":"GLASS CHIME","byArtist":"INOYAMALAND"},{"@type":"MusicRecording","name":"Blackpool Illuminations","byArtist":"Yard Act"},{"@type":"MusicRecording","name":"Promenade","byArtist":"LYR"},{"@type":"MusicRecording","name":"Toast","byArtist":"Streetband"},{"@type":"MusicRecording","name":"Babe I\u0027m Gonna Leave You - 1990 Remaster","byArtist":"Led Zeppelin"},{"@type":"MusicRecording","name":"Romantic Rights XX","byArtist":"Death From Above 1979"},{"@type":"MusicRecording","name":"Riot Rhythm","byArtist":"Sleigh Bells"},{"@type":"MusicRecording","name":"Funeral for Justice","byArtist":"Mdou Moctar"},{"@type":"MusicRecording","name":"skylinny","byArtist":"bar italia"},{"@type":"MusicRecording","name":"A Dream Goes On Forever","byArtist":"Vegyn,John Glacier"},{"@type":"MusicRecording","name":"This Love","byArtist":"Craig Armstrong,Elizabeth Fraser"}]}
 </script>
 </head>
-<body class="bg-white text-dark">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/index.html"><span class="brand-dot"></span>Less Than Zero</a>
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/index.html">
+        <span class="ltz-logo">
+          <span class="ltz-mono" style="font-size:.6rem; font-weight:700;">LTZ</span>
+          <span class="brand-dot" style="position:absolute; top:-3px; right:-3px; margin:0;"></span>
+        </span>
+        <span>Less Than Zero</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="/archive.html">Search</a></li>
-          <li class="nav-item"><a class="nav-link" href="/graph.html">Graph</a></li>
-          <li class="nav-item"><a class="nav-link" href="/stats.html">Stats</a></li>
-          <li class="nav-item"><a class="nav-link" href="/sources.html">Sources</a></li>
-          <li class="nav-item"><a class="nav-link" href="/calendar.html">Releases</a></li>
-          <li class="nav-item"><a class="nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/archive.html">Search</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/graph.html">Graph</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/stats.html">Stats</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/sources.html">Sources</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/calendar.html">Releases</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
           <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-            <a class="btn btn-discord btn-sm rounded-pill" href="https://discord.gg/ptjQ3bf4CD" target="_blank">Join the Discord</a>
+            <a class="ltz-btn discord" href="https://discord.gg/ptjQ3bf4CD" target="_blank">Join the Discord</a>
           </li>
         </ul>
       </div>
@@ -58,146 +63,215 @@
   </nav>
   <div class="container py-4">
 
-<div class="row align-items-center mb-4">
-  <div class="col-md-2 mb-3 mb-md-0">
-    <img src="/images/2024-03-07.thumbnail.jpg" class="img-fluid rounded">
+<div class="d-flex flex-column flex-md-row gap-4 mb-4">
+  <div class="ltz-bracket flex-shrink-0" style="width:150px; height:150px;">
+    <span class="ltz-bracket-mark ltz-bracket-tl"></span><span class="ltz-bracket-mark ltz-bracket-tr"></span>
+    <span class="ltz-bracket-mark ltz-bracket-bl"></span><span class="ltz-bracket-mark ltz-bracket-br"></span>
+    <img src="/images/2024-03-07.thumbnail.jpg" class="w-100 h-100" style="object-fit:cover;">
   </div>
-  <div class="col-md-10">
-    <h1 class="h3 mb-2">7th March 2024</h1>
-    <a href="https://www.mixcloud.com/less-than-zero/a-wee-island-in-the-atlantic-ocean-less-than-zero-live-7th-march-2024-20240307-184536/" class="btn btn-outline-dark btn-sm me-2" target="_blank">Listen on Mixcloud</a>
-    <a href="https://open.spotify.com/playlist/7vorVGMO1Rjj6qJk1olIM" class="btn btn-outline-dark btn-sm me-2" target="_blank">Spotify</a>
-  </div>
-</div>
-
-<div class="alert alert-light border d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-  <span>Heard something you liked? Come talk about it.</span>
-  <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-discord btn-sm rounded-pill" target="_blank">Join the Discord</a>
-</div>
-
-<h2 class="h5 mb-3">Tracklist</h2>
-<div class="list-group list-group-flush">
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">1.</span>
-    <strong>Cigarettes After Sex</strong> — Tejano Blue
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">2.</span>
-    <strong>Big Black Delta</strong> — Huggin & Kissin
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">3.</span>
-    <strong>Q Lazzarus</strong> — Goodbye Horses
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">4.</span>
-    <strong>Crystal Castles,HEALTH</strong> — Crimewave
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">5.</span>
-    <strong>Arab Strap</strong> — Allatonceness
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">6.</span>
-    <strong>Johnny Cash</strong> — Ring of Fire
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">7.</span>
-    <strong>Tiny Habits</strong> — Mudroom
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">8.</span>
-    <strong>Max Cooper,Sarah Aristidou,Kim Sheehan,Tom Hodge</strong> — Palestrina Gabriel
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">9.</span>
-    <strong>Renzo Spiteri</strong> — From a Silence Within
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">10.</span>
-    <strong>Oisin Leech,Steve Gunn</strong> — Maritime Radio
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">11.</span>
-    <strong>PJ Harvey</strong> — Down By The Water
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">12.</span>
-    <strong>Lykke Li</strong> — Ring of Fire (from the Netflix Film 'Damsel')
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">13.</span>
-    <strong>Herkja</strong> — Until We Become the Change
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">14.</span>
-    <strong>Jenny Sturgeon,Alice Allen,Grant Anderson</strong> — Frost and Snow
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">15.</span>
-    <strong>INOYAMALAND</strong> — GLASS CHIME
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">16.</span>
-    <strong>Yard Act</strong> — Blackpool Illuminations
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">17.</span>
-    <strong>LYR</strong> — Promenade
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">18.</span>
-    <strong>Streetband</strong> — Toast
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">19.</span>
-    <strong>Led Zeppelin</strong> — Babe I'm Gonna Leave You - 1990 Remaster
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">20.</span>
-    <strong>Death From Above 1979</strong> — Romantic Rights XX
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">21.</span>
-    <strong>Sleigh Bells</strong> — Riot Rhythm
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">22.</span>
-    <strong>Mdou Moctar</strong> — Funeral for Justice
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">23.</span>
-    <strong>bar italia</strong> — skylinny
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">24.</span>
-    <strong>Vegyn,John Glacier</strong> — A Dream Goes On Forever
-  </div>
-  <div class="list-group-item bg-transparent px-0 py-2">
-    <span class="text-muted me-2">25.</span>
-    <strong>Craig Armstrong,Elizabeth Fraser</strong> — This Love
+  <div class="flex-grow-1">
+    <p class="ltz-label mb-2" style="color:var(--accent);">Episode Manifest</p>
+    <h1 class="mb-3" style="font-size:2.6rem; font-weight:800; text-transform:uppercase; letter-spacing:-0.01em; line-height:0.95;">7th March 2024</h1>
+    <div class="d-flex flex-wrap gap-2 mb-3">
+      <a href="https://www.mixcloud.com/less-than-zero/a-wee-island-in-the-atlantic-ocean-less-than-zero-live-7th-march-2024-20240307-184536/" class="ltz-btn" target="_blank">Listen on Mixcloud</a>
+      <a href="https://open.spotify.com/playlist/7vorVGMO1Rjj6qJk1olIM" class="ltz-btn" target="_blank">Spotify</a>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <svg class="ltz-icon flex-shrink-0" style="color:var(--ink);" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square">
+        <line x1="3" y1="11" x2="3" y2="6"></line>
+        <line x1="8" y1="11" x2="8" y2="3"></line>
+        <line x1="13" y1="11" x2="13" y2="8"></line>
+      </svg>
+      <div class="d-flex flex-wrap gap-2 flex-grow-1">
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Signal</div>
+          <div class="ltz-cell-value">FM LIVE</div>
+        </div>
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Region</div>
+          <div class="ltz-cell-value">UK ONLY</div>
+        </div>
+        <div class="ltz-cell" style="padding:8px 14px;">
+          <div class="ltz-cell-label">Licence</div>
+          <div class="ltz-cell-value">PRS LC-004689</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 p-3" style="border:2px solid var(--ink); border-radius:2px;">
+  <span class="ltz-mono" style="font-size:.85rem; color:var(--ink-soft);">Heard something you liked? Join the conversation on Discord.</span>
+  <a href="https://discord.gg/ptjQ3bf4CD" class="ltz-btn discord" target="_blank">Join the Discord</a>
+</div>
+
+<div class="d-flex justify-content-between align-items-baseline mb-2">
+  <div class="d-flex align-items-center gap-2">
+    <svg class="ltz-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="square">
+      <line x1="2" y1="2" x2="2" y2="13"></line>
+      <line x1="2" y1="4" x2="12" y2="4"></line>
+      <line x1="2" y1="8" x2="9" y2="8"></line>
+      <line x1="2" y1="12" x2="11" y2="12"></line>
+    </svg>
+    <span class="ltz-label">Cargo Manifest — Playout Log</span>
+    <span class="ltz-mono" style="font-size:.6rem; color:var(--ink-faint); letter-spacing:.06em;">DOC. LTZ-20240307</span>
   </div>
-  <footer class="border-top py-4 mt-4">
+  <span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint);">25 TRACKS</span>
+</div>
+<div class="ltz-manifest-header">
+  <div style="width:26px;">Trk</div>
+  <div style="width:240px;">Artist</div>
+  <div>Title</div>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">01</span>
+  <span class="ltz-rowartist">Cigarettes After Sex</span>
+  <span class="ltz-rowtrack">Tejano Blue</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">02</span>
+  <span class="ltz-rowartist">Big Black Delta</span>
+  <span class="ltz-rowtrack">Huggin & Kissin</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">03</span>
+  <span class="ltz-rowartist">Q Lazzarus</span>
+  <span class="ltz-rowtrack">Goodbye Horses</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">04</span>
+  <span class="ltz-rowartist">Crystal Castles,HEALTH</span>
+  <span class="ltz-rowtrack">Crimewave</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">05</span>
+  <span class="ltz-rowartist">Arab Strap</span>
+  <span class="ltz-rowtrack">Allatonceness</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">06</span>
+  <span class="ltz-rowartist">Johnny Cash</span>
+  <span class="ltz-rowtrack">Ring of Fire</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">07</span>
+  <span class="ltz-rowartist">Tiny Habits</span>
+  <span class="ltz-rowtrack">Mudroom</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">08</span>
+  <span class="ltz-rowartist">Max Cooper,Sarah Aristidou,Kim Sheehan,Tom Hodge</span>
+  <span class="ltz-rowtrack">Palestrina Gabriel</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">09</span>
+  <span class="ltz-rowartist">Renzo Spiteri</span>
+  <span class="ltz-rowtrack">From a Silence Within</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">10</span>
+  <span class="ltz-rowartist">Oisin Leech,Steve Gunn</span>
+  <span class="ltz-rowtrack">Maritime Radio</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">11</span>
+  <span class="ltz-rowartist">PJ Harvey</span>
+  <span class="ltz-rowtrack">Down By The Water</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">12</span>
+  <span class="ltz-rowartist">Lykke Li</span>
+  <span class="ltz-rowtrack">Ring of Fire (from the Netflix Film 'Damsel')</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">13</span>
+  <span class="ltz-rowartist">Herkja</span>
+  <span class="ltz-rowtrack">Until We Become the Change</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">14</span>
+  <span class="ltz-rowartist">Jenny Sturgeon,Alice Allen,Grant Anderson</span>
+  <span class="ltz-rowtrack">Frost and Snow</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">15</span>
+  <span class="ltz-rowartist">INOYAMALAND</span>
+  <span class="ltz-rowtrack">GLASS CHIME</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">16</span>
+  <span class="ltz-rowartist">Yard Act</span>
+  <span class="ltz-rowtrack">Blackpool Illuminations</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">17</span>
+  <span class="ltz-rowartist">LYR</span>
+  <span class="ltz-rowtrack">Promenade</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">18</span>
+  <span class="ltz-rowartist">Streetband</span>
+  <span class="ltz-rowtrack">Toast</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">19</span>
+  <span class="ltz-rowartist">Led Zeppelin</span>
+  <span class="ltz-rowtrack">Babe I'm Gonna Leave You - 1990 Remaster</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">20</span>
+  <span class="ltz-rowartist">Death From Above 1979</span>
+  <span class="ltz-rowtrack">Romantic Rights XX</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">21</span>
+  <span class="ltz-rowartist">Sleigh Bells</span>
+  <span class="ltz-rowtrack">Riot Rhythm</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">22</span>
+  <span class="ltz-rowartist">Mdou Moctar</span>
+  <span class="ltz-rowtrack">Funeral for Justice</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">23</span>
+  <span class="ltz-rowartist">bar italia</span>
+  <span class="ltz-rowtrack">skylinny</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">24</span>
+  <span class="ltz-rowartist">Vegyn,John Glacier</span>
+  <span class="ltz-rowtrack">A Dream Goes On Forever</span>
+</div>
+<div class="ltz-row">
+  <span class="ltz-rownum ltz-mono">25</span>
+  <span class="ltz-rowartist">Craig Armstrong,Elizabeth Fraser</span>
+  <span class="ltz-rowtrack">This Love</span>
+</div>
+<div class="text-center pt-4">
+  <span class="ltz-mono" style="font-size:.66rem; letter-spacing:.1em; color:var(--ink-faint);">END OF MANIFEST</span>
+</div>
+
+  </div>
+  <footer class="ltz-footer py-4 mt-4">
     <div class="container text-center">
       <p class="mb-3">
-        <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-discord btn-sm rounded-pill me-2" target="_blank">Join the Discord</a>
-        <a href="https://www.patreon.com/LessThanZero789" class="btn btn-outline-secondary btn-sm rounded-pill" target="_blank">Support on Patreon</a>
+        <a href="https://discord.gg/ptjQ3bf4CD" class="ltz-btn discord me-2" target="_blank">Join the Discord</a>
+        <a href="https://www.patreon.com/LessThanZero789" class="ltz-btn" style="border-color:var(--paper); color:var(--paper);" target="_blank">Support on Patreon</a>
       </p>
-      <p class="mb-3 small"><a href="https://play.qobuz.com/playlist/69609247" target="_blank">Subscribe to the always-current show on Qobuz &rarr;</a></p>
-      <p class="mb-3 small">In collaboration with <a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></p>
-      <p class="mb-3 small">
+      <p class="mb-3 ltz-footer-links"><a href="https://play.qobuz.com/playlist/69609247" target="_blank">Subscribe to the always-current show on Qobuz &rarr;</a></p>
+      <p class="mb-3 ltz-footer-links">In collaboration with <a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></p>
+      <p class="mb-3 ltz-footer-links">
         <a href="/stats.html">By the numbers</a>
         &middot; <a href="/sources.html">Where we find the music</a>
         &middot; <a href="/feed.xml">RSS feed</a>
         &middot; <a href="#" data-surprise>Surprise me &#127922;</a>
       </p>
-      <p class="mb-1 text-muted small">Less Than Zero broadcasts to a UK audience.</p>
-      <p class="mb-0 text-muted small">Licensed by
-        <a href="https://www.prsformusic.com" class="link-secondary">PRS for Music</a>
+      <p class="mb-1 ltz-footer-compliance">Less Than Zero broadcasts to a UK audience.</p>
+      <p class="mb-0 ltz-footer-compliance">Licensed by
+        <a href="https://www.prsformusic.com">PRS for Music</a>
         (LC-004689) and
-        <a href="https://www.ppluk.com" class="link-secondary">PPL</a>
+        <a href="https://www.ppluk.com">PPL</a>
         (Linear Webcast Licence).
       </p>
     </div>

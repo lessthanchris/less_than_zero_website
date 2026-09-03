@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block active_page %}home{% endblock %}
 {% block title %}Less Than Zero — Thursday 7-9pm{% endblock %}
 {% block description %}Less Than Zero — Thursday evenings, 7-9pm. Fresh cuts and deep dives, live on Mixcloud. Join the community on Discord.{% endblock %}
 {% block canonical %}https://lessthanze.ro/{% endblock %}
@@ -7,20 +8,33 @@
 {% endif %}
 {% block content %}
 
-<div class="hero text-center mb-5">
-  <h1 class="display-4 fw-bold mb-2">Less Than Zero</h1>
-  <p class="lead text-muted">Thursday evenings, 7-9pm BST. Fresh cuts and deep dives.</p>
-  <div class="d-flex justify-content-center gap-2 flex-wrap">
-    <button type="button" class="btn btn-primary btn-lg rounded-pill px-4" data-ltz-play data-ltz-play-label="Listen Now">&#9654; Listen Now</button>
-    <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-discord btn-lg rounded-pill px-4" target="_blank">Join the Discord</a>
+<div class="hero mb-5">
+  <p class="ltz-label mb-3" style="color:var(--accent);">Fresh Cuts &amp; Deep Dives</p>
+  <h1 class="ltz-hero-title">Less Than<br>Zero</h1>
+  <div class="d-flex flex-wrap gap-3 mb-4" style="max-width:640px;">
+    <div class="ltz-cell">
+      <div class="ltz-cell-label">Schedule</div>
+      <div class="ltz-cell-value">THU 19:00&ndash;21:00</div>
+    </div>
+    <div class="ltz-cell">
+      <div class="ltz-cell-label">Format</div>
+      <div class="ltz-cell-value">INDIE / ALT / ELEC</div>
+    </div>
+    <div class="ltz-cell">
+      <div class="ltz-cell-label">Coverage</div>
+      <div class="ltz-cell-value">UK WEBCAST</div>
+    </div>
   </div>
-  <p class="small mt-3 mb-0"><a href="https://mixcloud.com/less-than-zero" target="_blank">Browse past episodes on Mixcloud &rarr;</a></p>
+  <div class="d-flex align-items-center gap-3 flex-wrap">
+    <button type="button" class="ltz-btn solid lg" data-ltz-play data-ltz-play-label="Listen Now"></button>
+    <a href="https://discord.gg/ptjQ3bf4CD" class="ltz-btn discord lg" target="_blank">Join the Discord</a>
+    <a href="https://mixcloud.com/less-than-zero" class="ltz-mono" style="font-size:.72rem; letter-spacing:.04em; text-transform:uppercase; border-bottom:1px solid var(--ink-faint); color:var(--ink-soft);" target="_blank">Mixcloud Archive &rarr;</a>
+  </div>
+  <p class="ltz-mono mt-4 mb-0" style="font-size:.72rem; color:var(--ink-faint);">
+    Also on <a href="https://play.qobuz.com/playlist/69609247" target="_blank">Qobuz</a> — one playlist, always the current show
+    (<span title="Their CEO's investment firm has poured hundreds of millions into an AI weapons company, and artists still get paid a fraction of a penny per stream. We don't want either near this show.">no Spotify</span>).
+  </p>
 </div>
-
-<p class="text-center text-muted small mb-5">
-  Also on <a href="https://play.qobuz.com/playlist/69609247" target="_blank">Qobuz</a> — one playlist, always the current show
-  (<span title="Their CEO's investment firm has poured hundreds of millions into an AI weapons company, and artists still get paid a fraction of a penny per stream. We don't want either near this show.">no Spotify</span>).
-</p>
 
 {% if shows %}
   {% set latest = shows[0] %}
@@ -28,23 +42,27 @@
     <div class="row g-0 align-items-stretch">
       {% if latest.iso_date %}
       <div class="col-md-4">
-        <img src="/images/{{ latest.iso_date }}.jpg" class="latest-show-art" alt="{{ latest.display_date or latest.iso_date }} tile art">
+        <div class="ltz-bracket h-100">
+          <span class="ltz-bracket-mark ltz-bracket-tl"></span><span class="ltz-bracket-mark ltz-bracket-tr"></span>
+          <span class="ltz-bracket-mark ltz-bracket-bl"></span><span class="ltz-bracket-mark ltz-bracket-br"></span>
+          <img src="/images/{{ latest.iso_date }}.jpg" class="latest-show-art" alt="{{ latest.display_date or latest.iso_date }} tile art">
+        </div>
       </div>
       {% endif %}
       <div class="col-md-8 p-4 d-flex flex-column justify-content-center">
-        <p class="latest-show-eyebrow mb-2"><span class="brand-dot"></span>Latest show</p>
+        <p class="latest-show-eyebrow mb-2"><span class="brand-dot"></span>Latest Transmission</p>
         <h2 class="h3 mb-2">{{ latest.display_date or latest.iso_date }}</h2>
         {% set latest_tracks = all_songs | selectattr("date", "equalto", latest.iso_date) | list %}
         {% if latest_tracks %}
-        <p class="text-muted small mb-3">
-          {{ latest_tracks|length }} track{{ "s" if latest_tracks|length != 1 else "" }} —
+        <p class="ltz-mono small mb-3" style="color:var(--ink-soft);">
+          {{ latest_tracks|length }} track{{ "s" if latest_tracks|length != 1 else "" }} logged —
           featuring {{ latest_tracks[:3] | map(attribute="artist") | join(", ") }}{% if latest_tracks|length > 3 %} and {{ latest_tracks|length - 3 }} more{% endif %}
         </p>
         {% endif %}
         <div>
-          <a href="/{{ latest.iso_date }}.html" class="btn btn-outline-dark btn-sm me-2">Tracklist</a>
+          <a href="/{{ latest.iso_date }}.html" class="ltz-btn me-2">View Manifest</a>
           {% if latest.mixcloud_name %}
-          <a href="https://www.mixcloud.com/less-than-zero/{{ latest.mixcloud_name }}/" class="btn btn-outline-dark btn-sm" target="_blank">Listen on Mixcloud</a>
+          <a href="https://www.mixcloud.com/less-than-zero/{{ latest.mixcloud_name }}/" class="ltz-btn" target="_blank">Play on Mixcloud</a>
           {% endif %}
         </div>
       </div>
@@ -52,22 +70,32 @@
   </div>
 
   <div class="d-flex justify-content-between align-items-baseline mb-3">
-    <h3 class="h5 mb-0 text-muted">Previous shows</h3>
-    <a href="/archive.html" class="small">View full archive &rarr;</a>
+    <div class="d-flex align-items-center gap-2">
+      <svg class="ltz-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="square">
+        <line x1="2" y1="2" x2="2" y2="13"></line>
+        <line x1="2" y1="4" x2="12" y2="4"></line>
+        <line x1="2" y1="8" x2="9" y2="8"></line>
+        <line x1="2" y1="12" x2="11" y2="12"></line>
+      </svg>
+      <span class="ltz-label">Previous Transmissions</span>
+    </div>
+    <a href="/archive.html" class="ltz-mono" style="font-size:.72rem; letter-spacing:.04em; text-transform:uppercase; border-bottom:1px solid var(--ink-faint); color:var(--ink-soft);">Full Archive &rarr;</a>
   </div>
   <div class="row g-3">
     {% for show in shows[1:25] %}
     <div class="col-6 col-md-4 col-lg-2">
       <a href="/{{ show.iso_date }}.html" class="text-decoration-none text-dark tile-link">
-        <img src="/images/{{ show.iso_date }}.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="{{ show.display_date or show.iso_date }} tile art" loading="lazy" decoding="async">
-        <small class="text-muted d-block">{{ show.display_date or show.iso_date }}</small>
+        <div class="ltz-tile-tab" style="background:{{ ['var(--accent)', 'var(--warn)', 'var(--slate)'][loop.index0 % 3] }};"></div>
+        <img src="/images/{{ show.iso_date }}.thumbnail.jpg" class="img-fluid tile-art mb-1" alt="{{ show.display_date or show.iso_date }} tile art" loading="lazy" decoding="async">
+        <span class="ltz-tile-code">NO 00{{ show.iso_date | replace("-", "") }}</span>
+        <small class="ltz-tile-date d-block">{{ show.display_date or show.iso_date }}</small>
       </a>
     </div>
     {% endfor %}
   </div>
 
-  <div class="dmr-section mt-5 p-4 rounded-4">
-    <p class="latest-show-eyebrow mb-2">In collaboration with</p>
+  <div class="dmr-section mt-5 pt-4">
+    <p class="ltz-label mb-2">In Collaboration With</p>
     <h3 class="h5 mb-2"><a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></h3>
     <p class="text-muted small mb-0">Most weeks, The Daily Music Report — a San Francisco music-discovery newsletter — sends over a handful of new picks. Genuinely good ears for what's worth hearing. We play them on the show, spread through the set rather than bunched together, and call them out in the episode description each time.</p>
   </div>

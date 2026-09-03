@@ -1,13 +1,15 @@
 {% extends "base.html" %}
+{% block active_page %}archive{% endblock %}
 {% block title %}Search — Less Than Zero{% endblock %}
 {% block description %}Search every artist and track ever played on Less Than Zero.{% endblock %}
 {% block canonical %}https://lessthanze.ro/archive.html{% endblock %}
 {% block content %}
 
-<h1 class="h4 mb-1">Search the archive</h1>
+<p class="ltz-label mb-2" style="color:var(--accent);">Search Index</p>
+<h1 class="mb-2" style="font-size:2rem; font-weight:800; text-transform:uppercase; letter-spacing:-0.01em;">Every Artist, Every Track</h1>
 <p class="text-muted small mb-3">Every artist and track played on Less Than Zero, across every show.</p>
 <input type="text" id="search_box" onkeyup="search()" placeholder="Search for songs or artists…" class="form-control form-control-lg mb-2">
-<p class="small text-muted">Results: <span id="songs_found">0</span></p>
+<p class="ltz-mono small mb-3" style="color:var(--ink-soft);">RESULTS: <span id="songs_found">0</span></p>
 <div id="song_list"></div>
 
 <script src="/static/search.js"></script>

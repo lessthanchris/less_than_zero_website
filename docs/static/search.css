@@ -1,8 +1,23 @@
 /* Archive search — lessthanze.ro */
 
+#search_box {
+    border: 1px solid var(--ink) !important;
+    border-radius: 2px !important;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.95rem !important;
+    background: var(--paper);
+    color: var(--ink);
+}
+#search_box::placeholder { color: var(--ink-faint); }
 #search_box:focus {
-    border-color: #0f9b8e !important;
-    box-shadow: 0 0 0 0.2rem rgba(15, 155, 142, 0.2) !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 0.15rem rgba(15, 155, 142, 0.18) !important;
+}
+
+#songs_found {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    color: var(--ink);
 }
 
 #song_list {
@@ -11,70 +26,72 @@
     margin: 0;
 }
 
-.archive-artist {
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    padding: 10px 14px;
-    margin-bottom: 8px;
-    background: #fff;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+.archive-artist, .archive-artist-group {
+    border: none;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    padding: 12px 4px;
+    margin-bottom: 0;
+    background: transparent;
+    box-shadow: none;
+    transition: background 0.15s ease;
 }
 
-.archive-artist:hover {
-    background: #f8f9fa;
-    border-color: #ced4da;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+.archive-artist:hover, .archive-artist-group:hover {
+    background: var(--panel);
+    border-color: var(--line);
 }
 
 .archive-count {
     display: inline-block;
-    min-width: 32px;
-    font-weight: 600;
-    color: #0b7a70;
+    min-width: 34px;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    color: var(--ink);
     text-align: right;
-    margin-right: 8px;
+    margin-right: 10px;
 }
 
 .archive-shows {
-    font-size: 0.85rem;
-    color: #6c757d;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
 }
 
 .archive-detail {
-    margin-top: 6px;
-    padding-top: 6px;
-    border-top: 1px solid #e9ecef;
-    font-size: 0.9rem;
-    color: #495057;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-size: 0.88rem;
+    color: var(--ink-soft);
 }
 
 .archive-track {
     display: inline-block;
-    margin-right: 12px;
-    color: #495057;
+    margin-right: 14px;
+    color: var(--ink-soft);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.82rem;
 }
-
-.archive-artist-group {
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    padding: 10px 14px;
-    margin-bottom: 8px;
-    background: #fff;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-}
+.archive-track a { color: var(--ink-soft); }
+.archive-track a:hover { color: var(--accent-dark); }
 
 .archive-artist-group .archive-tracklist {
-    margin-top: 6px;
-    padding-top: 6px;
-    border-top: 1px solid #e9ecef;
-    font-size: 0.9rem;
-    color: #495057;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-size: 0.88rem;
+    color: var(--ink-soft);
 }
 
 #song_list h4 {
-    color: #212529;
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-family: 'Space Mono', monospace;
+    color: var(--ink-soft);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
     margin-bottom: 10px;
 }

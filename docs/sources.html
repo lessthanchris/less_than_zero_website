@@ -24,30 +24,35 @@
   </script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/site.css">
   <link rel="stylesheet" href="/static/search.css">
   <title>Where We Find the Music — Less Than Zero</title>
 </head>
-<body class="bg-white text-dark">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/index.html"><span class="brand-dot"></span>Less Than Zero</a>
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/index.html">
+        <span class="ltz-logo">
+          <span class="ltz-mono" style="font-size:.6rem; font-weight:700;">LTZ</span>
+          <span class="brand-dot" style="position:absolute; top:-3px; right:-3px; margin:0;"></span>
+        </span>
+        <span>Less Than Zero</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="/archive.html">Search</a></li>
-          <li class="nav-item"><a class="nav-link" href="/graph.html">Graph</a></li>
-          <li class="nav-item"><a class="nav-link" href="/stats.html">Stats</a></li>
-          <li class="nav-item"><a class="nav-link" href="/sources.html">Sources</a></li>
-          <li class="nav-item"><a class="nav-link" href="/calendar.html">Releases</a></li>
-          <li class="nav-item"><a class="nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/archive.html">Search</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/graph.html">Graph</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/stats.html">Stats</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link active" href="/sources.html">Sources</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/calendar.html">Releases</a></li>
+          <li class="nav-item"><a class="nav-link ltz-nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
           <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-            <a class="btn btn-discord btn-sm rounded-pill" href="https://discord.gg/ptjQ3bf4CD" target="_blank">Join the Discord</a>
+            <a class="ltz-btn discord" href="https://discord.gg/ptjQ3bf4CD" target="_blank">Join the Discord</a>
           </li>
         </ul>
       </div>
@@ -55,57 +60,73 @@
   </nav>
   <div class="container py-4">
 
-<h1 class="h4 mb-4">Where we find the music</h1>
+<p class="ltz-label mb-2" style="color:var(--accent);">Reference Index</p>
+<h1 class="mb-4" style="font-size:2rem; font-weight:800; text-transform:uppercase; letter-spacing:-0.01em;">Where We Find The Music</h1>
 
-<h2 class="h6 text-muted text-uppercase mb-2" style="letter-spacing:.05em;">Indie &amp; alternative</h2>
-<ul class="list-unstyled mb-4">
-  <li class="mb-2"><a href="https://www.stereogum.com" target="_blank">Stereogum</a></li>
-  <li class="mb-2"><a href="https://www.gorillavsbear.net" target="_blank">Gorilla vs. Bear</a></li>
-  <li class="mb-2"><a href="https://pitchfork.com" target="_blank">Pitchfork</a></li>
-  <li class="mb-2"><a href="https://www.thelineofbestfit.com" target="_blank">The Line of Best Fit</a></li>
-  <li class="mb-2"><a href="https://www.obscuresound.com" target="_blank">Obscure Sound</a></li>
-  <li class="mb-2"><a href="https://www.undertheradarmag.com" target="_blank">Under the Radar</a></li>
-  <li class="mb-2"><a href="https://www.stereofox.com" target="_blank">Stereofox</a></li>
-  <li class="mb-2"><a href="https://varioussmallflames.co.uk" target="_blank">Various Small Flames</a></li>
-  <li class="mb-2"><a href="https://earmilk.com" target="_blank">EARMILK</a></li>
-</ul>
+<div class="mb-4">
+  <div class="d-flex align-items-center gap-2 mb-2">
+    <span class="ltz-mono" style="font-size:.62rem; color:var(--ink-faint);">CAT. 01</span>
+    <span class="ltz-label">Indie &amp; Alternative</span>
+  </div>
+  <div style="border-top:2px solid var(--ink);">
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">01</span><a href="https://www.stereogum.com" target="_blank">Stereogum</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">02</span><a href="https://www.gorillavsbear.net" target="_blank">Gorilla vs. Bear</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">03</span><a href="https://pitchfork.com" target="_blank">Pitchfork</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">04</span><a href="https://www.thelineofbestfit.com" target="_blank">The Line of Best Fit</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">05</span><a href="https://www.obscuresound.com" target="_blank">Obscure Sound</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">06</span><a href="https://www.undertheradarmag.com" target="_blank">Under the Radar</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">07</span><a href="https://www.stereofox.com" target="_blank">Stereofox</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">08</span><a href="https://varioussmallflames.co.uk" target="_blank">Various Small Flames</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">09</span><a href="https://earmilk.com" target="_blank">EARMILK</a></div>
+  </div>
+</div>
 
-<h2 class="h6 text-muted text-uppercase mb-2" style="letter-spacing:.05em;">Electronic, ambient &amp; experimental</h2>
-<ul class="list-unstyled mb-4">
-  <li class="mb-2"><a href="https://acloserlisten.com" target="_blank">A Closer Listen</a></li>
-  <li class="mb-2"><a href="https://inverted-audio.com" target="_blank">Inverted Audio</a></li>
-  <li class="mb-2"><a href="https://headphonecommute.com" target="_blank">Headphone Commute</a></li>
-  <li class="mb-2"><a href="https://www.ambientblog.net" target="_blank">Ambientblog</a></li>
-  <li class="mb-2"><a href="https://igloomag.com" target="_blank">Igloo Magazine</a></li>
-</ul>
+<div class="mb-4">
+  <div class="d-flex align-items-center gap-2 mb-2">
+    <span class="ltz-mono" style="font-size:.62rem; color:var(--ink-faint);">CAT. 02</span>
+    <span class="ltz-label">Electronic, Ambient &amp; Experimental</span>
+  </div>
+  <div style="border-top:2px solid var(--ink);">
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">01</span><a href="https://acloserlisten.com" target="_blank">A Closer Listen</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">02</span><a href="https://inverted-audio.com" target="_blank">Inverted Audio</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">03</span><a href="https://headphonecommute.com" target="_blank">Headphone Commute</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">04</span><a href="https://www.ambientblog.net" target="_blank">Ambientblog</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">05</span><a href="https://igloomag.com" target="_blank">Igloo Magazine</a></div>
+  </div>
+</div>
 
-<h2 class="h6 text-muted text-uppercase mb-2" style="letter-spacing:.05em;">Newsletters &amp; aggregators</h2>
-<ul class="list-unstyled mb-4">
-  <li class="mb-2"><a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></li>
-  <li class="mb-2"><a href="https://jakenewby.substack.com" target="_blank">Concrete Avalanche</a></li>
-  <li class="mb-2"><a href="https://www.albumoftheyear.org" target="_blank">Album of the Year</a></li>
-</ul>
+<div class="mb-4">
+  <div class="d-flex align-items-center gap-2 mb-2">
+    <span class="ltz-mono" style="font-size:.62rem; color:var(--ink-faint);">CAT. 03</span>
+    <span class="ltz-label">Newsletters &amp; Aggregators</span>
+  </div>
+  <div style="border-top:2px solid var(--ink);">
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">01</span><a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">02</span><a href="https://jakenewby.substack.com" target="_blank">Concrete Avalanche</a></div>
+    <div class="d-flex align-items-center gap-3 py-2" style="border-bottom:1px solid var(--line);"><span class="ltz-mono" style="font-size:.7rem; color:var(--ink-faint); width:24px;">03</span><a href="https://www.albumoftheyear.org" target="_blank">Album of the Year</a></div>
+  </div>
+</div>
 
   </div>
-  <footer class="border-top py-4 mt-4">
+  <footer class="ltz-footer py-4 mt-4">
     <div class="container text-center">
       <p class="mb-3">
-        <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-discord btn-sm rounded-pill me-2" target="_blank">Join the Discord</a>
-        <a href="https://www.patreon.com/LessThanZero789" class="btn btn-outline-secondary btn-sm rounded-pill" target="_blank">Support on Patreon</a>
+        <a href="https://discord.gg/ptjQ3bf4CD" class="ltz-btn discord me-2" target="_blank">Join the Discord</a>
+        <a href="https://www.patreon.com/LessThanZero789" class="ltz-btn" style="border-color:var(--paper); color:var(--paper);" target="_blank">Support on Patreon</a>
       </p>
-      <p class="mb-3 small"><a href="https://play.qobuz.com/playlist/69609247" target="_blank">Subscribe to the always-current show on Qobuz &rarr;</a></p>
-      <p class="mb-3 small">In collaboration with <a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></p>
-      <p class="mb-3 small">
+      <p class="mb-3 ltz-footer-links"><a href="https://play.qobuz.com/playlist/69609247" target="_blank">Subscribe to the always-current show on Qobuz &rarr;</a></p>
+      <p class="mb-3 ltz-footer-links">In collaboration with <a href="https://thedailymusicreport.com" target="_blank">The Daily Music Report</a></p>
+      <p class="mb-3 ltz-footer-links">
         <a href="/stats.html">By the numbers</a>
         &middot; <a href="/sources.html">Where we find the music</a>
         &middot; <a href="/feed.xml">RSS feed</a>
         &middot; <a href="#" data-surprise>Surprise me &#127922;</a>
       </p>
-      <p class="mb-1 text-muted small">Less Than Zero broadcasts to a UK audience.</p>
-      <p class="mb-0 text-muted small">Licensed by
-        <a href="https://www.prsformusic.com" class="link-secondary">PRS for Music</a>
+      <p class="mb-1 ltz-footer-compliance">Less Than Zero broadcasts to a UK audience.</p>
+      <p class="mb-0 ltz-footer-compliance">Licensed by
+        <a href="https://www.prsformusic.com">PRS for Music</a>
         (LC-004689) and
-        <a href="https://www.ppluk.com" class="link-secondary">PPL</a>
+        <a href="https://www.ppluk.com">PPL</a>
         (Linear Webcast Licence).
       </p>
     </div>
