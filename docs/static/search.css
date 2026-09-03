@@ -1,0 +1,75 @@
+/* Archive search — lessthanze.ro */
+
+#search_box:focus {
+    border-color: #6ea8fe !important;
+    box-shadow: none;
+}
+
+#song_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.archive-artist {
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    background: #1a1a1a;
+}
+
+.archive-artist:hover {
+    background: #222;
+}
+
+.archive-count {
+    display: inline-block;
+    min-width: 32px;
+    font-weight: 600;
+    color: #6ea8fe;
+    text-align: right;
+    margin-right: 8px;
+}
+
+.archive-shows {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.archive-detail {
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+.archive-track {
+    display: inline-block;
+    margin-right: 12px;
+    color: #ccc;
+}
+
+.archive-artist-group {
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    background: #1a1a1a;
+}
+
+.archive-artist-group .archive-tracklist {
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+#song_list h4 {
+    color: #ccc;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}

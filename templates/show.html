@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ show.display_date or show.iso_date }} — Less Than Zero{% endblock %}
+{% block content %}
+
+{% if show.iso_date %}
+<div class="row align-items-center mb-4">
+  <div class="col-md-2 mb-3 mb-md-0">
+    <img src="images/{{ show.iso_date }}.thumbnail.jpg" class="img-fluid rounded">
+  </div>
+  <div class="col-md-10">
+    <h1 class="h3 mb-2">{{ show.display_date or show.iso_date }}</h1>
+    {% if show.mixcloud_name %}
+    <a href="https://www.mixcloud.com/{{ show.mixcloud_name }}/" class="btn btn-outline-light btn-sm me-2" target="_blank">Listen on Mixcloud</a>
+    {% endif %}
+    {% if show.patreon %}
+    <a href="https://www.patreon.com/posts/{{ show.patreon }}" class="btn btn-outline-light btn-sm me-2" target="_blank">Listen on Patreon</a>
+    {% endif %}
+    {% if show.spotify_id and show.spotify_id not in ("","na","nah","0","blah","999") %}
+    <a href="https://open.spotify.com/playlist/{{ show.spotify_id }}" class="btn btn-outline-light btn-sm" target="_blank">Spotify</a>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+<h2 class="h5 mb-3">Tracklist</h2>
+<div class="list-group list-group-flush">
+{% for track in tracklist %}
+  <div class="list-group-item bg-transparent text-white border-secondary px-0 py-2">
+    <span class="text-muted me-2">{{ loop.index }}.</span>
+    <strong>{{ track.artist }}</strong> — {{ track.track }}
+  </div>
+{% endfor %}
+</div>
+
+{% endblock %}

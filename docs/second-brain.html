@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Less Than Zero — Thursday evenings, 7-9pm. Fresh cuts and deep dives.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/search.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="icon" href="static/favicon.ico" type="image/x-icon">
+  <title>Second Brain — Less Than Zero</title>
+</head>
+<body class="bg-dark text-white">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Less Than Zero</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="archive.html">Search</a></li>
+          <li class="nav-item"><a class="nav-link" href="calendar.html">Releases</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://mixcloud.com/less-than-zero">Mixcloud</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container py-4">
+
+<h1 class="h4 mb-3">Second Brain</h1>
+
+<p class="text-muted">This page documents how the show is produced — the tools, the workflow, and the AI setup. It's here for anyone who wants to build something similar for their own projects.</p>
+
+<hr class="border-secondary my-4">
+
+<h2 class="h5">The short version</h2>
+<p>You keep your notes, plans, and ideas in Obsidian. You connect an AI agent that can read, write, and search those notes. The AI reads a CLAUDE.md file that tells it what you're working on and how you like to work. Result: an assistant that knows your context.</p>
+
+<hr class="border-secondary my-4">
+
+<h2 class="h5">The workflow</h2>
+<p>Each show week follows the same pattern:</p>
+<ol>
+  <li>Chris picks a Qobuz playlist → the AI extracts the tracklist and starts research</li>
+  <li>Chris sequences the tracks and writes the Moment in History segment</li>
+  <li>The AI writes research notes, episode descriptions, and TikTok picks</li>
+  <li>Post-show: the AI captions and renders TikTok clips, then schedules them</li>
+</ol>
+
+<hr class="border-secondary my-4">
+
+<h2 class="h5">Running the show</h2>
+<p>The show goes live on Mixxx (DJ software) through a local Icecast stream, broadcast to Mixcloud. The AI handles the overlay — episode title, track info, artwork — via a local web server.</p>
+
+<hr class="border-secondary my-4">
+
+<h2 class="h5">Why this works</h2>
+<p>The AI handles the research and admin. Chris handles the creative decisions. The result is a one-person show that sounds like it has a team behind it, because the time that used to go into Googling now goes into the music.</p>
+
+  </div>
+  <footer class="border-top border-secondary py-4 mt-4">
+    <div class="container text-center text-muted small">
+      <p class="mb-1">Less Than Zero broadcasts to a UK audience.</p>
+      <p class="mb-0">Licensed by
+        <a href="https://www.prsformusic.com" class="link-secondary">PRS for Music</a>
+        (LC-004689) and
+        <a href="https://www.ppluk.com" class="link-secondary">PPL</a>
+        (Linear Webcast Licence).
+      </p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+</body>
+</html>

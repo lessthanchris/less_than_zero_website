@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Second Brain — Less Than Zero{% endblock %}
+{% block content %}
+
+<h1 class="h4 mb-3">Second Brain</h1>
+
+<p class="text-muted">This page documents how the show is produced — the tools, the workflow, and the AI setup. It's here for anyone who wants to build something similar for their own projects.</p>
+
+<hr class="border-secondary my-4">
+
+<h2 class="h5">The short version</h2>
+<p>You keep your notes, plans, and ideas in Obsidian. You connect an AI agent that can read, write, and search those notes. The AI reads a CLAUDE.md file that tells it what you're working on and how you like to work. Result: an assistant that knows your context.</p>
+
+<hr class="border-secondary my-4">
+
+<h2 class="h5">The workflow</h2>
+<p>Each show week follows the same pattern:</p>
+<ol>
+  <li>Chris picks a Qobuz playlist → the AI extracts the tracklist and starts research</li>
+  <li>Chris sequences the tracks and writes the Moment in History segment</li>
+  <li>The AI writes research notes, episode descriptions, and TikTok picks</li>
+  <li>Post-show: the AI captions and renders TikTok clips, then schedules them</li>
+</ol>
+
+<hr class="border-secondary my-4">
+
+<h2 class="h5">Running the show</h2>
+<p>The show goes live on Mixxx (DJ software) through a local Icecast stream, broadcast to Mixcloud. The AI handles the overlay — episode title, track info, artwork — via a local web server.</p>
+
+<hr class="border-secondary my-4">
+
+<h2 class="h5">Why this works</h2>
+<p>The AI handles the research and admin. Chris handles the creative decisions. The result is a one-person show that sounds like it has a team behind it, because the time that used to go into Googling now goes into the music.</p>
+
+{% endblock %}

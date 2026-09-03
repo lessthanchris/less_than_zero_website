@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Less Than Zero — Thursday 7-9pm{% endblock %}
+{% block content %}
+
+<div class="text-center mb-5">
+  <h1 class="display-4 fw-bold mb-2">Less Than Zero</h1>
+  <p class="lead text-muted">Thursday evenings, 7-9pm BST. Fresh cuts and deep dives.</p>
+  <p class="small">
+    <a href="https://mixcloud.com/less-than-zero" class="link-light" target="_blank">Mixcloud</a>
+    &middot;
+    <a href="https://patreon.com/LessThanZero789" class="link-light" target="_blank">Patreon</a>
+    &middot;
+    <a href="archive.html" class="link-light">Search</a>
+  </p>
+</div>
+
+{% if shows %}
+  {% set latest = shows[0] %}
+  <div class="card bg-dark border-secondary mb-5">
+    <div class="card-body">
+      <div class="row align-items-center">
+        {% if latest.iso_date %}
+        <div class="col-md-3 mb-3 mb-md-0">
+          <img src="images/{{ latest.iso_date }}.jpg" class="img-fluid rounded" alt="Show tile">
+        </div>
+        {% endif %}
+        <div class="col-md-9">
+          <h2 class="card-title h4 mb-1">{{ latest.display_date or latest.iso_date }}</h2>
+          <a href="{{ latest.iso_date }}.html" class="btn btn-outline-light btn-sm mt-2">Tracklist</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="h5 mb-3 text-muted">Previous shows</h3>
+  <div class="row g-4">
+    {% for show in shows[1:13] %}
+    <div class="col-6 col-md-4 col-lg-3">
+      <a href="{{ show.iso_date }}.html" class="text-decoration-none text-white">
+        <img src="images/{{ show.iso_date }}.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
+        <small class="text-muted">{{ show.display_date or show.iso_date }}</small>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% endblock %}
