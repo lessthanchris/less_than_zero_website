@@ -1,8 +1,8 @@
 /* Archive search — lessthanze.ro */
 
 #search_box:focus {
-    border-color: #6ea8fe !important;
-    box-shadow: none;
+    border-color: #0f9b8e !important;
+    box-shadow: 0 0 0 0.2rem rgba(15, 155, 142, 0.2) !important;
 }
 
 #song_list {
@@ -12,64 +12,69 @@
 }
 
 .archive-artist {
-    border: 1px solid #444;
-    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
     padding: 10px 14px;
-    margin-bottom: 6px;
-    background: #1a1a1a;
+    margin-bottom: 8px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .archive-artist:hover {
-    background: #222;
+    background: #f8f9fa;
+    border-color: #ced4da;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .archive-count {
     display: inline-block;
     min-width: 32px;
     font-weight: 600;
-    color: #6ea8fe;
+    color: #0b7a70;
     text-align: right;
     margin-right: 8px;
 }
 
 .archive-shows {
     font-size: 0.85rem;
-    color: #888;
+    color: #6c757d;
 }
 
 .archive-detail {
     margin-top: 6px;
     padding-top: 6px;
-    border-top: 1px solid #333;
+    border-top: 1px solid #e9ecef;
     font-size: 0.9rem;
-    color: #bbb;
+    color: #495057;
 }
 
 .archive-track {
     display: inline-block;
     margin-right: 12px;
-    color: #ccc;
+    color: #495057;
 }
 
 .archive-artist-group {
-    border: 1px solid #444;
-    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
     padding: 10px 14px;
-    margin-bottom: 6px;
-    background: #1a1a1a;
+    margin-bottom: 8px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .archive-artist-group .archive-tracklist {
     margin-top: 6px;
     padding-top: 6px;
-    border-top: 1px solid #333;
+    border-top: 1px solid #e9ecef;
     font-size: 0.9rem;
-    color: #bbb;
+    color: #495057;
 }
 
 #song_list h4 {
-    color: #ccc;
+    color: #212529;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 10px;
 }

@@ -1,0 +1,167 @@
+/* Less Than Zero — brand styles (lessthanze.ro) */
+
+:root {
+    --accent: #0f9b8e;
+    --accent-dark: #0b7a70;
+    --accent-soft: rgba(15, 155, 142, 0.1);
+}
+
+body {
+    font-family: 'Nunito', system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-brand, .card-title {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+}
+
+.display-4 {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Accent color, replacing Bootstrap's default blue */
+.btn-primary {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: var(--accent-dark) !important;
+    border-color: var(--accent-dark) !important;
+}
+.btn-outline-dark:hover {
+    background-color: #212529;
+    border-color: #212529;
+}
+a:not(.btn) {
+    color: var(--accent-dark);
+}
+a:not(.btn):hover {
+    color: var(--accent);
+}
+
+/* "On air" wordmark flourish */
+.brand-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 6px;
+    animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+}
+
+/* Homepage hero */
+.hero {
+    background: radial-gradient(ellipse at top, var(--accent-soft), transparent 70%);
+    border-radius: 16px;
+    padding: 3rem 1rem 2rem;
+}
+
+/* Persistent live-stream player bar */
+body {
+    padding-bottom: 88px;
+}
+#ltz-player {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1030;
+    background: #fff;
+    border-top: 3px solid var(--accent);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);
+}
+#ltz-player .container {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    min-height: 72px;
+}
+#ltz-art, #ltz-art-placeholder {
+    flex: 0 0 auto;
+    width: 52px;
+    height: 52px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+#ltz-art-placeholder {
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#ltz-art[hidden] { display: none; }
+#ltz-play-btn {
+    flex: 0 0 auto;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+    box-shadow: 0 3px 10px rgba(15, 155, 142, 0.35);
+}
+#ltz-play-btn svg { width: 22px; height: 22px; }
+#ltz-play-btn:hover {
+    background: var(--accent-dark);
+    transform: scale(1.05);
+}
+#ltz-player-info {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+#ltz-player-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-dark);
+}
+.live-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #e11d48;
+    margin-right: 5px;
+    animation: pulse 1.4s ease-in-out infinite;
+}
+.live-dot[hidden] { display: none; }
+#ltz-now-playing {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 575.98px) {
+    #ltz-art, #ltz-art-placeholder, #ltz-play-btn { width: 44px; height: 44px; }
+    #ltz-now-playing { font-size: 0.9rem; }
+}
+
+/* Homepage tile-art gallery */
+.tile-art {
+    border-radius: 10px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.tile-link:hover .tile-art {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}

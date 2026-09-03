@@ -3,141 +3,237 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Less Than Zero — Thursday evenings, 7-9pm. Fresh cuts and deep dives.">
+  <meta name="description" content="Less Than Zero — Thursday evenings, 7-9pm. Fresh cuts and deep dives, live on Mixcloud. Join the community on Discord.">
+  <link rel="canonical" href="https://lessthanze.ro/">
+  <meta property="og:site_name" content="Less Than Zero">
+  <meta property="og:title" content="Less Than Zero">
+  <meta property="og:description" content="Less Than Zero — Thursday evenings, 7-9pm. Fresh cuts and deep dives, live on Mixcloud. Join the community on Discord.">
+  <meta property="og:url" content="https://lessthanze.ro/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://lessthanze.ro/images/2026-08-20.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-8z7qHN_LYUZWeG6qKBHbL.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="static/search.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
-  <link rel="icon" href="static/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/static/site.css">
+  <link rel="stylesheet" href="/static/search.css">
   <title>Less Than Zero — Thursday 7-9pm</title>
 </head>
-<body class="bg-dark text-white">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+<body class="bg-white text-dark">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">Less Than Zero</a>
+      <a class="navbar-brand fw-bold" href="/index.html"><span class="brand-dot"></span>Less Than Zero</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="archive.html">Search</a></li>
-          <li class="nav-item"><a class="nav-link" href="calendar.html">Releases</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://mixcloud.com/less-than-zero">Mixcloud</a></li>
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/archive.html">Search</a></li>
+          <li class="nav-item"><a class="nav-link" href="/calendar.html">Releases</a></li>
+          <li class="nav-item"><a class="nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://mixcloud.com/less-than-zero" target="_blank">Mixcloud</a></li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <a class="btn btn-primary btn-sm rounded-pill" href="https://discord.gg/ptjQ3bf4CD" target="_blank">Join the Discord</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
   <div class="container py-4">
 
-<div class="text-center mb-5">
+<div class="hero text-center mb-5">
   <h1 class="display-4 fw-bold mb-2">Less Than Zero</h1>
   <p class="lead text-muted">Thursday evenings, 7-9pm BST. Fresh cuts and deep dives.</p>
-  <p class="small">
-    <a href="https://mixcloud.com/less-than-zero" class="link-light" target="_blank">Mixcloud</a>
-    &middot;
-    <a href="https://patreon.com/LessThanZero789" class="link-light" target="_blank">Patreon</a>
-    &middot;
-    <a href="archive.html" class="link-light">Search</a>
-  </p>
+  <div class="d-flex justify-content-center gap-2 flex-wrap">
+    <button type="button" class="btn btn-primary btn-lg rounded-pill px-4" data-ltz-play data-ltz-play-label="Listen Now">&#9654; Listen Now</button>
+    <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-primary btn-lg rounded-pill px-4" target="_blank">Join the Discord</a>
+  </div>
+  <p class="small mt-3 mb-0"><a href="https://mixcloud.com/less-than-zero" target="_blank">Browse past episodes on Mixcloud &rarr;</a></p>
 </div>
 
-  <div class="card bg-dark border-secondary mb-5">
+  <div class="card border shadow-sm mb-5">
     <div class="card-body">
       <div class="row align-items-center">
         <div class="col-md-3 mb-3 mb-md-0">
-          <img src="images/2023-01-05.jpg" class="img-fluid rounded" alt="Show tile">
+          <img src="/images/2026-08-20.jpg" class="img-fluid rounded" alt="20th August 2026 tile art">
         </div>
         <div class="col-md-9">
-          <h2 class="card-title h4 mb-1">5th January 2023</h2>
-          <a href="2023-01-05.html" class="btn btn-outline-light btn-sm mt-2">Tracklist</a>
+          <p class="text-muted small mb-1">Latest show</p>
+          <h2 class="card-title h4 mb-2">20th August 2026</h2>
+          <a href="/2026-08-20.html" class="btn btn-outline-dark btn-sm me-2">Tracklist</a>
         </div>
       </div>
     </div>
   </div>
 
-  <h3 class="h5 mb-3 text-muted">Previous shows</h3>
-  <div class="row g-4">
-    <div class="col-6 col-md-4 col-lg-3">
-      <a href="2023-01-12.html" class="text-decoration-none text-white">
-        <img src="images/2023-01-12.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
-        <small class="text-muted">1212th January 2023</small>
+  <div class="d-flex justify-content-between align-items-baseline mb-3">
+    <h3 class="h5 mb-0 text-muted">Previous shows</h3>
+    <a href="/archive.html" class="small">View full archive &rarr;</a>
+  </div>
+  <div class="row g-3">
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-07-30.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-07-30.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="30th July 2026 tile art">
+        <small class="text-muted d-block">30th July 2026</small>
       </a>
     </div>
-    <div class="col-6 col-md-4 col-lg-3">
-      <a href="2023-01-19.html" class="text-decoration-none text-white">
-        <img src="images/2023-01-19.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
-        <small class="text-muted">19th January 2023</small>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-07-15.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-07-15.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="15th July 2026 tile art">
+        <small class="text-muted d-block">15th July 2026</small>
       </a>
     </div>
-    <div class="col-6 col-md-4 col-lg-3">
-      <a href="2023-01-26.html" class="text-decoration-none text-white">
-        <img src="images/2023-01-26.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
-        <small class="text-muted">26th January 2023</small>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-07-02.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-07-02.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="2nd July 2026 tile art">
+        <small class="text-muted d-block">2nd July 2026</small>
       </a>
     </div>
-    <div class="col-6 col-md-4 col-lg-3">
-      <a href="2023-02-02.html" class="text-decoration-none text-white">
-        <img src="images/2023-02-02.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
-        <small class="text-muted">2nd February 2023</small>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-06-25.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-06-25.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="25th June 2026 tile art">
+        <small class="text-muted d-block">25th June 2026</small>
       </a>
     </div>
-    <div class="col-6 col-md-4 col-lg-3">
-      <a href="2023-02-09.html" class="text-decoration-none text-white">
-        <img src="images/2023-02-09.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
-        <small class="text-muted">9th February 2023</small>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-06-11.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-06-11.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="1111th June 2026 tile art">
+        <small class="text-muted d-block">1111th June 2026</small>
       </a>
     </div>
-    <div class="col-6 col-md-4 col-lg-3">
-      <a href="2023-02-16.html" class="text-decoration-none text-white">
-        <img src="images/2023-02-16.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
-        <small class="text-muted">16th February 2023</small>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-06-04.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-06-04.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="4th June 2026 tile art">
+        <small class="text-muted d-block">4th June 2026</small>
       </a>
     </div>
-    <div class="col-6 col-md-4 col-lg-3">
-      <a href="2023-02-23.html" class="text-decoration-none text-white">
-        <img src="images/2023-02-23.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
-        <small class="text-muted">23rd February 2023</small>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-05-29.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-05-29.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="29th May 2026 tile art">
+        <small class="text-muted d-block">29th May 2026</small>
       </a>
     </div>
-    <div class="col-6 col-md-4 col-lg-3">
-      <a href="2023-03-02.html" class="text-decoration-none text-white">
-        <img src="images/2023-03-02.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
-        <small class="text-muted">2nd March 2023</small>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-05-21.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-05-21.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="21st May 2026 tile art">
+        <small class="text-muted d-block">21st May 2026</small>
       </a>
     </div>
-    <div class="col-6 col-md-4 col-lg-3">
-      <a href="2023-03-09.html" class="text-decoration-none text-white">
-        <img src="images/2023-03-09.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
-        <small class="text-muted">9th March 2023</small>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-05-07.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-05-07.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="7th May 2026 tile art">
+        <small class="text-muted d-block">7th May 2026</small>
       </a>
     </div>
-    <div class="col-6 col-md-4 col-lg-3">
-      <a href="2023-03-16.html" class="text-decoration-none text-white">
-        <img src="images/2023-03-16.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
-        <small class="text-muted">16th March 2023</small>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-04-30.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-04-30.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="30th April 2026 tile art">
+        <small class="text-muted d-block">30th April 2026</small>
       </a>
     </div>
-    <div class="col-6 col-md-4 col-lg-3">
-      <a href="2023-03-23.html" class="text-decoration-none text-white">
-        <img src="images/2023-03-23.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
-        <small class="text-muted">23rd March 2023</small>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-04-23.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-04-23.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="23rd April 2026 tile art">
+        <small class="text-muted d-block">23rd April 2026</small>
       </a>
     </div>
-    <div class="col-6 col-md-4 col-lg-3">
-      <a href="2023-03-30.html" class="text-decoration-none text-white">
-        <img src="images/2023-03-30.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
-        <small class="text-muted">30th March 2023</small>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-04-02.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-04-02.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="2nd April 2026 tile art">
+        <small class="text-muted d-block">2nd April 2026</small>
+      </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-03-26.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-03-26.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="26th March 2026 tile art">
+        <small class="text-muted d-block">26th March 2026</small>
+      </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-03-19.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-03-19.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="19th March 2026 tile art">
+        <small class="text-muted d-block">19th March 2026</small>
+      </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-03-12.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-03-12.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="1212th March 2026 tile art">
+        <small class="text-muted d-block">1212th March 2026</small>
+      </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-03-06.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-03-06.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="6th March 2026 tile art">
+        <small class="text-muted d-block">6th March 2026</small>
+      </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-02-26.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-02-26.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="26th February 2026 tile art">
+        <small class="text-muted d-block">26th February 2026</small>
+      </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-02-12.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-02-12.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="1212th February 2026 tile art">
+        <small class="text-muted d-block">1212th February 2026</small>
+      </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-02-05.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-02-05.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="5th February 2026 tile art">
+        <small class="text-muted d-block">5th February 2026</small>
+      </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-01-29.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-01-29.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="29th January 2026 tile art">
+        <small class="text-muted d-block">29th January 2026</small>
+      </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-01-22.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-01-22.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="22nd January 2026 tile art">
+        <small class="text-muted d-block">22nd January 2026</small>
+      </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-01-15.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-01-15.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="15th January 2026 tile art">
+        <small class="text-muted d-block">15th January 2026</small>
+      </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2026-01-08.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2026-01-08.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="8th January 2026 tile art">
+        <small class="text-muted d-block">8th January 2026</small>
+      </a>
+    </div>
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/2025-11-06.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/2025-11-06.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="6th November 2025 tile art">
+        <small class="text-muted d-block">6th November 2025</small>
       </a>
     </div>
   </div>
 
   </div>
-  <footer class="border-top border-secondary py-4 mt-4">
-    <div class="container text-center text-muted small">
-      <p class="mb-1">Less Than Zero broadcasts to a UK audience.</p>
-      <p class="mb-0">Licensed by
+  <footer class="border-top py-4 mt-4">
+    <div class="container text-center">
+      <p class="mb-3">
+        <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-primary btn-sm rounded-pill me-2" target="_blank">Join the Discord</a>
+        <a href="https://www.patreon.com/LessThanZero789" class="btn btn-outline-secondary btn-sm rounded-pill" target="_blank">Support on Patreon</a>
+      </p>
+      <p class="mb-1 text-muted small">Less Than Zero broadcasts to a UK audience.</p>
+      <p class="mb-0 text-muted small">Licensed by
         <a href="https://www.prsformusic.com" class="link-secondary">PRS for Music</a>
         (LC-004689) and
         <a href="https://www.ppluk.com" class="link-secondary">PPL</a>
@@ -145,8 +241,21 @@
       </p>
     </div>
   </footer>
+  <div id="ltz-player">
+    <div class="container">
+      <img id="ltz-art" src="" alt="" hidden>
+      <div id="ltz-art-placeholder"><span class="brand-dot"></span></div>
+      <button id="ltz-play-btn" type="button" data-ltz-play aria-label="Play live stream"></button>
+      <div id="ltz-player-info">
+        <div id="ltz-player-label"><span id="ltz-live-dot" class="live-dot" hidden></span><span id="ltz-live-label">24/7 stream</span></div>
+        <div id="ltz-now-playing">Less Than Zero</div>
+      </div>
+    </div>
+    <audio id="ltz-audio" preload="none"></audio>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+  <script src="/static/player.js"></script>
 </body>
 </html>

@@ -1,44 +1,54 @@
 {% extends "base.html" %}
 {% block title %}Less Than Zero — Thursday 7-9pm{% endblock %}
+{% block description %}Less Than Zero — Thursday evenings, 7-9pm. Fresh cuts and deep dives, live on Mixcloud. Join the community on Discord.{% endblock %}
+{% block canonical %}https://lessthanze.ro/{% endblock %}
+{% if shows %}
+{% block og_image %}https://lessthanze.ro/images/{{ shows[0].iso_date }}.jpg{% endblock %}
+{% endif %}
 {% block content %}
 
-<div class="text-center mb-5">
+<div class="hero text-center mb-5">
   <h1 class="display-4 fw-bold mb-2">Less Than Zero</h1>
   <p class="lead text-muted">Thursday evenings, 7-9pm BST. Fresh cuts and deep dives.</p>
-  <p class="small">
-    <a href="https://mixcloud.com/less-than-zero" class="link-light" target="_blank">Mixcloud</a>
-    &middot;
-    <a href="https://patreon.com/LessThanZero789" class="link-light" target="_blank">Patreon</a>
-    &middot;
-    <a href="archive.html" class="link-light">Search</a>
-  </p>
+  <div class="d-flex justify-content-center gap-2 flex-wrap">
+    <button type="button" class="btn btn-primary btn-lg rounded-pill px-4" data-ltz-play data-ltz-play-label="Listen Now">&#9654; Listen Now</button>
+    <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-primary btn-lg rounded-pill px-4" target="_blank">Join the Discord</a>
+  </div>
+  <p class="small mt-3 mb-0"><a href="https://mixcloud.com/less-than-zero" target="_blank">Browse past episodes on Mixcloud &rarr;</a></p>
 </div>
 
 {% if shows %}
   {% set latest = shows[0] %}
-  <div class="card bg-dark border-secondary mb-5">
+  <div class="card border shadow-sm mb-5">
     <div class="card-body">
       <div class="row align-items-center">
         {% if latest.iso_date %}
         <div class="col-md-3 mb-3 mb-md-0">
-          <img src="images/{{ latest.iso_date }}.jpg" class="img-fluid rounded" alt="Show tile">
+          <img src="/images/{{ latest.iso_date }}.jpg" class="img-fluid rounded" alt="{{ latest.display_date or latest.iso_date }} tile art">
         </div>
         {% endif %}
         <div class="col-md-9">
-          <h2 class="card-title h4 mb-1">{{ latest.display_date or latest.iso_date }}</h2>
-          <a href="{{ latest.iso_date }}.html" class="btn btn-outline-light btn-sm mt-2">Tracklist</a>
+          <p class="text-muted small mb-1">Latest show</p>
+          <h2 class="card-title h4 mb-2">{{ latest.display_date or latest.iso_date }}</h2>
+          <a href="/{{ latest.iso_date }}.html" class="btn btn-outline-dark btn-sm me-2">Tracklist</a>
+          {% if latest.mixcloud_name %}
+          <a href="https://www.mixcloud.com/{{ latest.mixcloud_name }}/" class="btn btn-outline-dark btn-sm" target="_blank">Listen on Mixcloud</a>
+          {% endif %}
         </div>
       </div>
     </div>
   </div>
 
-  <h3 class="h5 mb-3 text-muted">Previous shows</h3>
-  <div class="row g-4">
-    {% for show in shows[1:13] %}
-    <div class="col-6 col-md-4 col-lg-3">
-      <a href="{{ show.iso_date }}.html" class="text-decoration-none text-white">
-        <img src="images/{{ show.iso_date }}.thumbnail.jpg" class="img-fluid rounded mb-1" alt="">
-        <small class="text-muted">{{ show.display_date or show.iso_date }}</small>
+  <div class="d-flex justify-content-between align-items-baseline mb-3">
+    <h3 class="h5 mb-0 text-muted">Previous shows</h3>
+    <a href="/archive.html" class="small">View full archive &rarr;</a>
+  </div>
+  <div class="row g-3">
+    {% for show in shows[1:25] %}
+    <div class="col-6 col-md-4 col-lg-2">
+      <a href="/{{ show.iso_date }}.html" class="text-decoration-none text-dark tile-link">
+        <img src="/images/{{ show.iso_date }}.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="{{ show.display_date or show.iso_date }} tile art">
+        <small class="text-muted d-block">{{ show.display_date or show.iso_date }}</small>
       </a>
     </div>
     {% endfor %}

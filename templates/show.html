@@ -1,31 +1,48 @@
 {% extends "base.html" %}
 {% block title %}{{ show.display_date or show.iso_date }} — Less Than Zero{% endblock %}
+{% block description %}Tracklist for the {{ show.display_date or show.iso_date }} episode of Less Than Zero.{% endblock %}
+{% block canonical %}https://lessthanze.ro/{{ show.iso_date }}.html{% endblock %}
+{% block og_type %}music.playlist{% endblock %}
+{% block og_image %}https://lessthanze.ro/images/{{ show.iso_date }}.jpg{% endblock %}
+{% block structured_data %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MusicPlaylist","name":{{ ("Less Than Zero — " ~ (show.display_date or show.iso_date))|tojson }},"url":{{ self.canonical()|tojson }},"numTracks":{{ tracklist|length }},"track":[{% for track in tracklist %}{"@type":"MusicRecording","name":{{ track.track|tojson }},"byArtist":{{ track.artist|tojson }}}{{ "," if not loop.last }}{% endfor %}]}
+</script>
+{% endblock %}
 {% block content %}
 
 {% if show.iso_date %}
 <div class="row align-items-center mb-4">
   <div class="col-md-2 mb-3 mb-md-0">
-    <img src="images/{{ show.iso_date }}.thumbnail.jpg" class="img-fluid rounded">
+    <img src="/images/{{ show.iso_date }}.thumbnail.jpg" class="img-fluid rounded">
   </div>
   <div class="col-md-10">
     <h1 class="h3 mb-2">{{ show.display_date or show.iso_date }}</h1>
     {% if show.mixcloud_name %}
-    <a href="https://www.mixcloud.com/{{ show.mixcloud_name }}/" class="btn btn-outline-light btn-sm me-2" target="_blank">Listen on Mixcloud</a>
+    <a href="https://www.mixcloud.com/{{ show.mixcloud_name }}/" class="btn btn-outline-dark btn-sm me-2" target="_blank">Listen on Mixcloud</a>
     {% endif %}
     {% if show.patreon %}
-    <a href="https://www.patreon.com/posts/{{ show.patreon }}" class="btn btn-outline-light btn-sm me-2" target="_blank">Listen on Patreon</a>
+    <a href="https://www.patreon.com/posts/{{ show.patreon }}" class="btn btn-outline-dark btn-sm me-2" target="_blank">Listen on Patreon</a>
     {% endif %}
     {% if show.spotify_id and show.spotify_id not in ("","na","nah","0","blah","999") %}
-    <a href="https://open.spotify.com/playlist/{{ show.spotify_id }}" class="btn btn-outline-light btn-sm" target="_blank">Spotify</a>
+    <a href="https://open.spotify.com/playlist/{{ show.spotify_id }}" class="btn btn-outline-dark btn-sm me-2" target="_blank">Spotify</a>
+    {% endif %}
+    {% if show.qobuz_id and show.qobuz_id not in ("","na","nah","0","blah","999") %}
+    <a href="https://play.qobuz.com/playlist/{{ show.qobuz_id }}" class="btn btn-outline-dark btn-sm" target="_blank">Qobuz</a>
     {% endif %}
   </div>
 </div>
 {% endif %}
 
+<div class="alert alert-light border d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
+  <span>Heard something you liked? Come talk about it.</span>
+  <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-primary btn-sm rounded-pill" target="_blank">Join the Discord</a>
+</div>
+
 <h2 class="h5 mb-3">Tracklist</h2>
 <div class="list-group list-group-flush">
 {% for track in tracklist %}
-  <div class="list-group-item bg-transparent text-white border-secondary px-0 py-2">
+  <div class="list-group-item bg-transparent px-0 py-2">
     <span class="text-muted me-2">{{ loop.index }}.</span>
     <strong>{{ track.artist }}</strong> — {{ track.track }}
   </div>

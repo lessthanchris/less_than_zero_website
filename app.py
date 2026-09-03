@@ -118,4 +118,20 @@ for show in shows:
     with open(os.path.join(DOCS_DIR, f"{date}.html"), "w", encoding="utf-8") as f:
         f.write(out)
 
+# --- SEO: sitemap.xml + robots.txt ---
+SITE_URL = "https://lessthanze.ro"
+sitemap_paths = ["", "archive.html", "calendar.html", "second-brain.html", "policies/ai_policy.html"]
+sitemap_paths += [f"{show.get('iso_date')}.html" for show in shows if show.get("iso_date")]
+
+sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+for path in sitemap_paths:
+    sitemap.append(f"  <url><loc>{SITE_URL}/{path}</loc></url>")
+sitemap.append("</urlset>")
+with open(os.path.join(DOCS_DIR, "sitemap.xml"), "w", encoding="utf-8") as f:
+    f.write("\n".join(sitemap) + "\n")
+
+with open(os.path.join(DOCS_DIR, "robots.txt"), "w", encoding="utf-8") as f:
+    f.write(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
+
+print(f"Sitemap: {len(sitemap_paths)} URLs")
 print("Done.")
