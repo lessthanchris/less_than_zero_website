@@ -44,7 +44,7 @@
         <div>
           <a href="/{{ latest.iso_date }}.html" class="btn btn-outline-dark btn-sm me-2">Tracklist</a>
           {% if latest.mixcloud_name %}
-          <a href="https://www.mixcloud.com/{{ latest.mixcloud_name }}/" class="btn btn-outline-dark btn-sm" target="_blank">Listen on Mixcloud</a>
+          <a href="https://www.mixcloud.com/less-than-zero/{{ latest.mixcloud_name }}/" class="btn btn-outline-dark btn-sm" target="_blank">Listen on Mixcloud</a>
           {% endif %}
         </div>
       </div>
@@ -59,7 +59,7 @@
     {% for show in shows[1:25] %}
     <div class="col-6 col-md-4 col-lg-2">
       <a href="/{{ show.iso_date }}.html" class="text-decoration-none text-dark tile-link">
-        <img src="/images/{{ show.iso_date }}.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="{{ show.display_date or show.iso_date }} tile art">
+        <img src="/images/{{ show.iso_date }}.thumbnail.jpg" class="img-fluid rounded mb-1 tile-art" alt="{{ show.display_date or show.iso_date }} tile art" loading="lazy" decoding="async">
         <small class="text-muted d-block">{{ show.display_date or show.iso_date }}</small>
       </a>
     </div>

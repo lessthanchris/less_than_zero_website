@@ -84,7 +84,7 @@
                 var e = artistHits[i];
                 var samples = "";
                 for (var s = 0; s < e.samples.length; s++) {
-                    samples += "<span class='archive-track'>" + escape(e.samples[s].date) + " &mdash; " + escape(e.samples[s].track) + "</span><br>";
+                    samples += "<span class='archive-track'><a href='/" + escape(e.samples[s].date) + ".html'>" + escape(e.samples[s].date) + "</a> &mdash; " + escape(e.samples[s].track) + "</span><br>";
                 }
                 html += "<div class='archive-artist'><span class='archive-count'>" + e.count + "</span> <strong>" + escape(e.artist) + "</strong> <span class='archive-shows'>(" + e.shows.length + " show" + (e.shows.length !== 1 ? "s" : "") + ")</span>" + (samples ? "<div class='archive-detail'>" + samples + "</div>" : "") + "</div>";
             }
@@ -112,7 +112,7 @@
                 html += "<div class='archive-artist-group'><strong>" + escape(grp.artist) + "</strong><div class='archive-tracklist'>";
                 for (var ti = 0; ti < grp.tracks.length; ti++) {
                     var tt = grp.tracks[ti];
-                    html += "<span class='archive-track'>" + escape(tt.date) + " &mdash; " + escape(tt.track) + "</span><br>";
+                    html += "<span class='archive-track'><a href='/" + escape(tt.date) + ".html'>" + escape(tt.date) + "</a> &mdash; " + escape(tt.track) + "</span><br>";
                 }
                 html += "</div></div>";
             }

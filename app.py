@@ -24,6 +24,7 @@ TEMPLATES = {
     "archive": "archive.html",
     "graph": "graph.html",
     "stats": "stats.html",
+    "sources": "sources.html",
     "calendar": "calendar.html",
     "article": "article.html",
     "calculator": "calculator.html",
@@ -220,7 +221,7 @@ with open(os.path.join(DOCS_DIR, "feed.xml"), "w", encoding="utf-8") as f:
 print(f"RSS feed: {min(len(feed_items), 50)} items")
 
 # --- SEO: sitemap.xml + robots.txt ---
-sitemap_paths = ["", "archive.html", "graph.html", "stats.html", "calendar.html", "second-brain.html", "policies/ai_policy.html"]
+sitemap_paths = ["", "archive.html", "graph.html", "stats.html", "sources.html", "calendar.html", "second-brain.html", "policies/ai_policy.html"]
 sitemap_paths += [f"{show.get('iso_date')}.html" for show in shows if show.get("iso_date")]
 
 sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
