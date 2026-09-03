@@ -1,4 +1,9 @@
 # app.py's only dependency (Jinja2) is installed globally and isn't listed
 # here. This file is scoped to build_graph.py, a separate, manually-run
 # script — see its docstring.
+#
+# prepare_assets.py needs `rich` and `Pillow` installed globally too (NOT
+# here/venv) — it shells out to `python3 app.py` with its own interpreter
+# (sys.executable), so it must be run as plain `python3 prepare_assets.py`,
+# same as app.py, or that subprocess call loses Jinja2.
 networkx>=3.0

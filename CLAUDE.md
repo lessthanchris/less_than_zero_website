@@ -35,8 +35,40 @@ via GitHub Pages (`docs/` on `main`, custom domain via `docs/CNAME`) — pushing
   Owns the canonical artist-name normalization (`_canon`, `_COLLAB` regex,
   mojibake repair) that `build_graph.py` reuses — reuse it too rather than
   re-implementing name matching/normalization.
+- `prepare_assets.py` — interactive wizard (rich) that turns an
+  `asset_drop/{iso_date}` drop into a live show update in one step; see
+  "Updating the site after a show airs" below. Needs `rich` + `Pillow`
+  installed globally (same as `app.py` needs Jinja2) — run it as plain
+  `python3 prepare_assets.py`, never via `venv/bin/python3` (it shells out to
+  `python3 app.py` with its own interpreter, and `venv/` only has networkx).
+- `asset_drop/` — gitignored scratch folder for raw per-show materials
+  dropped in ahead of `prepare_assets.py`: `{iso_date}.png` (tile art),
+  `{iso_date}.txt` (numbered tracklist, `NN. Artist - Track` per line),
+  `{iso_date}.mkv` (the recording, optional). Can hold multi-GB files —
+  never add these to git directly.
 
 ## Updating the site after a show airs
+
+**Fast path**: drop `asset_drop/{iso_date}.png` (tile art) and
+`asset_drop/{iso_date}.txt` (numbered tracklist) — plus optionally
+`asset_drop/{iso_date}.mkv`, the recording — then run:
+
+```
+python3 prepare_assets.py
+```
+
+It walks you through: picking the date (if ambiguous), previewing the
+parsed tracklist, filling in `mixcloud_name`/`patreon`/`qobuz_id`/`spotify_id`
+(blank is fine — leave for later), optionally extracting an mp3 from the
+`.mkv` for manual Patreon upload, then does everything in steps 1-6 below in
+one go: writes `tracklists/{iso_date}.json`, builds the 800×800/400×400 jpgs,
+inserts the `shows.json` entry, rebuilds the site, and refreshes the artist
+graph. Any field left blank can be filled in later with
+`python3 prepare_assets.py {iso_date} --force`. It never commits or pushes —
+that's still on you (step 7). Non-interactive/scripted use: `-y` plus
+`--mixcloud-name`/`--patreon`/`--qobuz-id`/`--spotify-id`/`--no-graph`/`--no-mp3`.
+
+**What that automates, or do by hand if `asset_drop/` inputs aren't available**:
 
 1. **Add the show to `shows.json`** at the top of the list (newest-first).
    Minimum: `iso_date`, `display_date`. Fill in `mixcloud_name`/`patreon` once
@@ -52,7 +84,8 @@ via GitHub Pages (`docs/` on `main`, custom domain via `docs/CNAME`) — pushing
    edit source files without rebuilding.
 5. **Refresh the evergreen playlists** (optional but nice — keeps the "always
    current show" Qobuz/Spotify playlists linked from the homepage/footer
-   actually current). From `~/crate-digger`:
+   actually current; `prepare_assets.py` doesn't do this one). From
+   `~/crate-digger`:
    ```
    python -m crate_digger evergreen --tracklist /path/to/tracklists/{iso_date}.json
    ```
