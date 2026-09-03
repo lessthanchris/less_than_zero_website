@@ -12,24 +12,36 @@
   <p class="lead text-muted">Thursday evenings, 7-9pm BST. Fresh cuts and deep dives.</p>
   <div class="d-flex justify-content-center gap-2 flex-wrap">
     <button type="button" class="btn btn-primary btn-lg rounded-pill px-4" data-ltz-play data-ltz-play-label="Listen Now">&#9654; Listen Now</button>
-    <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-primary btn-lg rounded-pill px-4" target="_blank">Join the Discord</a>
+    <a href="https://discord.gg/ptjQ3bf4CD" class="btn btn-discord btn-lg rounded-pill px-4" target="_blank">Join the Discord</a>
   </div>
   <p class="small mt-3 mb-0"><a href="https://mixcloud.com/less-than-zero" target="_blank">Browse past episodes on Mixcloud &rarr;</a></p>
 </div>
 
+<p class="text-center text-muted small mb-5">
+  Also on <a href="https://play.qobuz.com/playlist/69609247" target="_blank">Qobuz</a> — one playlist, always the current show
+  (<span title="Their CEO's investment firm has poured hundreds of millions into an AI weapons company, and artists still get paid a fraction of a penny per stream. We don't want either near this show.">no Spotify</span>).
+</p>
+
 {% if shows %}
   {% set latest = shows[0] %}
-  <div class="card border shadow-sm mb-5">
-    <div class="card-body">
-      <div class="row align-items-center">
-        {% if latest.iso_date %}
-        <div class="col-md-3 mb-3 mb-md-0">
-          <img src="/images/{{ latest.iso_date }}.jpg" class="img-fluid rounded" alt="{{ latest.display_date or latest.iso_date }} tile art">
-        </div>
+  <div class="latest-show-card mb-5">
+    <div class="row g-0 align-items-stretch">
+      {% if latest.iso_date %}
+      <div class="col-md-4">
+        <img src="/images/{{ latest.iso_date }}.jpg" class="latest-show-art" alt="{{ latest.display_date or latest.iso_date }} tile art">
+      </div>
+      {% endif %}
+      <div class="col-md-8 p-4 d-flex flex-column justify-content-center">
+        <p class="latest-show-eyebrow mb-2"><span class="brand-dot"></span>Latest show</p>
+        <h2 class="h3 mb-2">{{ latest.display_date or latest.iso_date }}</h2>
+        {% set latest_tracks = all_songs | selectattr("date", "equalto", latest.iso_date) | list %}
+        {% if latest_tracks %}
+        <p class="text-muted small mb-3">
+          {{ latest_tracks|length }} track{{ "s" if latest_tracks|length != 1 else "" }} —
+          featuring {{ latest_tracks[:3] | map(attribute="artist") | join(", ") }}{% if latest_tracks|length > 3 %} and {{ latest_tracks|length - 3 }} more{% endif %}
+        </p>
         {% endif %}
-        <div class="col-md-9">
-          <p class="text-muted small mb-1">Latest show</p>
-          <h2 class="card-title h4 mb-2">{{ latest.display_date or latest.iso_date }}</h2>
+        <div>
           <a href="/{{ latest.iso_date }}.html" class="btn btn-outline-dark btn-sm me-2">Tracklist</a>
           {% if latest.mixcloud_name %}
           <a href="https://www.mixcloud.com/{{ latest.mixcloud_name }}/" class="btn btn-outline-dark btn-sm" target="_blank">Listen on Mixcloud</a>

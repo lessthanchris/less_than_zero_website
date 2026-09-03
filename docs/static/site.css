@@ -35,6 +35,18 @@ h1, h2, h3, h4, h5, h6,
     background-color: #212529;
     border-color: #212529;
 }
+
+/* Discord brand color ("Blurple") for Discord CTAs specifically */
+.btn-discord {
+    background-color: #5865F2;
+    border-color: #5865F2;
+    color: #fff;
+}
+.btn-discord:hover, .btn-discord:focus, .btn-discord:active {
+    background-color: #4752C4 !important;
+    border-color: #4752C4 !important;
+    color: #fff;
+}
 a:not(.btn) {
     color: var(--accent-dark);
 }
@@ -62,6 +74,28 @@ a:not(.btn):hover {
     background: radial-gradient(ellipse at top, var(--accent-soft), transparent 70%);
     border-radius: 16px;
     padding: 3rem 1rem 2rem;
+}
+
+/* Homepage "latest show" feature card */
+.latest-show-card {
+    background: var(--accent-soft);
+    border: 1px solid rgba(15, 155, 142, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.latest-show-art {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    object-fit: cover;
+    display: block;
+}
+.latest-show-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-dark);
 }
 
 /* Persistent live-stream player bar */
