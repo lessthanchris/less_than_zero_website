@@ -39,6 +39,7 @@
         <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="/archive.html">Search</a></li>
+          <li class="nav-item"><a class="nav-link" href="/graph.html">Graph</a></li>
           <li class="nav-item"><a class="nav-link" href="/calendar.html">Releases</a></li>
           <li class="nav-item"><a class="nav-link" href="/policies/ai_policy.html">AI Policy</a></li>
           <li class="nav-item"><a class="nav-link" href="https://mixcloud.com/less-than-zero" target="_blank">Mixcloud</a></li>
@@ -49,9 +50,11 @@
       </div>
     </div>
   </nav>
+  {% block body_wrapper %}
   <div class="container py-4">
     {% block content %}{% endblock %}
   </div>
+  {% endblock %}
   <footer class="border-top py-4 mt-4">
     <div class="container text-center">
       <p class="mb-3">
@@ -84,5 +87,6 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <script src="/static/player.js"></script>
+  {% block scripts %}{% endblock %}
 </body>
 </html>

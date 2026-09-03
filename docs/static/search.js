@@ -91,22 +91,46 @@
         }
         if (trackHits.length) {
             html += "<h4 class='mt-3'>Track matches (" + trackHits.length + ")</h4>";
-            var lastArtist = "";
+            // group by artist regardless of position in trackHits — it's in
+            // original show order, not sorted by artist, so a naive
+            // consecutive-run grouping would split one artist into several
+            // groups whenever another artist's match falls between them
+            var groups = [];
+            var groupByArtist = {};
             for (var j = 0; j < trackHits.length; j++) {
                 var t = trackHits[j];
-                if (t._artist !== lastArtist) {
-                    if (lastArtist) html += "</div></div>";
-                    html += "<div class='archive-artist-group'><strong>" + escape(t.artist) + "</strong><div class='archive-tracklist'>";
-                    lastArtist = t._artist;
+                var g = groupByArtist[t._artist];
+                if (!g) {
+                    g = { artist: t.artist, tracks: [] };
+                    groupByArtist[t._artist] = g;
+                    groups.push(g);
                 }
-                html += "<span class='archive-track'>" + escape(t.date) + " &mdash; " + escape(t.track) + "</span><br>";
+                g.tracks.push(t);
             }
-            if (lastArtist) html += "</div></div>";
+            for (var gi = 0; gi < groups.length; gi++) {
+                var grp = groups[gi];
+                html += "<div class='archive-artist-group'><strong>" + escape(grp.artist) + "</strong><div class='archive-tracklist'>";
+                for (var ti = 0; ti < grp.tracks.length; ti++) {
+                    var tt = grp.tracks[ti];
+                    html += "<span class='archive-track'>" + escape(tt.date) + " &mdash; " + escape(tt.track) + "</span><br>";
+                }
+                html += "</div></div>";
+            }
         }
         if (!html) html = "<p class='text-muted'>No results found.</p>";
         el.innerHTML = html;
     }
 
+    function prefillFromQuery() {
+        var params = new URLSearchParams(window.location.search);
+        var q = params.get("q");
+        if (q) {
+            var box = document.getElementById("search_box");
+            if (box) box.value = q;
+        }
+    }
+
     window.search = search;
+    prefillFromQuery();
     window.addEventListener("load", loadIndex);
 })();

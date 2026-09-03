@@ -1,0 +1,4 @@
+# app.py's only dependency (Jinja2) is installed globally and isn't listed
+# here. This file is scoped to build_graph.py, a separate, manually-run
+# script — see its docstring.
+networkx>=3.0

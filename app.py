@@ -17,6 +17,7 @@ TEMPLATES = {
     "index": "index.html",
     "show": "show.html",
     "archive": "archive.html",
+    "graph": "graph.html",
     "calendar": "calendar.html",
     "article": "article.html",
     "calculator": "calculator.html",
@@ -120,7 +121,7 @@ for show in shows:
 
 # --- SEO: sitemap.xml + robots.txt ---
 SITE_URL = "https://lessthanze.ro"
-sitemap_paths = ["", "archive.html", "calendar.html", "second-brain.html", "policies/ai_policy.html"]
+sitemap_paths = ["", "archive.html", "graph.html", "calendar.html", "second-brain.html", "policies/ai_policy.html"]
 sitemap_paths += [f"{show.get('iso_date')}.html" for show in shows if show.get("iso_date")]
 
 sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

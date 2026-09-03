@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Artist Graph — Less Than Zero{% endblock %}
+{% block description %}Every artist played on Less Than Zero, mapped by how closely they've been played together.{% endblock %}
+{% block canonical %}https://lessthanze.ro/graph.html{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/graph.css">
+{% endblock %}
+{% block body_wrapper %}
+<div id="graph-page">
+  <div id="graph-controls">
+    <input type="text" id="graph_search" placeholder="Find an artist…" autocomplete="off">
+    <div id="graph_search_results"></div>
+  </div>
+  <canvas id="graph-canvas"></canvas>
+  <div id="graph-info" hidden>
+    <button id="graph-info-close" type="button" aria-label="Close">&times;</button>
+    <h2 id="graph-info-name" class="h5 mb-1"></h2>
+    <p id="graph-info-count" class="text-muted small mb-2"></p>
+    <a id="graph-info-search-link" href="#" class="btn btn-outline-dark btn-sm">View in search &rarr;</a>
+  </div>
+  <p id="graph-hint" class="text-muted small">Drag to explore, scroll to zoom. Every artist we've ever played — grouped by what tends to get sequenced together in a show.</p>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="/static/graph.js"></script>
+{% endblock %}
