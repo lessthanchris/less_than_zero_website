@@ -18,6 +18,14 @@
     <p id="graph-info-count" class="text-muted small mb-2"></p>
     <a id="graph-info-search-link" href="#" class="btn btn-outline-dark btn-sm">View in search &rarr;</a>
   </div>
+  <div id="graph-connect">
+    <p class="small fw-bold mb-2">How are they connected?</p>
+    <input type="text" id="connect_from" list="artist-datalist" placeholder="From artist…" autocomplete="off">
+    <input type="text" id="connect_to" list="artist-datalist" placeholder="To artist…" autocomplete="off">
+    <datalist id="artist-datalist"></datalist>
+    <button id="connect_find" type="button" class="btn btn-primary btn-sm w-100 mt-1">Find connection</button>
+    <div id="connect_result" hidden></div>
+  </div>
   <p id="graph-hint" class="text-muted small">Drag to explore, scroll to zoom. Every artist we've ever played — grouped by what tends to get sequenced together in a show.</p>
 </div>
 {% endblock %}

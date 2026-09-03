@@ -5,11 +5,16 @@
 
     var canvas, ctx, page, searchInput, searchResults, infoPanel;
     var width, height, dpr;
-    var nodes = [], edges = [], renderEdges = [], nodeById = {};
+    var nodes = [], edges = [], renderEdges = [], nodeById = {}, nameToId = {}, adjacency = {};
     var numClusters = 1;
     var transform = d3.zoomIdentity;
     var simulation;
     var hoverNode = null;
+    var pathSequence = null, pathNodeIds = null; // artist-connection-finder result
+
+    function escapeHtml(s) {
+        return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
 
     function clusterColor(i) {
         var hue = (i * (360 / Math.max(numClusters, 1))) % 360;
@@ -47,13 +52,15 @@
         // clustering/layout), but only draw the stronger half — the rest
         // are near-invisible anyway (alpha < ~0.06) and it roughly halves
         // the per-frame draw calls
+        var pathActive = !!pathSequence;
+        var fadeMul = pathActive ? 0.15 : 1;
         ctx.lineCap = "round";
         for (i = 0; i < renderEdges.length; i++) {
             var e = renderEdges[i];
             var s = e.source, t = e.target;
             if (typeof s !== "object" || typeof t !== "object") continue;
             var frac = Math.min(1, e.weight / maxWeight);
-            ctx.strokeStyle = "rgba(60, 70, 80, " + (0.04 + frac * 0.35).toFixed(3) + ")";
+            ctx.strokeStyle = "rgba(60, 70, 80, " + ((0.04 + frac * 0.35) * fadeMul).toFixed(3) + ")";
             ctx.lineWidth = 0.5 + frac * 2;
             ctx.beginPath();
             ctx.moveTo(s.x, s.y);
@@ -61,17 +68,34 @@
             ctx.stroke();
         }
 
+        // connection-finder result: a bold highlight overlay, drawn as its
+        // own pass so it shows even if one of its edges got filtered out of
+        // renderEdges above
+        if (pathActive) {
+            ctx.strokeStyle = "#e8590c";
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            for (i = 0; i < pathSequence.length; i++) {
+                var pn = pathSequence[i];
+                if (i === 0) ctx.moveTo(pn.x, pn.y); else ctx.lineTo(pn.x, pn.y);
+            }
+            ctx.stroke();
+        }
+
         for (i = 0; i < nodes.length; i++) {
             var n = nodes[i];
-            var r = radiusFor(n);
+            var onPath = pathActive && pathNodeIds.has(n.id);
+            var r = radiusFor(n) + (onPath ? 2 : 0);
             ctx.beginPath();
             ctx.arc(n.x, n.y, r, 0, 2 * Math.PI);
             ctx.fillStyle = clusterColor(n.cluster);
-            ctx.globalAlpha = (hoverNode && hoverNode !== n) ? 0.35 : 1;
+            var alpha = (hoverNode && hoverNode !== n) ? 0.35 : 1;
+            if (pathActive && !onPath) alpha = 0.12;
+            ctx.globalAlpha = alpha;
             ctx.fill();
-            if (n === hoverNode) {
-                ctx.lineWidth = 2 / transform.k;
-                ctx.strokeStyle = "#212529";
+            if (n === hoverNode || onPath) {
+                ctx.lineWidth = (onPath ? 2.5 : 2) / transform.k;
+                ctx.strokeStyle = onPath ? "#e8590c" : "#212529";
                 ctx.stroke();
             }
             ctx.globalAlpha = 1;
@@ -88,14 +112,21 @@
             for (i = 0; i < nodes.length; i++) {
                 n = nodes[i];
                 r = radiusFor(n);
-                if (n === hoverNode || (r > 9 && transform.k > 0.6)) {
+                onPath = pathActive && pathNodeIds.has(n.id);
+                if (n === hoverNode || onPath || (!pathActive && r > 9 && transform.k > 0.6)) {
                     ctx.fillText(n.name, n.x + r + 3, n.y + 3);
                 }
             }
-        } else if (hoverNode) {
+        } else {
             ctx.font = "11px 'Nunito', system-ui, sans-serif";
             ctx.fillStyle = "#212529";
-            ctx.fillText(hoverNode.name, hoverNode.x + radiusFor(hoverNode) + 3, hoverNode.y + 3);
+            if (hoverNode) ctx.fillText(hoverNode.name, hoverNode.x + radiusFor(hoverNode) + 3, hoverNode.y + 3);
+            if (pathActive) {
+                for (i = 0; i < pathSequence.length; i++) {
+                    n = pathSequence[i];
+                    ctx.fillText(n.name, n.x + radiusFor(n) + 3, n.y + 3);
+                }
+            }
         }
 
         ctx.restore();
@@ -138,7 +169,15 @@
         infoPanel.hidden = false;
     }
 
+    function clearPath() {
+        pathSequence = null;
+        pathNodeIds = null;
+        var resultEl = document.getElementById("connect_result");
+        if (resultEl) resultEl.hidden = true;
+    }
+
     function focusNode(n) {
+        clearPath();
         hoverNode = n;
         showInfo(n);
         var scale = 1.6;
@@ -147,6 +186,102 @@
             .scale(scale)
             .translate(-n.x, -n.y);
         d3.select(canvas).transition().duration(500).call(zoomBehavior.transform, t);
+    }
+
+    function focusPath(seq) {
+        var xs = seq.map(function (n) { return n.x; });
+        var ys = seq.map(function (n) { return n.y; });
+        var minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs);
+        var minY = Math.min.apply(null, ys), maxY = Math.max.apply(null, ys);
+        var cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
+        var spanX = Math.max(maxX - minX, 60), spanY = Math.max(maxY - minY, 60);
+        var scale = Math.max(0.2, Math.min(4, Math.min(width / (spanX * 1.8), height / (spanY * 1.8))));
+        var t = d3.zoomIdentity.translate(width / 2, height / 2).scale(scale).translate(-cx, -cy);
+        d3.select(canvas).transition().duration(600).call(zoomBehavior.transform, t);
+    }
+
+    // Dijkstra with edge cost = 1/weight, so the "shortest" path favors
+    // strong (frequently/closely sequenced, or collab) connections rather
+    // than just any chain of hops
+    function findPath(fromId, toId) {
+        var dist = {}, prev = {}, visited = {};
+        dist[fromId] = 0;
+        var queue = [fromId];
+        while (queue.length) {
+            var ui = 0;
+            for (var i = 1; i < queue.length; i++) {
+                if (dist[queue[i]] < dist[queue[ui]]) ui = i;
+            }
+            var u = queue.splice(ui, 1)[0];
+            if (visited[u]) continue;
+            visited[u] = true;
+            if (u === toId) break;
+            var neighbors = adjacency[u] || [];
+            for (i = 0; i < neighbors.length; i++) {
+                var v = neighbors[i].id;
+                if (visited[v]) continue;
+                var cost = 1 / Math.max(neighbors[i].weight, 0.001);
+                var nd = dist[u] + cost;
+                if (dist[v] === undefined || nd < dist[v]) {
+                    dist[v] = nd;
+                    prev[v] = u;
+                    queue.push(v);
+                }
+            }
+        }
+        if (dist[toId] === undefined) return null;
+        var path = [toId];
+        var cur = toId;
+        while (cur !== fromId) {
+            cur = prev[cur];
+            path.push(cur);
+        }
+        path.reverse();
+        return path;
+    }
+
+    function setupConnectionFinder() {
+        var fromInput = document.getElementById("connect_from");
+        var toInput = document.getElementById("connect_to");
+        var resultEl = document.getElementById("connect_result");
+        var findBtn = document.getElementById("connect_find");
+        if (!fromInput || !findBtn) return;
+
+        findBtn.addEventListener("click", function () {
+            var fromId = nameToId[fromInput.value.trim().toLowerCase()];
+            var toId = nameToId[toInput.value.trim().toLowerCase()];
+            resultEl.hidden = false;
+            if (!fromId || !toId) {
+                resultEl.innerHTML = "<p class='text-muted mb-0'>Pick two artists from the list.</p>";
+                return;
+            }
+            if (fromId === toId) {
+                resultEl.innerHTML = "<p class='text-muted mb-0'>That's the same artist.</p>";
+                return;
+            }
+            var path = findPath(fromId, toId);
+            if (!path) {
+                clearPath();
+                resultEl.hidden = false;
+                resultEl.innerHTML = "<p class='text-muted mb-0'>No connection found (yet).</p>";
+                draw();
+                return;
+            }
+            pathSequence = path.map(function (id) { return nodeById[id]; });
+            pathNodeIds = new Set(path);
+            hoverNode = null;
+            infoPanel.hidden = true;
+            resultEl.innerHTML =
+                "<div class='connect-chain'>" +
+                pathSequence.map(function (n) { return escapeHtml(n.name); }).join(" &rarr; ") +
+                "</div><span class='connect-clear' id='connect_clear'>Clear</span>";
+            document.getElementById("connect_clear").addEventListener("click", function () {
+                clearPath();
+                draw();
+            });
+            focusPath(pathSequence);
+            draw();
+        });
     }
 
     var zoomBehavior;
@@ -267,6 +402,27 @@
             var medianWeight = sortedWeights[Math.floor(sortedWeights.length / 2)] || 0;
             renderEdges = edges.filter(function (e) { return e.weight >= medianWeight; });
 
+            nameToId = {};
+            nodes.forEach(function (n) { nameToId[n.name.toLowerCase()] = n.id; });
+
+            adjacency = {};
+            edges.forEach(function (e) {
+                var a = e.source.id, b = e.target.id;
+                (adjacency[a] = adjacency[a] || []).push({ id: b, weight: e.weight });
+                (adjacency[b] = adjacency[b] || []).push({ id: a, weight: e.weight });
+            });
+
+            var datalist = document.getElementById("artist-datalist");
+            if (datalist) {
+                var frag = document.createDocumentFragment();
+                nodes.forEach(function (n) {
+                    var opt = document.createElement("option");
+                    opt.value = n.name;
+                    frag.appendChild(opt);
+                });
+                datalist.appendChild(frag);
+            }
+
             simulation = d3.forceSimulation(nodes)
                 .force("link", d3.forceLink(edges)
                     .distance(function (d) { return Math.max(20, 90 / Math.sqrt(d.weight)); })
@@ -279,6 +435,7 @@
 
             setupInteraction();
             setupSearch();
+            setupConnectionFinder();
         });
     }
 

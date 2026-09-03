@@ -98,6 +98,32 @@ a:not(.btn):hover {
     color: var(--accent-dark);
 }
 
+.dmr-section {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+}
+
+/* Stats page */
+.stat-card {
+    height: 100%;
+    background: var(--accent-soft);
+    border: 1px solid rgba(15, 155, 142, 0.2);
+    border-radius: 12px;
+    padding: 18px;
+}
+.stat-number {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--accent-dark);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.stat-label {
+    font-size: 0.85rem;
+    color: #495057;
+}
+
 /* Persistent live-stream player bar */
 body {
     padding-bottom: 88px;

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}By the Numbers — Less Than Zero{% endblock %}
+{% block description %}Less Than Zero in numbers: total shows, tracks played, most-played artist, longest streak, and one-time-only plays.{% endblock %}
+{% block canonical %}https://lessthanze.ro/stats.html{% endblock %}
+{% block content %}
+
+<h1 class="h4 mb-1">By the numbers</h1>
+<p class="text-muted small mb-4">
+  Everything below is computed straight from the tracklists — no algorithm deciding what you'd rather hear, no data going anywhere it shouldn't. Our Wrapped, minus the AI weapons investment.
+</p>
+
+<div class="row g-3 mb-4">
+  <div class="col-6 col-md-4">
+    <div class="stat-card">
+      <div class="stat-number">{{ stats.total_shows }}</div>
+      <div class="stat-label">Shows{% if stats.first_show %} since {{ stats.first_show.display_date or stats.first_show.iso_date }}{% endif %}</div>
+    </div>
+  </div>
+  <div class="col-6 col-md-4">
+    <div class="stat-card">
+      <div class="stat-number">{{ stats.total_tracks }}</div>
+      <div class="stat-label">Tracks played</div>
+    </div>
+  </div>
+  <div class="col-6 col-md-4">
+    <div class="stat-card">
+      <div class="stat-number">{{ stats.distinct_artists }}</div>
+      <div class="stat-label">Distinct artists</div>
+    </div>
+  </div>
+  {% if stats.most_played_artist %}
+  <div class="col-6 col-md-4">
+    <div class="stat-card">
+      <div class="stat-number">{{ stats.most_played_count }}&times;</div>
+      <div class="stat-label">Most played — <a href="/archive.html?q={{ stats.most_played_artist | urlencode }}">{{ stats.most_played_artist }}</a></div>
+    </div>
+  </div>
+  {% endif %}
+  {% if stats.streak_artist and stats.streak_len > 1 %}
+  <div class="col-6 col-md-4">
+    <div class="stat-card">
+      <div class="stat-number">{{ stats.streak_len }}</div>
+      <div class="stat-label">Longest streak — <a href="/archive.html?q={{ stats.streak_artist | urlencode }}">{{ stats.streak_artist }}</a>, {{ stats.streak_len }} shows running{% if stats.streak_start and stats.streak_end %} ({{ stats.streak_start }} &ndash; {{ stats.streak_end }}){% endif %}</div>
+    </div>
+  </div>
+  {% endif %}
+  <div class="col-6 col-md-4">
+    <div class="stat-card">
+      <div class="stat-number">{{ stats.one_time_count }}</div>
+      <div class="stat-label">Played just once{% if stats.sample_one_timer %} — including <a href="/archive.html?q={{ stats.sample_one_timer | urlencode }}">{{ stats.sample_one_timer }}</a>{% endif %}</div>
+    </div>
+  </div>
+</div>
+
+<p class="text-muted small">
+  Want to dig further? <a href="/graph.html">The artist graph</a> maps how everything connects, and <a href="/archive.html">search</a> covers every artist and track played.
+</p>
+
+{% endblock %}

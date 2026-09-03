@@ -90,3 +90,46 @@
     margin: 0;
     pointer-events: none;
 }
+
+#graph-connect {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    z-index: 10;
+    width: min(260px, calc(100% - 32px));
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+#graph-connect input {
+    width: 100%;
+    padding: 7px 12px;
+    border: 1px solid #dee2e6;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+}
+#graph-connect input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+#connect_result {
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
+#connect_result .connect-chain {
+    line-height: 1.6;
+}
+#connect_result .connect-clear {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: #6c757d;
+    cursor: pointer;
+}
+
+@media (max-width: 575.98px) {
+    #graph-connect { bottom: auto; top: 16px; right: 16px; width: min(200px, calc(50% - 24px)); }
+    #graph-info { top: auto; bottom: 16px; }
+}
