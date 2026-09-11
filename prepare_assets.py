@@ -38,6 +38,7 @@ and venv/ only has networkx (for build_graph.py), not Jinja2.
 """
 import argparse
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -60,7 +61,7 @@ from rich.table import Table
 
 console = Console()
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(os.environ["LTZ_WEBSITE_ROOT"]) if os.environ.get("LTZ_WEBSITE_ROOT") else Path(__file__).resolve().parent
 ASSET_DROP = ROOT / "asset_drop"
 IMAGES_DIR = ROOT / "docs" / "images"
 TRACKLISTS_DIR = ROOT / "tracklists"

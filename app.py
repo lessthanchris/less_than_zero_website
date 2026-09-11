@@ -30,6 +30,8 @@ TEMPLATES = {
     "calculator": "calculator.html",
     "ai_policy": "policies/ai_policy.html",
     "second_brain": "second-brain.html",
+    "artists_index": "artists_index.html",
+    "artist": "artist.html",
     "404": "404.html",
 }
 
@@ -154,8 +156,8 @@ with open(os.path.join(DOCS_DIR, "static", "shows_list.json"), "w", encoding="ut
 
 # --- Render pages ---
 for name, tmpl in TEMPLATES.items():
-    if name == "show":
-        # Show pages are rendered per-show below
+    if name in ("show", "artists_index", "artist"):
+        # rendered below (per-show / per-artist)
         continue
     template = env.get_template(tmpl)
     ctx = {"shows": shows, "all_songs": all_songs, "releases": {}, "stats": stats}
@@ -196,6 +198,46 @@ for show in shows:
             "description": desc,
         })
 
+# --- Artist pages (Encyclopedia — see ltz-admin's encyclopedia_export) ---
+# Data: encyclopedia/encyclopedia.json (exported from the vault by ltz-admin).
+# Pages carry an AI-transparency banner and a corrections path on every page.
+import markdown as _markdown
+
+ENCYCLOPEDIA_FILE = os.path.join(DOCS_DIR, "..", "encyclopedia", "encyclopedia.json")
+if os.path.exists(ENCYCLOPEDIA_FILE):
+    encyclopedia = json.load(open(ENCYCLOPEDIA_FILE, encoding="utf-8"))
+    print(f"Encyclopedia: {len(encyclopedia)} artist pages")
+else:
+    encyclopedia = []
+    print("No encyclopedia/encyclopedia.json — skipping artist pages")
+
+_md = _markdown.Markdown(extensions=["tables"])
+
+# --- Render artist index + per-artist pages ---
+artists_index_tmpl = env.get_template("artists_index.html")
+artist_tmpl = env.get_template("artist.html")
+out = artists_index_tmpl.render(
+    artists=encyclopedia, count=len(encyclopedia),
+    total_plays=sum(a.get("plays", 0) for a in encyclopedia),
+    built=encyclopedia[0]["updated"] if encyclopedia else "—",
+)
+with open(os.path.join(DOCS_DIR, "artists.html"), "w", encoding="utf-8") as f:
+    f.write(out)
+print("  docs/artists.html")
+
+artists_dir = os.path.join(DOCS_DIR, "artists")
+os.makedirs(artists_dir, exist_ok=True)
+for a in encyclopedia:
+    _md.reset()
+    content_html = _md.convert(a["markdown"])
+    out = artist_tmpl.render(
+        artist=a["artist"], slug=a["slug"], content_html=content_html,
+        updated=a.get("updated", ""),
+    )
+    with open(os.path.join(artists_dir, f"{a['slug']}.html"), "w", encoding="utf-8") as f:
+        f.write(out)
+print(f"  docs/artists/: {len(encyclopedia)} pages")
+
 # --- RSS feed (recent 50 shows; no audio enclosure — see CLAUDE.md on why
 # on-site listen-again is Mixcloud-only, not this feed's job) ---
 feed_items.sort(key=lambda i: i["pub_date"], reverse=True)
@@ -221,7 +263,8 @@ with open(os.path.join(DOCS_DIR, "feed.xml"), "w", encoding="utf-8") as f:
 print(f"RSS feed: {min(len(feed_items), 50)} items")
 
 # --- SEO: sitemap.xml + robots.txt ---
-sitemap_paths = ["", "archive.html", "graph.html", "stats.html", "sources.html", "calendar.html", "second-brain.html", "policies/ai_policy.html"]
+sitemap_paths = ["", "archive.html", "graph.html", "stats.html", "sources.html", "calendar.html", "second-brain.html", "policies/ai_policy.html", "artists.html"]
+sitemap_paths += [f"artists/{a['slug']}.html" for a in encyclopedia]
 sitemap_paths += [f"{show.get('iso_date')}.html" for show in shows if show.get("iso_date")]
 
 sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

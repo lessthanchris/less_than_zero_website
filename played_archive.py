@@ -14,12 +14,14 @@ Usage:
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 import unicodedata
 from pathlib import Path
 
-TRACKLISTS = Path(__file__).resolve().parent / "tracklists"
+_ROOT = Path(os.environ["LTZ_WEBSITE_ROOT"]) if os.environ.get("LTZ_WEBSITE_ROOT") else Path(__file__).resolve().parent
+TRACKLISTS = _ROOT / "tracklists"
 
 
 # ---------------------------------------------------------------------------

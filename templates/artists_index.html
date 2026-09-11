@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block active_page %}artists{% endblock %}
+{% block title %}Artist Pages — Less Than Zero{% endblock %}
+{% block description %}Background on every artist played on Less Than Zero — auto-generated from public sources, maintained with AI assistance, open to corrections.{% endblock %}
+{% block canonical %}https://lessthanze.ro/artists.html{% endblock %}
+{% block content %}
+
+<h1 class="h4 mb-2">Artist Pages</h1>
+
+<div class="alert alert-warning small" role="note">
+  <strong>About these pages.</strong>
+  We generate and maintain this knowledge base to assist with show research.
+  It helps us reduce our AI token usage, and thus the impact that Less Than
+  Zero has on the planet. It is drafted using public sources and maintained
+  with AI assistance — which means it can contain errors. Check the sources
+  listed on each page, and if you're an artist (or a fan) and something here
+  is wrong, <a href="https://discord.gg/ptjQ3bf4CD" target="_blank" rel="noopener">message
+  us on Discord</a> and we'll correct it. Our full
+  <a href="/policies/ai_policy.html">AI policy</a> explains what is and isn't
+  automated.
+</div>
+
+<p class="text-muted small">{{ count }} artists · {{ total_plays }} total plays tracked · last rebuilt {{ built }}</p>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
+  {% for a in artists %}
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body py-2">
+        <a class="fw-bold text-decoration-none" href="/artists/{{ a.slug }}.html">{{ a.artist }}</a>
+        <div class="small text-muted">
+          {% if a.plays %}{{ a.plays }} play{{ 's' if a.plays != 1 }} across {{ a.n_shows }} show{{ 's' if a.n_shows != 1 }}{% else %}played on LTZ{% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

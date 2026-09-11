@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block active_page %}artists{% endblock %}
+{% block title %}{{ artist }} — Less Than Zero{% endblock %}
+{% block description %}{{ artist }} on Less Than Zero: plays, show history and background. Auto-generated with AI assistance from public sources — corrections welcome.{% endblock %}
+{% block canonical %}https://lessthanze.ro/artists/{{ slug }}.html{% endblock %}
+{% block content %}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb small">
+    <li class="breadcrumb-item"><a href="/artists.html">Artist Pages</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ artist }}</li>
+  </ol>
+</nav>
+
+<div class="alert alert-warning small" role="note">
+  <strong>This page is auto-generated.</strong>
+  We generate and maintain this knowledge base to assist with show research.
+  It helps us reduce our AI token usage, and thus the impact that Less Than
+  Zero has on the planet. It is drafted from public sources and maintained
+  with AI assistance, so it may contain errors. <strong>Artists: if anything
+  here is wrong, we want to fix it</strong> —
+  <a href="https://discord.gg/ptjQ3bf4CD" target="_blank" rel="noopener">message
+  us on Discord</a> and we'll correct it. See our
+  <a href="/policies/ai_policy.html">AI policy</a>.
+</div>
+
+<div class="d-flex justify-content-between align-items-baseline flex-wrap">
+  <h1 class="h4">{{ artist }}</h1>
+  <span class="text-muted small">last updated {{ updated }}</span>
+</div>
+
+{{ content_html | safe }}
+
+{% endblock %}
