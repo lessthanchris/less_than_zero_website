@@ -26,7 +26,6 @@ TEMPLATES = {
     "stats": "stats.html",
     "sources": "sources.html",
     "calendar": "calendar.html",
-    "article": "article.html",
     "calculator": "calculator.html",
     "ai_policy": "policies/ai_policy.html",
     "second_brain": "second-brain.html",

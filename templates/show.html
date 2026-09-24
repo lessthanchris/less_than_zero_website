@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{{ show.display_date or show.iso_date }} — Less Than Zero{% endblock %}
-{% block description %}Tracklist for the {{ show.display_date or show.iso_date }} episode of Less Than Zero.{% endblock %}
+{% block description %}Full tracklist for the {{ show.display_date or show.iso_date }} episode of Less Than Zero — live radio from Shetland. Featuring {% if tracklist %}{{ tracklist[0].artist }}{% if tracklist|length > 1 %} and {{ tracklist[1].artist }}{% endif %}{% else %}great music{% endif %}, and more.{% endblock %}
 {% block canonical %}https://lessthanze.ro/{{ show.iso_date }}.html{% endblock %}
 {% block og_type %}music.playlist{% endblock %}
 {% block og_image %}https://lessthanze.ro/images/{{ show.iso_date }}.jpg{% endblock %}
@@ -16,7 +16,7 @@
   <div class="ltz-bracket flex-shrink-0" style="width:150px; height:150px;">
     <span class="ltz-bracket-mark ltz-bracket-tl"></span><span class="ltz-bracket-mark ltz-bracket-tr"></span>
     <span class="ltz-bracket-mark ltz-bracket-bl"></span><span class="ltz-bracket-mark ltz-bracket-br"></span>
-    <img src="/images/{{ show.iso_date }}.thumbnail.jpg" class="w-100 h-100" style="object-fit:cover;">
+    <img src="/images/{{ show.iso_date }}.thumbnail.jpg" class="w-100 h-100" style="object-fit:cover;" alt="Show art for the {{ show.display_date or show.iso_date }} episode of Less Than Zero">
   </div>
   <div class="flex-grow-1">
     <p class="ltz-label mb-2" style="color:var(--accent);">Episode Manifest</p>
