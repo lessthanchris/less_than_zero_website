@@ -43,6 +43,34 @@ def load_json(fp):
     except Exception:
         return []
 
+RELEASES_MD = os.environ.get(
+    "LTZ_RELEASES_MD", "/home/chris/SecondBrain/LessThanZero/Releases Calendar.md"
+)
+
+def load_releases():
+    """Parse the curated vault Releases Calendar table (upcoming albums
+    previewed on the show). Table: | Artist | Album | Release date | First heard | Show |"""
+    try:
+        text = open(RELEASES_MD, encoding="utf-8").read()
+    except OSError:
+        return []
+    out = []
+    for line in text.splitlines():
+        if not line.startswith("|"):
+            continue
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        if len(cells) != 5 or cells[0] in ("Artist", "---", ""):
+            continue
+        artist, album, date_str, heard, show = cells
+        m = re.match(r"^(\d{4}-\d{2}-\d{2})", date_str)
+        sort_date = m.group(1) if m else date_str[:7] if re.match(r"^\d{4}-\d{2}", date_str) else "9999"
+        out.append({
+            "artist": artist, "album": album, "date_str": date_str,
+            "sort_date": sort_date, "heard": heard, "show": show,
+        })
+    out.sort(key=lambda r: r["sort_date"])
+    return out
+
 shows = load_json(SHOWS_FILE)
 
 env = Environment(loader=FileSystemLoader(TEMPLATE_DIR), trim_blocks=True, lstrip_blocks=True)
@@ -160,7 +188,7 @@ for name, tmpl in TEMPLATES.items():
         # rendered below (per-show / per-artist)
         continue
     template = env.get_template(tmpl)
-    ctx = {"shows": shows, "all_songs": all_songs, "releases": {}, "stats": stats}
+    ctx = {"shows": shows, "all_songs": all_songs, "releases": load_releases(), "stats": stats}
     out = template.render(**ctx)
     out_path = os.path.join(DOCS_DIR, tmpl)
     if name == "404":

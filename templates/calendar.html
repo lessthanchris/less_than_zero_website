@@ -1,10 +1,41 @@
 {% extends "base.html" %}
 {% block active_page %}calendar{% endblock %}
-{% block title %}Calendar — Less Than Zero{% endblock %}
+{% block title %}Release Calendar — Less Than Zero{% endblock %}
+{% block description %}Upcoming albums first heard on Less Than Zero — tracks we've played ahead of the record landing.{% endblock %}
 {% block canonical %}https://lessthanze.ro/calendar.html{% endblock %}
 {% block content %}
 
-<h1 class="h4 mb-3">Release Calendar</h1>
-<p class="text-muted">Coming soon.</p>
+<p class="ltz-label mb-2" style="color:var(--accent);">Forward Telemetry</p>
+<h1 class="mb-2" style="font-size:2rem; font-weight:800; text-transform:uppercase; letter-spacing:-0.01em;">Release Calendar</h1>
+<p class="text-muted mb-4" style="max-width:60ch;">Records we've already played a track from on the show, with their release dates still ahead. When the date passes, the full album becomes one we can dig into.</p>
+
+{% if releases %}
+{% set ns = namespace(month='') %}
+{% for r in releases %}
+  {% set month = r.date_str[:7] if r.date_str | length > 7 else r.date_str %}
+  {% if month != ns.month %}
+    {% set ns.month = month %}
+    <div class="d-flex align-items-center gap-2 mb-2 mt-4">
+      <span class="ltz-mono" style="font-size:.62rem; color:var(--ink-faint);">T-</span>
+      <span class="ltz-label">{{ month }}</span>
+      <span style="flex:1; border-top:2px solid var(--ink);"></span>
+    </div>
+  {% endif %}
+  <div class="d-flex flex-column flex-md-row align-items-md-baseline gap-2 gap-md-3 py-3" style="border-bottom:1px solid var(--line);">
+    <span class="ltz-mono" style="font-size:.72rem; color:var(--accent-dark); min-width:130px; white-space:nowrap;">{{ r.date_str }}</span>
+    <div style="flex:1;">
+      <div class="fw-bold">{{ r.artist }}</div>
+      <div style="color:var(--ink-soft);">{{ r.album }}</div>
+      <div class="ltz-mono" style="font-size:.68rem; color:var(--ink-faint);">
+        FIRST HEARD: <a href="/{{ r.show }}.html">{{ r.heard }}</a> — {{ r.show }}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% else %}
+<p class="text-muted">No upcoming releases on the calendar right now. When we play a track from a record that hasn't landed yet, it appears here.</p>
+{% endif %}
+
+<p class="ltz-mono mt-5 mb-0" style="font-size:.68rem; color:var(--ink-faint);">MAINTAINED FROM SHOW PREP — ALBUMS WE'VE PREVIEWED ON AIR, AWAITING RELEASE.</p>
 
 {% endblock %}
