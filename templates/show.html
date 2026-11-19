@@ -22,11 +22,11 @@
     <p class="ltz-label mb-2" style="color:var(--accent);">Episode Manifest</p>
     <h1 class="mb-3" style="font-size:2.6rem; font-weight:800; text-transform:uppercase; letter-spacing:-0.01em; line-height:0.95;">{{ show.display_date or show.iso_date }}</h1>
     <div class="d-flex flex-wrap gap-2 mb-3">
-      {% if show.mixcloud_name %}
-      <a href="https://www.mixcloud.com/less-than-zero/{{ show.mixcloud_name }}/" class="ltz-btn" target="_blank">Listen on Mixcloud</a>
-      {% endif %}
       {% if show.patreon %}
-      <a href="https://www.patreon.com/posts/{{ show.patreon }}" class="ltz-btn" target="_blank">Listen on Patreon</a>
+      <a href="https://stream.lessthanze.ro/go/p-{{ show.patreon }}" class="ltz-btn" target="_blank" rel="noopener">Listen free &mdash; no account</a>
+      {% endif %}
+      {% if show.mixcloud_name %}
+      <a href="https://stream.lessthanze.ro/go/mixcloud" class="ltz-btn" target="_blank" rel="noopener">Mixcloud archive</a>
       {% endif %}
       {% if show.spotify_id and show.spotify_id not in ("","na","nah","0","blah","999") %}
       <a href="https://open.spotify.com/playlist/{{ show.spotify_id }}" class="ltz-btn" target="_blank">Spotify</a>

@@ -60,9 +60,12 @@
         </p>
         {% endif %}
         <div>
+          {% if latest.patreon %}
+          <a href="https://stream.lessthanze.ro/go/p-{{ latest.patreon }}" class="ltz-btn me-2" target="_blank" rel="noopener">Listen free &mdash; no account</a>
+          {% endif %}
           <a href="/{{ latest.iso_date }}.html" class="ltz-btn me-2">View Manifest</a>
           {% if latest.mixcloud_name %}
-          <a href="https://www.mixcloud.com/less-than-zero/{{ latest.mixcloud_name }}/" class="ltz-btn" target="_blank">Play on Mixcloud</a>
+          <a href="https://stream.lessthanze.ro/go/mixcloud" class="ltz-btn" target="_blank" rel="noopener">Mixcloud archive</a>
           {% endif %}
         </div>
       </div>
